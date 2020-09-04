@@ -8,9 +8,9 @@ img {
 /* Slideshow container */
 .slideshow-container {
   width: 100%;
-  margin: auto;
   position: relative;
-
+  overflow: hidden;
+  padding-top: 5%;
 }
 
   /* Next & previous buttons */
