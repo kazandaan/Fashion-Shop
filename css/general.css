@@ -5,6 +5,9 @@ body {
 
 }
 
+section {
+  display: block;
+}
 /* .container-fluid {
   padding: 0 0% 0 0%;
   margin: auto;
@@ -51,7 +54,7 @@ body {
   justify-content: space-between;
   padding: 0 3% 0 3%;
   width:100%;
-  z-index: 22;
+  z-index: 5;
   -webkit-box-shadow: 0px 0px 9px 3px rgba(41, 41, 41, .25);
   -moz-box-shadow: 0px 0px 9px 3px rgba(41, 41, 41, .25);
   box-shadow: 0px 0px 9px 3px rgba(41, 41, 41, .25);
@@ -75,14 +78,13 @@ ul li a {
   font-weight: 700;
   text-decoration: none;
   letter-spacing: 0.2rem;
-  color: #2f2f2f;
+  color: black;
   display:block;
+  font-size: 14  px;
 }
 
 ul li a:hover {
-  color: #ffffff !important;
-  background: #f6b93b;
-  border-color: #f6b93b !important;
+  color: #ee4266;
   transition: all 0.4s ease 0s;
 }
 

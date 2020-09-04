@@ -3,14 +3,14 @@
 .mySlides {display: none}
 img {
   vertical-align: middle;
-
 }
 
 /* Slideshow container */
 .slideshow-container {
   width: 100%;
   margin: auto;
-  position: absolute;
+  position: relative;
+
 }
 
   /* Next & previous buttons */
