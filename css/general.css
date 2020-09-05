@@ -9,14 +9,30 @@ section {
   display: block;
 }
 
+.col{
+  width:50%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
+  min-height: 600px;
+  height: calc(100vh - 174px);
 }
-/* .container-fluid {
-  padding: 0 0% 0 0%;
-  margin: auto;
-} */
+
+.container-fluid {
+  padding: 1% 15% 7%;
+  margin-left:auto;
+  margin-right:auto;
+
+}
+
+.img-fluid {
+  max-width:100%;
+  height: auto;
+}
 /* END OF GENERAL */
 /* -------------------------------------------------------------------------------------------------------------------------- */
 /* PROMO BAR */

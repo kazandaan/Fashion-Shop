@@ -3,6 +3,7 @@
 .mySlides {display: none}
 img {
   vertical-align: middle;
+
 }
 
 /* Slideshow container */
@@ -11,6 +12,9 @@ img {
   position: relative;
   overflow: hidden;
   padding-top: 5%;
+  background-color: rgb(249, 249, 249);
+  background-repeat: no-repeat;
+
 }
 
   /* Next & previous buttons */
