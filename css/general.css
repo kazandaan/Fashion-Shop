@@ -161,8 +161,9 @@ input::-webkit-input-placeholder {
   color: #999;
 }
 
-.icon-group span {
+.icon-group span a{
   color: #2f2f2f;
+    text-decoration: none;
   font-size: 30px;
   padding: 0 8px 0 8px;
   transition: transform .2s; /*animation*/
@@ -170,6 +171,7 @@ input::-webkit-input-placeholder {
 
 .icon-group span:hover {
   transform: scale(1.5);
+    
 }
 /* END OF TITLE */
 /* -------------------------------------------------------------------------------------------------------------------------- */

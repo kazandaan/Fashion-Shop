@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <title>RANDA - First trial</title>
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/carousel.css">
+        <link rel="stylesheet" href="css/utility.css">
+        <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        
+        <style>
+            .class{
+                display: flex;
+            }
+            #account{
+                background-color: darkgrey;
+                margin: 100px;
+            }
+            
+            #account h1{
+                font-size: 60px;
+            }
+            
+            #account #userimage{
+                background-color: antiquewhite;
+                text-align: center;
+                float: left;
+                border-radius: 75px;
+                margin: 0px 30px;
+                height: 150px;
+                width: 150px;
+            }
+            #account #userimage div{
+                margin-top: 160px;
+            }
+            
+            #account #userdetails{
+                background-color: whitesmoke;
+                font-size: 20px;
+                line-height: 1.6;
+                float: right;
+                height: 300px;
+                width: 950px;
+            }
+            #account #userdetails label{
+                font-weight: bold;
+                display: inline-block;
+                width: 100px;
+            }
+            
+            #account #buttons{
+                background-color: lightgray;
+                margin: 400px auto;
+                height: 150px;
+                width: 90%;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <section id="title">
+            <nav class="navbar">
+                <div>
+                    <img src="image/logo.png" alt="" class="logo" onclick="">
+                </div>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">WOMEN'S</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">MEN'S</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">KIDS'</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">SHOP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">CONTACT</a>
+                    </li>
+                </ul>
+
+                <form class="search-box">
+                    <input id="search-box" type="search" placeholder="Search">
+                </form>
+
+                <div class="icon-group">
+                    <span class="material-icons"><a href="account.html" title="My Account">face</a></span>
+                    <span class="material-icons"><a href="favourites.html" title="My Favourites">favorite_border</a></span>
+                    <span class="material-icons"><a href="cart.html" title="My Cart">shopping_cart</a></span>
+                </div>
+            </nav>
+        </section>
+        
+        <div class="container-fluid"></div>
+        
+        <div id="account">
+            <h1>Welcome User</h1>
+            <div class="flex">
+                <div id="userimage">
+                    <div class="icon-group"><span class="material-icons"><a href="#" title="change photo">edit</a></span></div>
+                </div>
+                
+                <div id="userdetails">
+                    <label>Name:</label> Tom Cat<br>
+                    <label>Email:</label> tomcat@gmail.com<br>
+                    <label>Phone Number:</label> +65 1234 1234<br>
+                    <label>Username:</label> Username<br>
+                    <label>Account:</label> accoutn123<br>
+                </div>
+            </div>
+            
+            <div id="buttons">edit details, change password</div>
+        </div>
+
+        <script type="text/javascript" src="js/carousel.js"></script>
+
+    </body>
+</html>
