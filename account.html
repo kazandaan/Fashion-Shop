@@ -18,7 +18,6 @@
   .flex{
     display: flex;
   }
-
   footer{
     height: 200px;
     bottom: 200px;
@@ -32,11 +31,9 @@
     font-size: 20px;
     line-height: 1.6;
   }
-
   #account h1{
     font-size: 60px;
   }
-
   #account #leftside{
     width: 25%;
   }
@@ -44,8 +41,9 @@
     width: 75%;
   }
 
+/* Left-side */
   #account #userimage{
-    background-color: antiquewhite;
+    background-image: url('image/logo.png');
     text-align: center;
     margin: auto;
     border-radius: 100px;
@@ -56,38 +54,14 @@
     padding-top: 160px;
   }
 
-  #account #userdetails{
-    /* background-color: whitesmoke; */
-    height: auto;
-    border: solid black 2px;
-    border-radius: 5px;
-    padding: 0px 0px 25px 25px;
-  }
-  #account #userdetails label{
-    font-weight: bold;
-    display: inline-block;
-    width: 110px;
-  }
-
-  #account #userdetails #editDetailsBtn{
-    float: right;
-    margin: 20px 15px 0px 0px;
-  }
-
-  #account #userdetails input[type="text"]{
-    background-color: white;
-    font-family: 'Italiana', serif;
-    font-size: 20px;
-    border: 0px solid #FFFFFF;
-  }
-
+/* Right-side */
+  /* top */
   #account #editMode{
     background-color: darkgrey;
     padding: 20px;
     margin-bottom: 10px;
     display: none;
   }
-
   #account #editMode #buttons{
     float: right;
   }
@@ -102,8 +76,31 @@
     color: white;
     border: 1px solid white;
   }
-  </style>
+  /* bottom */
+  #account #userdetails{
+    /* background-color: whitesmoke; */
+    height: auto;
+    border: solid black 2px;
+    border-radius: 5px;
+    padding: 0px 0px 25px 25px;
+  }
+  #account #userdetails #editDetailsBtn{
+    float: right;
+    margin: 20px 15px 0px 0px;
+  }
 
+  #account #userdetails label{
+    font-weight: bold;
+    display: inline-block;
+    width: 110px;
+  }
+  #account #userdetails input[type="text"]{
+    background-color: white;
+    font-family: 'Italiana', serif;
+    font-size: 20px;
+    border: 0px solid #FFFFFF;
+  }
+  </style>
 </head>
 
 <body>
@@ -161,6 +158,7 @@
 
       <div id="rightSide">
         <form name="accountForm" >
+
           <div id="editMode" class="flex">
             <b>* EDITING MODE *</b>
             <div id="buttons" class="flex">
@@ -168,6 +166,7 @@
               <input type="button" onclick="cancelEdit()" value="Cancel"/>
             </div>
           </div>
+
           <div id="userdetails">
             <div class="icon-group" id="editDetailsBtn"><span class="material-icons"><a href="#" onclick="editDetails()" title="edit details">edit</a></span></div>
             <div id="accountInfo">
@@ -177,21 +176,23 @@
             </div>
             <div id="perosnalInfo">
               <u><h3>Personal Information</h3></u>
-              <label>Name:</label> Tom Cat<br>
-              <label>Email:</label> tomcat@gmail.com<br>
-              <label>Phone:</label> +65 1234 1234<br>
-              <label>Birthday:</label> 01/01/01<br>
-              <label>Address:</label> NTU<br>
+              <label>Name:</label><input type="text" name="name" id="name" value="Tom Cat" disabled></input><br>
+              <label>Email:</label><input type="text" name="email" id="email" value="tomcat@gmail.com" disabled></input> <br>
+              <label>Phone:</label><input type="text" name="phone" id="phone" value="+65 1234 1234" disabled></input> <br>
+              <label>Birthday:</label><input type="text" name="birthday" id="birthday" value="01/01/01" disabled></input> <br>
+              <label>Address:</label><input type="text" name="address" id="address" value="NTU" disabled></input> <br>
             </div>
             <div id="paymentInfo">
               <u><h3>Payment Information</h3></u>
-              <label>Card No:</label> Username<br>
+              <label>Card No:</label><input type="text" name="cardno" id="cardno" value="123456" disabled></input><br>
               <label>CCV:</label> ***<br>
               <label>Type:</label> Visas<br>
             </div>
           </div>
+
         </form>
-      </div>
+      </div> <!--rightSide div-->
+
     </div>
   </div>
 
@@ -201,21 +202,43 @@
   </footer>
 
   <script>
+
+    function getVariables(){
+      var username = document.forms["accountForm"]["username"];
+      var name = document.forms["accountForm"]["name"];
+      var email = document.forms["accountForm"]["email"];
+      var phone = document.forms["accountForm"]["phone"];
+      var birthday = document.forms["accountForm"]["birthday"];
+      var address = document.forms["accountForm"]["address"];
+      var cardno = document.forms["accountForm"]["cardno"];
+
+      var array = [username, name, email, phone, birthday, address, cardno];
+      return array;
+    }
     function editDetails(){
       var editmode = document.getElementById('editMode');
       editmode.style.display = "block";
-      var username = document.forms["accountForm"]["username"];
-      username.style.border = "2px solid black";
-      username.removeAttribute("disabled");
+
+      var array = getVariables();
+      // Show Inputbox
+      array.forEach((item, i) => {
+        item.style.border = "2px solid black";
+        item.removeAttribute("disabled");
+      });
     }
 
     function cancelEdit(){
       var editmode = document.getElementById('editMode');
       editmode.style.display = "none";
-      var username = document.forms["accountForm"]["username"];
-      username.style.border = "0px solid white";
-      username.setAttribute("disabled", true);
+
+      var array = getVariables();
+      // Hide Inputbox
+      array.forEach((item, i) => {
+        item.style.border = "0px solid white";
+        item.setAttribute("disabled", true);
+      });
     }
+
   </script>
 
 </body>
