@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>RANDA</title>
   <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/utility.css">
   <link rel="stylesheet" href="css/carousel.css">
   <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -16,90 +17,164 @@
 </head>
 
 <body>
-  <div class="promo">
-    <p><b>30% OFF YOUR FIRST PURCHASE FROM US</b> | LIMITED TIME ONLY <span>CODE: NEWCUSTOMER30<span></p>
-  </div>
+  <section id="title">
+    <nav class="navbar">
+      <div>
+        <img src="image/logo.png" alt="" class="logo" onclick="">
+      </div>
 
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">WOMEN'S</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">MEN'S</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">KIDS'</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">SHOP</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">CONTACT</a>
+        </li>
+      </ul>
 
-        <section id="title">
-            <nav class="navbar">
-                <div>
-                    <a href="index.html"><img src="image/logo.png" alt="" class="logo"></a>
-                </div>
+      <form class="search-box">
+        <input id="search-box" type="search" placeholder="Search">
+      </form>
 
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">WOMEN'S</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">MEN'S</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">KIDS'</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">SHOP</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">CONTACT</a>
-                    </li>
-                </ul>
+      <div class="icon-group">
+        <span class="material-icons"><a href="account.html" title="My Account">face</a></span>
+        <span class="material-icons"><a href="favourites.html" title="My Favourites">favorite_border</a></span>
+        <span class="material-icons"><a href="cart.html" title="My Cart">shopping_cart</a></span>
+      </div>
+    </nav>
 
-                <form class="search-box">
-                    <input id="search-box" type="search" placeholder="Search">
-                </form>
-
-                <div class="icon-group">
-                    <span class="material-icons"><a href="account.html" title="My Account">face</a></span>
-                    <span class="material-icons"><a href="favourites.html" title="My Favourites">favorite_border</a></span>
-                    <span class="material-icons"><a href="cart.html" title="My Cart">shopping_cart</a></span>
-                </div>
-            </nav>
-
-            <div class="slideshow-container ">
-                <div class="container-fluid">
-                    <div class="mySlides fade">
-                        <div class="row">
-                            <div class="col">
-                                <img src="image/model.png" class="img-fluid">
-                            </div>
-                            <div class="col">
-                                <h2>SUMMER NEW ARRIVAL</h2>
-                                <h3>BUY NOW</h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-                    <div style="text-align:center">
-                        <span class="dot" onclick="currentSlide(1)"></span>
-                        <span class="dot" onclick="currentSlide(2)"></span>
-                        <span class="dot" onclick="currentSlide(3)"></span>
-                    </div>
-                </div>
+    <div class="slideshow-container ">
+      <div class="container-fluid">
+        <div class="mySlides fade">
+          <div class="row">
+            <div class="col">
+              <img src="image/model.png" class="img-fluid">
             </div>
+            <div class="col">
+              <h2>SUMMER NEW ARRIVAL</h2>
+              <h3>BUY NOW</h3>
+            </div>
+          </div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
 
-        </section>
+      </div>
+    </div>
 
 
-        <section id="new-arrival" class="text-mid">
-            <h2 class="heading">New Arrival</h2>
-            <div class="container-fluid"></div>
-
-        </section>
-
-        <hr>
-        <footer>footer</footer>
-      </section>
+  </section>
 
 
-        <script type="text/javascript" src="js/carousel.js"></script>
+  <section id="categories">
 
-    </body>
+    <div class="container-fluid">
+      <div class="title-section">
+        <h2 class="">Categories</h2>
+      </div>
+
+      <div class="flex text-mid">
+        <div class="frame zoom">
+          <img src="https://via.placeholder.com/300x200.png?text=WOMEN" alt="WOMEN">
+        </div>
+        <div class="frame zoom">
+          <img src="https://via.placeholder.com/300x200.png?text=MEN" alt="MEN">
+        </div>
+        <div class="frame zoom">
+          <img src="https://via.placeholder.com/300x200.png?text=KIDS" alt="KIDS">
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="collection">
+    <div class="container-fluid">
+      <div class="title-section">
+        <h2>Our Collection</h2>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="new arrival">
+    <div class="container-fluid  ">
+      <div class="title-section">
+        <h2>New Arrival</h2>
+      </div>
+    </div>
+  </section>
+
+  <section id="delivery">
+    <div class="container-fluid  ">
+      <div class="title-section">
+        <h2>delivery</h2>
+      </div>
+    </div>
+  </section>
+
+  <section id="newsletter">
+    <div class="container-fluid  ">
+      <div class="title-section">
+        <h2>subscribe</h2>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+      <div class="container-fluid frame row">
+        <div class="col">
+            <h4>CATEGORIES</h4>
+            <ul>
+            <li><a href="">Women</a></li>
+            <li><a href="">Men</a></li>
+            <li><a href="">Kids</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <h4>ACCOUNT</h4>
+            <ul>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Order</a></li>
+            <li><a href="#">Checkout</a></li>
+            <li><a href="#">Wishlist</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <h4>HELP</h4>
+            <ul>
+              <li><a href="#">Shipping</a></li>
+              <li><a href="#">Return</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <img src="https://via.placeholder.com/300x200.png?text=HOLDER" alt="">
+          </div>
+        </div>
+      @Copyright 2020 Randa
+  </footer>
+
+
+
+
+  <script type="text/javascript" src="js/carousel.js"></script>
+
+</body>
+
 </html>

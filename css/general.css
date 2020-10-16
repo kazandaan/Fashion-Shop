@@ -7,20 +7,30 @@ body {
 
 section {
   display: block;
+  margin-bottom: 2rem;
 }
 
-.col{
-  width:50%;
-  padding-left: 15px;
-  padding-right: 15px;
+footer {
+  padding-top: 75px;
+  padding-bottom: 32px;
+  color : white;
+  background-color: black;
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  min-height: 600px;
-  height: calc(100vh - 174px);
+.title-section {
+
+    margin-bottom: 3rem;
 }
+
+.title-section h2{
+  text-align: left;
+  padding-left: 30px;
+  display: inline-block;
+  font-size: 2rem;
+  border-left: 4px solid #ee4266;
+}
+
+
 
 .container-fluid {
   padding: 1% 15% 1%;
@@ -95,17 +105,30 @@ footer{
   overflow: hidden;
 }
 
-ul {
+#title .col{
+  width: 50%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#title .row {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 600px;
+  height: calc(100vh - 174px);
+}
+
+#title ul {
   padding-left: 0;
   margin: auto;
 }
 
-ul li {
+#title ul li {
   float: left;
   list-style: none;
 }
 
-ul li a {
+#title ul li a {
   padding: 1rem 2rem 1rem 2rem;
   font-weight: 700;
   text-decoration: none;
@@ -115,7 +138,7 @@ ul li a {
   font-size: 14  px;
 }
 
-ul li a:hover {
+#title ul li a:hover {
   color: #ee4266;
   transition: all 0.4s ease 0s;
 }
@@ -185,3 +208,19 @@ input::-webkit-input-placeholder {
 }
 /* END OF TITLE */
 /* -------------------------------------------------------------------------------------------------------------------------- */
+
+/* FOOTER */
+footer ul li
+{
+  list-style: none;
+}
+
+footer ul {
+  padding-inline-start: 0px;
+
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: white;
+}
