@@ -69,6 +69,7 @@ header {
   width: 100%;
    background: white;
    z-index: 3;
+   overflow :hidden;
 }
 
 .wrapHead {
@@ -89,6 +90,7 @@ header {
   border-bottom: 3px solid none;
   margin-left: 50px;
   margin-right: 50px;
+  overflow: hidden;
 }
 
 #carousel .col{
