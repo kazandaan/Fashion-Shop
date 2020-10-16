@@ -6,13 +6,18 @@ function getVariables(){
   var birthday = document.forms["accountForm"]["birthday"];
   var address = document.forms["accountForm"]["address"];
   var cardno = document.forms["accountForm"]["cardno"];
+  var cardname = document.forms["accountForm"]["cardname"];
+  var type = document.forms["accountForm"]["type"];
 
-  var array = [username, name, email, phone, birthday, address, cardno];
+  var array = [username, name, email, phone, birthday, address, cardno, cardname, type];
   return array;
 }
 function editDetails(){
   var editmode = document.getElementById('editMode');
   editmode.style.display = "block";
+
+  var editBtn = document.getElementById('editDetailsBtn');
+  editBtn.style.display = "none";
 
   var array = getVariables();
   // Show Inputbox
@@ -26,6 +31,9 @@ function cancelEdit(){
   var editmode = document.getElementById('editMode');
   editmode.style.display = "none";
 
+  var editBtn = document.getElementById('editDetailsBtn');
+  editBtn.style.display = "block";
+
   //reset Inputbox values to original
 
   var array = getVariables();
@@ -36,6 +44,16 @@ function cancelEdit(){
   });
 }
 
-function resetValues(){
-
+var modal = document.getElementById('passwordModal');
+function openModal(){
+  modal.style.display = "block";
+}
+function closeModal(){
+  modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }

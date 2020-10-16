@@ -1,6 +1,6 @@
 #account{
   /* background-color: darkgrey; */
-  margin: 90px 100px 50px 100px;
+  margin: 50px 100px 50px 100px;
   letter-spacing: 2px;
   font-size: 20px;
   line-height: 1.6;
@@ -39,13 +39,13 @@
 #account #editMode #buttons{
   float: right;
 }
-#account #editMode #buttons input{
+#account #editMode #buttons input, #account #passwordModal #pwbuttons input{
   height: 30px;
   width: 125px;
   background-color: lightgrey;
   border: 1px solid black;
 }
-#account #editMode #buttons input:hover{
+#account #editMode #buttons input:hover, #account #passwordModal #pwbuttons input:hover{
   background-color: darkgrey;
   color: white;
   border: 1px solid white;
@@ -66,12 +66,35 @@
 #account #userdetails label{
   font-weight: bold;
   display: inline-block;
-  width: 110px;
+  width: 175px;
 }
-#account #userdetails input[type="text"]{
+#account #userdetails input, #account #userdetails select{
   background-color: white;
   font-family: 'Italiana', serif;
   font-weight: 750;
   font-size: 20px;
   border: 0px solid #FFFFFF;
+  width: 225px
+}
+
+#account #userdetails #accountInfo a:hover{
+  color: #ee4266;
+  font-weight: bold;
+}
+
+#account .icon-group{
+  margin: 0px;
+}
+
+/* Password Modal */
+#account #passwordModal{
+  text-align: center;
+}
+#account #passwordModal label{
+  font-weight: bold;
+  display: inline-block;
+  width: 200px;
+}
+#account #passwordModal #pwbuttons{
+  margin: 30px 0px 30px 0px;
 }
