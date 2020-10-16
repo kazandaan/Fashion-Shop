@@ -70,13 +70,11 @@ header {
    background: white;
    z-index: 3;
    overflow :hidden;
+   box-shadow: 0px 0px 9px 3px rgba(41, 41, 41, .25);
 }
 
 .wrapHead {
   display: flex;
-  -webkit-box-shadow: 0px 0px 9px 3px rgba(41, 41, 41, .25);
-  -moz-box-shadow: 0px 0px 9px 3px rgba(41, 41, 41, .25);
-  box-shadow: 0px 0px 9px 3px rgba(41, 41, 41, .25);
   align-items:center;
   overflow: hidden;
 }
@@ -195,7 +193,19 @@ input::-webkit-input-placeholder {
 }
 /* END OF TITLE */
 /* -------------------------------------------------------------------------------------------------------------------------- */
+/* NEWSLETTER */
+.newsletter_content {
+  margin: 0% 5% 0% 5%;
+  position: relative;
+  display: block;
+  background-image: url(../image/newsletter.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 
+/* END OF NEWSLETTER */
+/* -------------------------------------------------------------------------------------------------------------------------- */
 /* FOOTER */
 footer ul li
 {
@@ -211,3 +221,4 @@ footer ul li a {
   text-decoration: none;
   color: white;
 }
+/* END OF FOOTER */
