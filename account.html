@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>RANDA - First trial</title>
   <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/account.css">
   <link rel="stylesheet" href="css/carousel.css">
   <link rel="stylesheet" href="css/utility.css">
   <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
@@ -15,91 +16,7 @@
   <link rel="manifest" href="/site.webmanifest">
 
   <style>
-  .flex{
-    display: flex;
-  }
-  footer{
-    height: 200px;
-    bottom: 200px;
-    margin: 0px;
-  }
 
-  #account{
-    /* background-color: darkgrey; */
-    margin: 90px 100px 50px 100px;
-    letter-spacing: 2px;
-    font-size: 20px;
-    line-height: 1.6;
-  }
-  #account h1{
-    font-size: 60px;
-  }
-  #account #leftside{
-    width: 25%;
-  }
-  #account #rightSide{
-    width: 75%;
-  }
-
-/* Left-side */
-  #account #userimage{
-    background-image: url('image/logo.png');
-    text-align: center;
-    margin: auto;
-    border-radius: 100px;
-    height: 200px;
-    width: 200px;
-  }
-  #account #userimage div{
-    padding-top: 160px;
-  }
-
-/* Right-side */
-  /* top */
-  #account #editMode{
-    background-color: darkgrey;
-    padding: 20px;
-    margin-bottom: 10px;
-    display: none;
-  }
-  #account #editMode #buttons{
-    float: right;
-  }
-  #account #editMode #buttons input{
-    height: 30px;
-    width: 125px;
-    background-color: lightgrey;
-    border: 1px solid black;
-  }
-  #account #editMode #buttons input:hover{
-    background-color: darkgrey;
-    color: white;
-    border: 1px solid white;
-  }
-  /* bottom */
-  #account #userdetails{
-    /* background-color: whitesmoke; */
-    height: auto;
-    border: solid black 2px;
-    border-radius: 5px;
-    padding: 0px 0px 25px 25px;
-  }
-  #account #userdetails #editDetailsBtn{
-    float: right;
-    margin: 20px 15px 0px 0px;
-  }
-
-  #account #userdetails label{
-    font-weight: bold;
-    display: inline-block;
-    width: 110px;
-  }
-  #account #userdetails input[type="text"]{
-    background-color: white;
-    font-family: 'Italiana', serif;
-    font-size: 20px;
-    border: 0px solid #FFFFFF;
-  }
   </style>
 </head>
 
@@ -107,7 +24,7 @@
   <section id="title">
     <nav class="navbar">
       <div>
-        <img src="image/logo.png" alt="" class="logo" onclick="">
+        <a href="index.html"><img src="image/logo.png" alt="" class="logo"></a>
       </div>
 
       <ul class="navbar-nav">
@@ -191,7 +108,7 @@
           </div>
 
         </form>
-      </div> <!--rightSide div-->
+      </div> <!--end rightSide div-->
 
     </div>
   </div>
@@ -201,45 +118,7 @@
     footer
   </footer>
 
-  <script>
-
-    function getVariables(){
-      var username = document.forms["accountForm"]["username"];
-      var name = document.forms["accountForm"]["name"];
-      var email = document.forms["accountForm"]["email"];
-      var phone = document.forms["accountForm"]["phone"];
-      var birthday = document.forms["accountForm"]["birthday"];
-      var address = document.forms["accountForm"]["address"];
-      var cardno = document.forms["accountForm"]["cardno"];
-
-      var array = [username, name, email, phone, birthday, address, cardno];
-      return array;
-    }
-    function editDetails(){
-      var editmode = document.getElementById('editMode');
-      editmode.style.display = "block";
-
-      var array = getVariables();
-      // Show Inputbox
-      array.forEach((item, i) => {
-        item.style.border = "2px solid black";
-        item.removeAttribute("disabled");
-      });
-    }
-
-    function cancelEdit(){
-      var editmode = document.getElementById('editMode');
-      editmode.style.display = "none";
-
-      var array = getVariables();
-      // Hide Inputbox
-      array.forEach((item, i) => {
-        item.style.border = "0px solid white";
-        item.setAttribute("disabled", true);
-      });
-    }
-
-  </script>
+  <script type="text/javascript" src="js/account.js"></script>
 
 </body>
 </html>

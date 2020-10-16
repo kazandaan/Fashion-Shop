@@ -1,0 +1,77 @@
+#account{
+  /* background-color: darkgrey; */
+  margin: 90px 100px 50px 100px;
+  letter-spacing: 2px;
+  font-size: 20px;
+  line-height: 1.6;
+}
+#account h1{
+  font-size: 60px;
+}
+#account #leftside{
+  width: 25%;
+}
+#account #rightSide{
+  width: 75%;
+}
+
+/* Left-side */
+#account #userimage{
+  background-image: url('../image/logo.png');
+  text-align: center;
+  margin: auto;
+  border-radius: 100px;
+  height: 200px;
+  width: 200px;
+}
+#account #userimage div{
+  padding-top: 160px;
+}
+
+/* Right-side */
+/* top */
+#account #editMode{
+  background-color: darkgrey;
+  padding: 20px;
+  margin-bottom: 10px;
+  display: none;
+}
+#account #editMode #buttons{
+  float: right;
+}
+#account #editMode #buttons input{
+  height: 30px;
+  width: 125px;
+  background-color: lightgrey;
+  border: 1px solid black;
+}
+#account #editMode #buttons input:hover{
+  background-color: darkgrey;
+  color: white;
+  border: 1px solid white;
+}
+/* bottom */
+#account #userdetails{
+  /* background-color: whitesmoke; */
+  height: auto;
+  border: solid black 2px;
+  border-radius: 5px;
+  padding: 0px 0px 25px 25px;
+}
+#account #userdetails #editDetailsBtn{
+  float: right;
+  margin: 20px 15px 0px 0px;
+}
+
+#account #userdetails label{
+  font-weight: bold;
+  display: inline-block;
+  width: 110px;
+}
+#account #userdetails input[type="text"]{
+  background-color: white;
+  font-family: 'Italiana', serif;
+  font-weight: 750;
+  font-size: 20px;
+  border: 0px solid #FFFFFF;
+}

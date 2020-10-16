@@ -33,6 +33,16 @@ section {
   max-width:100%;
   height: auto;
 }
+
+.flex{
+  display: flex;
+}
+footer{
+  height: 200px;
+  bottom: 200px;
+  margin: 0px;
+}
+
 /* END OF GENERAL */
 /* -------------------------------------------------------------------------------------------------------------------------- */
 /* PROMO BAR */
@@ -171,7 +181,7 @@ input::-webkit-input-placeholder {
 
 .icon-group span:hover {
   transform: scale(1.5);
-    
+
 }
 /* END OF TITLE */
 /* -------------------------------------------------------------------------------------------------------------------------- */
