@@ -228,6 +228,32 @@ input::-webkit-input-placeholder {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.modal-content label{
+  font-weight: bold;
+  display: inline-block;
+  width: 200px;
+  text-align: left;
+}
+.modal-content .buttons{
+  margin: 30px 0px 30px 0px;
+}
+.modal-content .buttons input{
+  height: 30px;
+  width: 125px;
+  background-color: lightgrey;
+  border: 1px solid black;
+}
+.modal-content .buttons input:hover{
+  background-color: darkgrey;
+  color: white;
+  border: 1px solid white;
 }
 
 /* The Close Button */

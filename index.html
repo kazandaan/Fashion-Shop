@@ -52,6 +52,7 @@
       </form>
 
       <div class="icon-group">
+        <!-- PHP > check session > no user > openModal('loginModal') ; got user > account.html -->
         <span class="material-icons"><a href="account.html" title="My Account">face</a></span>
         <span class="material-icons"><a href="favourites.html" title="My Favourites">favorite_border</a></span>
         <span class="material-icons"><a href="cart.html" title="My Cart">shopping_cart</a></span>
@@ -187,6 +188,64 @@
 
     </div>
   </section>
+
+  <input type="button" onclick="openModal('loginModal')" value="login"/> test button
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('loginModal')">&times;</span>
+      <form name="loginForm">
+        <h2>Login</h2>
+        <label>Username:</label><input type="text" name="username" id="username" required></input><br>
+        <label>Password:</label><input type="password" name="password" id="password" required></input><br>
+        <div class="buttons">
+          <input type="submit" value="Login"/> &nbsp;
+        </div>
+        Don't have an account? <a href="#" onclick="openModal('registerModal', 'loginModal')">Click here</a> to Register!
+      </form>
+    </div>
+  </div>
+  <!-- End Login Modal -->
+
+  <!-- Register Modal -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('registerModal')">&times;</span>
+      <form name="registerForm">
+        <h2>Register</h2>
+        <label>Name:</label><input type="text" name="name" id="name" required></input><br>
+        <label>Email:</label><input type="email" name="email" id="email" required></input> <br>
+        <label>Username:</label><input type="text" name="username" id="username" required></input><br>
+        <label>Password:</label><input type="password" name="password" id="password" required></input><br>
+        <label>Confirm Password:</label><input type="password" name="confirmpassword" id="confirmpassword" required></input><br>
+        <div class="buttons">
+          <input type="submit" value="Register"/> &nbsp;
+        </div>
+        Have an account? <a href="#" onclick="openModal('loginModal', 'registerModal')">Click here</a> to Login!
+      </form>
+    </div>
+  </div>
+  <!-- End Register Modal -->
+
+  <script>
+    var modal;
+    function openModal(modalname, closemodal){
+      this.modal = document.getElementById(modalname);
+      modal.style.display = "block";
+      closeModal(closemodal);
+    }
+    function closeModal(modalname){
+      var close = document.getElementById(modalname);
+      close.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 
   <footer>
     <div class="container-fluid frame row">
