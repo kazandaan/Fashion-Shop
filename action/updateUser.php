@@ -13,46 +13,56 @@
   $name = $_POST['name']; //required
   $username = $_POST['username']; //required
   $email = $_POST['email']; //required
-  $phone = checkNull($_POST['phone']); //null
+  $phone = $_POST['phone']; //null
   //birthday date
     $date = strtotime($_POST['birthday']);
-    if($date != '0000-00-00' || $date != NULL){
-      $birthday = date("Y-m-d", $date);
-    }
-    else{
-      $birthday = null;
-    }
+    $birthday = date("Y-m-d", $date); // why 01-01-1970
   $address = $_POST['address']; //null
   $cardno = $_POST['cardno']; //null
   $cardname = $_POST['cadrname']; //null
   $card = $_POST['card']; //null
-
-  $sql = "UPDATE user_randa SET
-  user_name = '$name',
-  user_username = '$username',
-  user_email = '$email',
-  user_phone = '$phone',
-  user_birthday = '$birthday',
-  user_address = '$address',
-  user_cardno = '$cardno',
-  user_cardname = '$cardname',
-  user_card = '$card'
-  WHERE user_id = $id";
-
-  $updated = mysqli_query($conn, $sql);
-  if ($updated) {
-    // echo $sql;
-    header("Location:../account.php");
-  }
-  else {
-      echo "Error updating record: " . mysqli_error($conn) . $sql;
-  }
-
-  function checkNull($variable){
-    if($variable == ""){
-      $variable = null;
+  $img = $_FILES['userimg']['name']; //null
+  // image
+    if($img == null ){
+      $image = "user/default.jpg";
+      $result = true;
     }
-  }
+    else{
+      $target = "../image/user/" . $img;
+      $image = "user/" . $img;
+      $result = move_uploaded_file($_FILES['userimg']['tmp_name'], $target); //not working > permission problem ?
+      $result = true; //force true
+    }
+
+  if($result)
+	{
+    $sql = "UPDATE user_randa SET
+    user_name = '$name',
+    user_username = '$username',
+    user_email = '$email',
+    user_phone = '$phone',
+    user_birthday = '$birthday',
+    user_address = '$address',
+    user_cardno = '$cardno',
+    user_cardname = '$cardname',
+    user_card = '$card',
+    user_img = '$image'
+    WHERE user_id = $id";
+
+    $updated = mysqli_query($conn, $sql);
+    if ($updated) {
+      // echo "Image: " . $img . "<br>" . $sql;
+      header("Location:../account.php");
+    }
+    else {
+        echo "Error updating record: " . mysqli_error($conn) . $sql;
+    }
+	}
+	else
+	{
+		// header("Location:../ManagePage.php?status=file");
+    echo print_r($_FILES) . "<br>tmp: " . $_FILES['userimg']['tmp_name'] . "<br>target: " . $target;
+	}
 
   mysqli_close($conn);
 

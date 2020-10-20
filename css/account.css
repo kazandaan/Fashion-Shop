@@ -25,7 +25,15 @@
 #account #userimage div{
   padding-top: 160px;
 }
-
+#account #changePhotoBtn{
+  display: none;
+}
+#account .icon-group label:hover {
+  transform: scale(1.5);
+}
+#account #userimg{
+  /* display: none; */
+}
 #account #logoutForm{
   margin-top: 50px;
 }
@@ -44,13 +52,13 @@
 #account #editMode #buttons{
   float: right;
 }
-#account #editMode #buttons input, #account #logoutForm input{
+#account #editMode #buttons input, #account #logoutForm{
   height: 30px;
   width: 125px;
   background-color: lightgrey;
   border: 1px solid black;
 }
-#account #editMode #buttons input:hover, #account #logoutForm input:hover{
+#account #editMode #buttons input:hover, #account #logoutForm:hover{
   background-color: darkgrey;
   color: white;
   border: 1px solid white;
@@ -79,7 +87,11 @@
   font-weight: 750;
   font-size: 20px;
   border: 0px solid #FFFFFF;
-  width: 225px
+  width: 225px;
+}
+#account #userdetails #userimg{
+  width: 300px !important;
+  display: none;
 }
 
 #account #userdetails #accountInfo a:hover{

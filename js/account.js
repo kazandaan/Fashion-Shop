@@ -8,13 +8,21 @@ function getVariables(){
   var cardno = document.forms["accountForm"]["cardno"];
   var cardname = document.forms["accountForm"]["cardname"];
   var type = document.forms["accountForm"]["card"];
+  var img = document.forms["accountForm"]["card"];
 
   var array = [username, name, email, phone, birthday, address, cardno, cardname, card];
   return array;
 }
 function editDetails(){
+  // grey block
   var editmode = document.getElementById('editMode');
   editmode.style.display = "block";
+
+  // change photo button
+  var photoBtn = document.getElementById('changePhotoBtn');
+  var fileBtn = document.getElementById('userimg');
+  photoBtn.style.display = "block";
+  fileBtn.style.display = "block";
 
   var editBtn = document.getElementById('editDetailsBtn');
   editBtn.style.display = "none";
@@ -30,6 +38,11 @@ function editDetails(){
 function cancelEdit(){
   var editmode = document.getElementById('editMode');
   editmode.style.display = "none";
+
+  var photoBtn = document.getElementById('changePhotoBtn');
+  var fileBtn = document.getElementById('userimg');
+  photoBtn.style.display = "none";
+  fileBtn.style.display = "none";
 
   var editBtn = document.getElementById('editDetailsBtn');
   editBtn.style.display = "block";

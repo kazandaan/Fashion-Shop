@@ -87,16 +87,20 @@
 
       <div id="leftside">
         <div id="userimage" style="background-image: url('image/<?php echo $user['user_img']; ?>');">
-          <div class="icon-group"><span class="material-icons"><a href="#" title="change photo">photo_camera</a></span></div>
+          <div class="icon-group" id="changePhotoBtn">
+            <span><label class="material-icons" for="userimg"><a title="change photo">photo_camera</a></label></span>
+
+          </div>
+
         </div>
 
-        <form id="logoutForm" action="">
-          <input type="submit" value="Logout"/>
-        </form>
+        <!-- <form id="logoutForm" action=""> -->
+          <input id="logoutForm" type="submit" value="Logout"/>
+        <!-- </form> -->
       </div>
 
       <div id="rightSide">
-        <form name="accountForm" action="action/updateUser.php" method="POST" >
+        <form name="accountForm" action="action/updateUser.php" method="POST" enctype="multipart/form-data">
           <div id="editMode" class="flex">
             <b>* EDITING MODE *</b>
             <div id="buttons" class="flex">
@@ -112,6 +116,7 @@
               <input type="hidden" name="userid" id="userid" value="<?php echo $user['user_id']; ?>">
               <label>Username:</label><input type="text" name="username" id="username" value="<?php echo $user['user_username']; ?>" disabled></input><br>
               <label>Password:</label><a onclick="openModal()">Change Password</a><br>
+
             </div>
             <div id="perosnalInfo">
               <u><h3>Personal Information</h3></u>
@@ -120,6 +125,7 @@
               <label>Phone:</label><input type="text" name="phone" id="phone" value="<?php echo $user['user_phone']; ?>" disabled></input> <br>
               <label>Birthday:</label><input type="date" name="birthday" id="birthday" value="<?php echo $user['user_birthday']; ?>" disabled></input> <br>
               <label>Address:</label><input type="text" name="address" id="address" value="<?php echo $user['user_address']; ?>" disabled></input> <br>
+              <label>Image:</label><input type="file" name="userimg" id="userimg"/>
             </div>
             <div id="paymentInfo">
               <u><h3>Payment Information</h3></u>
