@@ -7,9 +7,9 @@ function getVariables(){
   var address = document.forms["accountForm"]["address"];
   var cardno = document.forms["accountForm"]["cardno"];
   var cardname = document.forms["accountForm"]["cardname"];
-  var type = document.forms["accountForm"]["type"];
+  var type = document.forms["accountForm"]["card"];
 
-  var array = [username, name, email, phone, birthday, address, cardno, cardname, type];
+  var array = [username, name, email, phone, birthday, address, cardno, cardname, card];
   return array;
 }
 function editDetails(){

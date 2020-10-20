@@ -65,13 +65,28 @@
   </header>
   <section></section>
 
+  <?php
+    // Create connection (servername, username, password, dbname)
+    $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");
+
+    // Check connection
+    if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $sql = "SELECT * FROM user_randa WHERE user_id = 1"; //get from session
+    $runsql = mysqli_query($conn, $sql);
+
+    $user = mysqli_fetch_assoc($runsql);
+  ?>
+
   <div id="account">
-    <h1>Welcome User</h1> <!--Display username or name-->
+    <h1>Welcome <?php echo $user['user_name']; ?></h1>
 
     <div class="flex">
 
       <div id="leftside">
-        <div id="userimage">
+        <div id="userimage" style="background-image: url('image/<?php echo $user['user_img']; ?>');">
           <div class="icon-group"><span class="material-icons"><a href="#" title="change photo">photo_camera</a></span></div>
         </div>
 
@@ -81,7 +96,7 @@
       </div>
 
       <div id="rightSide">
-        <form name="accountForm" >
+        <form name="accountForm" action="action/updateUser.php" method="POST" >
           <div id="editMode" class="flex">
             <b>* EDITING MODE *</b>
             <div id="buttons" class="flex">
@@ -94,23 +109,25 @@
             <div class="icon-group" id="editDetailsBtn"><span class="material-icons"><a href="#" onclick="editDetails()" title="edit profile">edit</a></span></div>
             <div id="accountInfo">
               <u><h3>Account Information</h3></u>
-              <label>Username:</label><input type="text" name="username" id="username" value="Username" disabled></input><br>
+              <input type="hidden" name="userid" id="userid" value="<?php echo $user['user_id']; ?>">
+              <label>Username:</label><input type="text" name="username" id="username" value="<?php echo $user['user_username']; ?>" disabled></input><br>
               <label>Password:</label><a onclick="openModal()">Change Password</a><br>
             </div>
             <div id="perosnalInfo">
               <u><h3>Personal Information</h3></u>
-              <label>Name:</label><input type="text" name="name" id="name" value="Tom Cat" disabled></input><br>
-              <label>Email:</label><input type="email" name="email" id="email" value="tomcat@gmail.com" disabled></input> <br>
-              <label>Phone:</label><input type="text" name="phone" id="phone" value="+65 1234 1234" disabled></input> <br>
-              <label>Birthday:</label><input type="date" name="birthday" id="birthday" value="01/01/01" disabled></input> <br>
-              <label>Address:</label><input type="text" name="address" id="address" value="NTU" disabled></input> <br>
+              <label>Name:</label><input type="text" name="name" id="name" value="<?php echo $user['user_name']; ?>" disabled></input><br>
+              <label>Email:</label><input type="email" name="email" id="email" value="<?php echo $user['user_email']; ?>" disabled></input> <br>
+              <label>Phone:</label><input type="text" name="phone" id="phone" value="<?php echo $user['user_phone']; ?>" disabled></input> <br>
+              <label>Birthday:</label><input type="date" name="birthday" id="birthday" value="<?php echo $user['user_birthday']; ?>" disabled></input> <br>
+              <label>Address:</label><input type="text" name="address" id="address" value="<?php echo $user['user_address']; ?>" disabled></input> <br>
             </div>
             <div id="paymentInfo">
               <u><h3>Payment Information</h3></u>
-              <label>Card No:</label><input type="text" name="cardno" id="cardno" value="123456" disabled></input><br>
-              <label>Name on Card:</label><input type="text" name="cardname" id="cardname" value="Tom Cat" disabled></input><br>
+              <label>Card No:</label><input type="text" name="cardno" id="cardno" value="<?php echo $user['user_cardno']; ?>" disabled></input><br>
+              <label>Name on Card:</label><input type="text" name="cardname" id="cardname" value="<?php echo $user['user_cardname']; ?>" disabled></input><br>
               <label>Type:</label>
-              <select name="type" id="type" disabled>
+              <select name="card" id="card" disabled>
+                <option disabled selected style="display:none;"><?php echo $user['user_card']; ?></option> <!-- how to not repeat -->
                 <option value="Visa">Visa</option>
                 <option value="MasterCard">MasterCard</option>
               </select><br>
@@ -138,6 +155,10 @@
     <!-- End Password Modal -->
 
   </div><!-- End account Modal -->
+
+  <?php
+    mysqli_close($conn);
+  ?>
 
   <footer>
     <div class="container-fluid frame">
