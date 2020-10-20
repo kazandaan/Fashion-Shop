@@ -55,7 +55,7 @@
             </form>
 
             <div class="icon-group">
-              <span class="material-icons"><a href="account.html" title="My Account">face</a></span>
+              <span class="material-icons"><a href="account.php" title="My Account">face</a></span>
               <span class="material-icons"><a href="favourites.html" title="My Favourites">favorite_border</a></span>
               <span class="material-icons"><a href="cart.html" title="My Cart">shopping_cart</a></span>
             </div>
@@ -125,7 +125,7 @@
               <label>Phone:</label><input type="text" name="phone" id="phone" value="<?php echo $user['user_phone']; ?>" disabled></input> <br>
               <label>Birthday:</label><input type="date" name="birthday" id="birthday" value="<?php echo $user['user_birthday']; ?>" disabled></input> <br>
               <label>Address:</label><input type="text" name="address" id="address" value="<?php echo $user['user_address']; ?>" disabled></input> <br>
-              <label>Image:</label><input type="file" name="userimg" id="userimg"/>
+              <label>Image:</label><input type="file" name="userimg" id="userimg"/><input type="hidden" name="existingimg" value="<?php echo $user['user_img']; ?>">
             </div>
             <div id="paymentInfo">
               <u><h3>Payment Information</h3></u>

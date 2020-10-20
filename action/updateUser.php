@@ -22,9 +22,10 @@
   $cardname = $_POST['cadrname']; //null
   $card = $_POST['card']; //null
   $img = $_FILES['userimg']['name']; //null
+    $existingimg = $_POST['existingimg']; //hidden
   // image
     if($img == null ){
-      $image = "user/default.jpg";
+      $image = $existingimg;
       $result = true;
     }
     else{
