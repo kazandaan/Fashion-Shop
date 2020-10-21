@@ -63,53 +63,47 @@
 
 
   </header>
-  <!-- SCRIPT | Window ONLOAD, $_GET Stuff -->
+
+  <!-- Check Session -->
+  <?php
+    session_start();
+    if(!isset($_SESSION['userid'])){
+      header("Location:index.php");
+    }
+    else{
+      $id = $_SESSION['userid'];
+    }
+  ?>
+
+  <!-- START SCRIPT | Window ONLOAD, $_GET Stuff -->
+  <script type="text/javascript" src="js/statusMessages.js"></script>
   <script>
     window.onload = function(){
   <?php
-    if( isset($_GET['page']) && isset($_GET['updated'])){
+    if( isset($_GET['page']) && isset($_GET['status'])){
       $page = $_GET['page'];
-      $status = $_GET['updated'];
+      $status = $_GET['status'];
 
       $message = "";
       if( $page == "updateUser" && $status == 1){
-        $colour = "0, 255, 0";
         $message = "Profile Successfully Updated";
       }
       else if( $page == "updateUser" && $status == 0){
-        $colour = "255, 0, 0";
         $message = "Profile Failed to Update";
       }
       else if( $page == "updatePassword" && $status == 1){
-        $colour = "0, 255, 0";
         $message = "Password Successfully Updated";
       }
       else if( $page == "updatePassword" && $status == 0){
-        $colour = "255, 0, 0";
         $message = "Password Failed to Update";
       }
-      setUpdateStatusDiv($colour, $message);
+      echo "setUpdateStatusDiv( ".$status.", '".$message."' )";
     }
-
-    function setUpdateStatusDiv($colour, $message){
-      // echo "<script type='text/javascript'>alert('$message');</script>";
-  ?>
-      var div = document.getElementById('updateStatus');
-      div.style.display = "block";
-      div.style.backgroundColor = "rgba(<?php echo $colour; ?>, 0.2)"; //rgba(255, 0, 0, 0.2);
-      div.innerHTML = "<?php echo $message; ?>";
-
-      // remove updateStatusDiv after 3 seconds
-      setTimeout(function(){
-        var div = document.getElementById('updateStatus');
-        div.style.display = "none";
-        location.replace("account.php"); // removeQueryString
-      }, 3000);
-  <?php
-    } // end of setUpdateStatusDiv function
   ?>
     } // end of window.onload = function()
   </script>
+  <!-- END SCRIPT | Window ONLOAD, $_GET Stuff -->
+
   <section></section>
 
   <?php
@@ -121,7 +115,7 @@
       die("Connection failed: " . mysqli_connect_error());
     }
 
-    $sql = "SELECT * FROM user_randa WHERE user_id = 1"; //get from session
+    $sql = "SELECT * FROM user_randa WHERE user_id = $id"; //get from session
     $runsql = mysqli_query($conn, $sql);
     $user = mysqli_fetch_assoc($runsql);
   ?>
@@ -138,9 +132,9 @@
           </div>
         </div>
 
-        <!-- <form id="logoutForm" action=""> -->
-          <input id="logoutForm" type="submit" value="Logout"/>
-        <!-- </form> -->
+        <form id="logoutForm" action="action/logout.php" method="post">
+          <input type="submit" value="Logout"/>
+        </form>
       </div>
 
       <div id="rightSide">
@@ -152,11 +146,6 @@
               <input type="submit" value="Update Details"/> &nbsp;
               <input type="button" onclick="cancelEdit()" value="Cancel"/>
             </div>
-          </div>
-
-          <!-- Update Status Block -->
-          <div id="updateStatus">
-            <b>* UPDATE *</b>
           </div>
 
           <div id="userdetails">
@@ -210,8 +199,12 @@
       </div>
     </div>
     <!-- End Password Modal -->
+  </div><!-- End account div -->
 
-  </div><!-- End account Modal -->
+  <!-- Popup Block -->
+  <div class="messagePopup" id="updateStatus">
+    <h2 id="messageHeader"></h2>
+  </div>
 
   <?php
     mysqli_close($conn);

@@ -40,26 +40,24 @@
   width: 75%;
 }
 /* top */
-#account #updateStatus, #account #editMode{
+#account #editMode{
   padding: 20px;
   margin-bottom: 10px;
   display: none;
   font-weight: bold;
   border-radius: 5px;
-}
-#account #editMode{
   background-color: darkgrey;
 }
 #account #editMode #buttons{
   float: right;
 }
-#account #editMode #buttons input, #account #logoutForm{
+#account #editMode #buttons input, #account #logoutForm input{
   height: 30px;
   width: 125px;
   background-color: lightgrey;
   border: 1px solid black;
 }
-#account #editMode #buttons input:hover, #account #logoutForm:hover{
+#account #editMode #buttons input:hover, #account #logoutForm input:hover{
   background-color: darkgrey;
   color: white;
   border: 1px solid white;

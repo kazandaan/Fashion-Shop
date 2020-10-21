@@ -33,6 +33,8 @@
       $result = true; //force true
     }
 
+    // need to validate: username taken blaaah etc.-------------------------------------!!!
+
   if($result)
 	{
     $sql = "UPDATE user_randa SET
@@ -51,11 +53,11 @@
     $updated = mysqli_query($conn, $sql);
     if ($updated) {
       // echo "Image: " . $img . "<br>" . $sql;
-      header("Location:../account.php?page=updateUser&updated=" . $updated);
+      // header("Location:../account.php?page=updateUser&status=" . $updated);
     }
     else {
       // echo "Error updating record: " . mysqli_error($conn) . $sql;
-      header("Location:../account.php?page=updateUser&updated=" . $updated);
+      // header("Location:../account.php?page=updateUser&status=" . $updated);
     }
 	}
 	else
@@ -64,6 +66,7 @@
     echo print_r($_FILES) . "<br>tmp: " . $_FILES['userimg']['tmp_name'] . "<br>target: " . $target;
 	}
 
+  header("Location:../account.php?page=updateUser&status=" . $updated);
   mysqli_close($conn);
 
 ?>
