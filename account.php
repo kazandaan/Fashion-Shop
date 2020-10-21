@@ -24,13 +24,13 @@
   <header id="title">
           <div class="wrapHead" >
             <div>
-              <img src="image/logo.png" alt="" class="logo" onclick="">
+              <a href="index.php"><img src="image/logo.png" alt="" class="logo"></a>
             </div>
             <nav class="nav">
 
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="index.html">HOME</a>
+                  <a class="nav-link" href="index.php">HOME</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">WOMEN'S</a>
