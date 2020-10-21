@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 20, 2020 at 04:35 PM
+-- Generation Time: Oct 21, 2020 at 10:29 PM
 -- Server version: 5.5.44-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.11
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `user_randa` (
   `user_email` varchar(50) NOT NULL,
   `user_password` varchar(50) NOT NULL,
   `user_phone` varchar(11) DEFAULT NULL,
-  `user_birthday` varchar(20) DEFAULT NULL,
+  `user_birthday` varchar(10) DEFAULT NULL,
   `user_address` varchar(100) DEFAULT NULL,
   `user_cardno` varchar(50) DEFAULT NULL,
   `user_cardname` varchar(50) DEFAULT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `user_randa` (
 --
 
 INSERT INTO `user_randa` (`user_id`, `user_name`, `user_username`, `user_email`, `user_password`, `user_phone`, `user_birthday`, `user_address`, `user_cardno`, `user_cardname`, `user_card`, `user_img`) VALUES
-(1, 'displayname', 'displayusername', 'display@email.com', '123', '', '1970-01-01', '', '', '', 'Visa', 'user/default.jpg');
+(1, 'khalisya', 'khal2', 'kha@gmail.com', '202cb962ac59075b964b07152d234b70', '', '', '', '', '', '', 'user/girl.jpg');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
