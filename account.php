@@ -63,6 +63,53 @@
 
 
   </header>
+  <!-- SCRIPT | Window ONLOAD, $_GET Stuff -->
+  <script>
+    window.onload = function(){
+  <?php
+    if( isset($_GET['page']) && isset($_GET['updated'])){
+      $page = $_GET['page'];
+      $status = $_GET['updated'];
+
+      $message = "";
+      if( $page == "updateUser" && $status == 1){
+        $colour = "0, 255, 0";
+        $message = "Profile Successfully Updated";
+      }
+      else if( $page == "updateUser" && $status == 0){
+        $colour = "255, 0, 0";
+        $message = "Profile Failed to Update";
+      }
+      else if( $page == "updatePassword" && $status == 1){
+        $colour = "0, 255, 0";
+        $message = "Password Successfully Updated";
+      }
+      else if( $page == "updatePassword" && $status == 0){
+        $colour = "255, 0, 0";
+        $message = "Password Failed to Update";
+      }
+      setUpdateStatusDiv($colour, $message);
+    }
+
+    function setUpdateStatusDiv($colour, $message){
+      // echo "<script type='text/javascript'>alert('$message');</script>";
+  ?>
+      var div = document.getElementById('updateStatus');
+      div.style.display = "block";
+      div.style.backgroundColor = "rgba(<?php echo $colour; ?>, 0.2)"; //rgba(255, 0, 0, 0.2);
+      div.innerHTML = "<?php echo $message; ?>";
+
+      // remove updateStatusDiv after 3 seconds
+      setTimeout(function(){
+        var div = document.getElementById('updateStatus');
+        div.style.display = "none";
+        location.replace("account.php"); // removeQueryString
+      }, 3000);
+  <?php
+    } // end of setUpdateStatusDiv function
+  ?>
+    } // end of window.onload = function()
+  </script>
   <section></section>
 
   <?php
@@ -76,7 +123,6 @@
 
     $sql = "SELECT * FROM user_randa WHERE user_id = 1"; //get from session
     $runsql = mysqli_query($conn, $sql);
-
     $user = mysqli_fetch_assoc($runsql);
   ?>
 
@@ -89,9 +135,7 @@
         <div id="userimage" style="background-image: url('image/<?php echo $user['user_img']; ?>');">
           <div class="icon-group" id="changePhotoBtn">
             <span><label class="material-icons" for="userimg"><a title="change photo">photo_camera</a></label></span>
-
           </div>
-
         </div>
 
         <!-- <form id="logoutForm" action=""> -->
@@ -101,12 +145,18 @@
 
       <div id="rightSide">
         <form name="accountForm" action="action/updateUser.php" method="POST" enctype="multipart/form-data">
+          <!-- Editing Block -->
           <div id="editMode" class="flex">
             <b>* EDITING MODE *</b>
             <div id="buttons" class="flex">
               <input type="submit" value="Update Details"/> &nbsp;
               <input type="button" onclick="cancelEdit()" value="Cancel"/>
             </div>
+          </div>
+
+          <!-- Update Status Block -->
+          <div id="updateStatus">
+            <b>* UPDATE *</b>
           </div>
 
           <div id="userdetails">
@@ -123,9 +173,9 @@
               <label>Name:</label><input type="text" name="name" id="name" value="<?php echo $user['user_name']; ?>" disabled></input><br>
               <label>Email:</label><input type="email" name="email" id="email" value="<?php echo $user['user_email']; ?>" disabled></input> <br>
               <label>Phone:</label><input type="text" name="phone" id="phone" value="<?php echo $user['user_phone']; ?>" disabled></input> <br>
-              <label>Birthday:</label><input type="date" name="birthday" id="birthday" value="<?php echo $user['user_birthday']; ?>" disabled></input> <br>
+              <label>Birthday:</label><input type="date" name="birthday" id="birthday" min="2002-01-01" value="0000-00-00" disabled></input> <br> <?php echo $user['user_birthday']; ?>
               <label>Address:</label><input type="text" name="address" id="address" value="<?php echo $user['user_address']; ?>" disabled></input> <br>
-              <label>Image:</label><input type="file" name="userimg" id="userimg"/><input type="hidden" name="existingimg" value="<?php echo $user['user_img']; ?>">
+              <input type="file" name="userimg" id="userimg" onchange="displayimg()"/><input type="hidden" name="existingimg" value="<?php echo $user['user_img']; ?>">
             </div>
             <div id="paymentInfo">
               <u><h3>Payment Information</h3></u>
@@ -147,13 +197,14 @@
     <div id="passwordModal" class="modal">
       <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
-        <form name="passwordForm">
+        <form name="passwordForm" action="action/updatePassword.php" method="POST" >
           <h2>Change Password</h2>
+          <input type="hidden" name="userid" id="userid" value="<?php echo $user['user_id']; ?>">
           <label>Current Password:</label><input type="password" name="oldpassword" id="oldpassword" required></input><br>
           <label>New Password:</label><input type="password" name="newpassword" id="newpassword" required></input><br>
           <label>Confirm Password:</label><input type="password" name="confirmpassword" id="confirmpassword" required></input><br>
           <div class="buttons">
-            <input type="submit" value="Change Password"/> &nbsp;
+            <input type="submit" value="Change Password"/>
           </div>
         </form>
       </div>

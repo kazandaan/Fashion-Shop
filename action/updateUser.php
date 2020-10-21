@@ -14,9 +14,7 @@
   $username = $_POST['username']; //required
   $email = $_POST['email']; //required
   $phone = $_POST['phone']; //null
-  //birthday date
-    $date = strtotime($_POST['birthday']);
-    $birthday = date("Y-m-d", $date); // why 01-01-1970
+  $birthday = date("Y-m-d", $_POST['birthday']); // null, birthday date
   $address = $_POST['address']; //null
   $cardno = $_POST['cardno']; //null
   $cardname = $_POST['cadrname']; //null
@@ -53,10 +51,11 @@
     $updated = mysqli_query($conn, $sql);
     if ($updated) {
       // echo "Image: " . $img . "<br>" . $sql;
-      header("Location:../account.php");
+      header("Location:../account.php?page=updateUser&updated=" . $updated);
     }
     else {
-        echo "Error updating record: " . mysqli_error($conn) . $sql;
+      // echo "Error updating record: " . mysqli_error($conn) . $sql;
+      header("Location:../account.php?page=updateUser&updated=" . $updated);
     }
 	}
 	else

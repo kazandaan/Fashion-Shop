@@ -31,9 +31,6 @@
 #account .icon-group label:hover {
   transform: scale(1.5);
 }
-#account #userimg{
-  /* display: none; */
-}
 #account #logoutForm{
   margin-top: 50px;
 }
@@ -43,11 +40,15 @@
   width: 75%;
 }
 /* top */
-#account #editMode{
-  background-color: darkgrey;
+#account #updateStatus, #account #editMode{
   padding: 20px;
   margin-bottom: 10px;
   display: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+#account #editMode{
+  background-color: darkgrey;
 }
 #account #editMode #buttons{
   float: right;

@@ -7,12 +7,12 @@ function getVariables(){
   var address = document.forms["accountForm"]["address"];
   var cardno = document.forms["accountForm"]["cardno"];
   var cardname = document.forms["accountForm"]["cardname"];
-  var type = document.forms["accountForm"]["card"];
-  var img = document.forms["accountForm"]["card"];
+  var card = document.forms["accountForm"]["card"];
 
   var array = [username, name, email, phone, birthday, address, cardno, cardname, card];
   return array;
 }
+
 function editDetails(){
   // grey block
   var editmode = document.getElementById('editMode');
@@ -20,9 +20,7 @@ function editDetails(){
 
   // change photo button
   var photoBtn = document.getElementById('changePhotoBtn');
-  var fileBtn = document.getElementById('userimg');
   photoBtn.style.display = "block";
-  fileBtn.style.display = "block";
 
   var editBtn = document.getElementById('editDetailsBtn');
   editBtn.style.display = "none";
@@ -40,14 +38,10 @@ function cancelEdit(){
   editmode.style.display = "none";
 
   var photoBtn = document.getElementById('changePhotoBtn');
-  var fileBtn = document.getElementById('userimg');
   photoBtn.style.display = "none";
-  fileBtn.style.display = "none";
 
   var editBtn = document.getElementById('editDetailsBtn');
   editBtn.style.display = "block";
-
-  //reset Inputbox values to original
 
   var array = getVariables();
   // Hide Inputbox
@@ -55,8 +49,11 @@ function cancelEdit(){
     item.style.border = "0px solid white";
     item.setAttribute("disabled", true);
   });
+
+  location.href = "account.php"; //to reset edited values
 }
 
+// Open and close ChangePassword Modal
 var modal = document.getElementById('passwordModal');
 function openModal(){
   modal.style.display = "block";
@@ -69,4 +66,12 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
+}
+
+// display image, when editing
+function displayimg(){
+  var filename = document.getElementById('userimg').files.item(0).name;
+  var imageCircle = document.getElementById('userimage');
+
+  imageCircle.style.backgroundImage = "url('image/user/" + filename + "')";
 }
