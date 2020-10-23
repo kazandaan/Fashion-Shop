@@ -23,7 +23,7 @@
       <div class="col flex" style="height:50px; line-height:50px; font-size:16px; margin-left:60px; margin-right:45px;">
           FREE SHIPPING ON ORDERS OVER SGD80
           <div class="ml-auto">
-            My ACCOUNT
+            My ACCOUNTS
           </div>
       </div>
     </div>
