@@ -20,6 +20,17 @@
   </style>
 </head>
 
+<!-- Check Session -->
+<?php
+  session_start();
+  if(!isset($_SESSION['userid'])){
+    header("Location:index.php");
+  }
+  else{
+    $id = $_SESSION['userid'];
+  }
+?>
+
 <body>
   <header id="title">
           <div class="wrapHead" >
@@ -63,17 +74,6 @@
 
 
   </header>
-
-  <!-- Check Session -->
-  <?php
-    session_start();
-    if(!isset($_SESSION['userid'])){
-      header("Location:index.php");
-    }
-    else{
-      $id = $_SESSION['userid'];
-    }
-  ?>
 
   <!-- START SCRIPT | Window ONLOAD, $_GET Stuff -->
   <script type="text/javascript" src="js/statusMessages.js"></script>
