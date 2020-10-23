@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/general.css">
   <link rel="stylesheet" href="css/utility.css">
   <link rel="stylesheet" href="css/carousel.css">
+  <link rel="stylesheet" href="css/products.css">
   <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -16,6 +17,14 @@
   <link rel="manifest" href="/site.webmanifest">
 
 </head>
+
+<!-- Check Session -->
+<?php
+  session_start();
+  if(isset($_SESSION['userid'])){
+    $id = $_SESSION['userid'];
+  }
+?>
 
 <body>
   <header id="title">
@@ -73,42 +82,6 @@
   </script>
   <!-- END SCRIPT | Window ONLOAD, $_GET Stuff -->
 
-  <style>
-    #products{
-      letter-spacing: 2px;
-      font-size: 20px;
-      line-height: 1.6;
-    }
-    #products h1{
-      /* background-color: red; */
-      font-size: 60px;
-      text-align: center;
-    }
-    #products .productrow{
-      /* background-color: red; */
-      margin-bottom: 50px;
-      padding-top: 50px;
-    }
-    #products .productrow span{
-      margin: 0px auto 10px auto;
-    }
-    #products .productrow span a{
-      color: black;
-      text-decoration: none;
-    }
-    #products .productrow img{
-      height: 300px;
-      width: 250px;
-    }
-    #products .productrow p{
-      margin: auto;
-      width: 200px;
-    }
-
-  </style>
-
-
-
   <div id="products">
     <h1><?php echo ucfirst($category); ?></h1>
     <hr>
@@ -138,15 +111,40 @@
             }
         ?>
             <div class="frame zoom">
+                <?php
+                  // check if favourite or not
+                  if(checkFavourite($product['product_id'], $id)){
+                    $favBtn = "block";
+                    $unfavBtn = "none";
+                  }
+                  else{
+                    $favBtn = "none";
+                    $unfavBtn = "block"; //default
+                  }
+
+                  // Check if in cart or not
+                  if(checkCart($product['product_id'], $id)){
+                    $removCartBtn = "block";
+                    $addCartBtn = "none";
+                  }
+                  else{
+                    $removCartBtn = "none";
+                    $addCartBtn = "block"; // default
+                  }
+                ?>
               <!-- fav and add to cart button -->
               <div class="flex">
-                <span class="material-icons"><a onclick="" title="unlike">favorite</a></span>
-                <span class="material-icons"><a onclick="" title="add to cart">add_shopping_cart</a></span>
+                <span class='material-icons' id='unfavBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $unfavBtn; ?>;"><a onclick="favouriteProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='favourite'>favorite_border</a></span>
+                <span class='material-icons' id='favBtn<?php echo $product['product_id']; ?>'  style="display:<?php echo $favBtn; ?>;"><a onclick="unfavouriteProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='unfavourite'>favorite</a></span>
+                <span class='material-icons' id='addCartBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $addCartBtn; ?>;"><a onclick="addProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='add to cart'>add_shopping_cart</a></span>
+                <span class='material-icons' id='removeCartBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $removCartBtn; ?>;"><a onclick="removeProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='remove from cart'>remove_shopping_cart</a></span>
               </div>
 
               <img src="image/<?php echo $product['product_img']; ?>" alt="<?php echo $product['product_name']; ?>">
-              <p><?php echo $product['product_name']; ?></p>
-              <p>$<?php echo number_format((float)$product['product_price'], 2); ?></p>
+              <div id="info">
+                <p><?php echo $product['product_name']; ?></p>
+                <p>$<?php echo number_format((float)$product['product_price'], 2); ?></p>
+              </div>
             </div>
         <?php
             if( $count % 3 == 0 ){ // last image of row
@@ -157,14 +155,44 @@
 
         <?php
           } // end of while loop
+
           if(!$closeddiv){ //if div was not closed
             echo "</div>";
           }
+
+          function checkFavourite( $productid, $userid ){
+            $fav = false;
+            if( isset($userid) ){ // user id set
+              $sql = "SELECT * FROM rating_randa WHERE product_id = $productid && user_id = $userid";
+              $runsql = mysqli_query($conn, $sql);
+              $rating = mysqli_fetch_assoc($runsql);
+              $fav = $rating['rating_favourite'];
+            }
+            return $fav;
+          }
+
+          function checkCart( $productid, $userid){
+            $inCart = false;
+            if( isset($userid) ){ // user id set
+              $sql = "SELECT * FROM cart_randa WHERE product_id = $productid && user_id = $userid";
+              $runsql = mysqli_query($conn, $sql);
+              $cart = mysqli_fetch_assoc($runsql);
+              $inCart = mysqli_num_rows($cart) > 0;
+            }
+            return $cart;
+          }
       ?>
-
-
     </section>
   </div> <!-- end of favourites div -->
+
+  <!-- Popup Block -->
+  <div class="messagePopup" id="updateStatus">
+    <h2 id="messageHeader"></h2>
+  </div>
+
+  <?php
+    mysqli_close($conn);
+  ?>
 
   <footer>
     <div class="container-fluid frame row">
@@ -199,5 +227,7 @@
     </div>
     @Copyright 2020 Randa
   </footer>
+  <script type="text/javascript" src="js/products.js"></script>
+  <script type="text/javascript" src="js/statusMessages.js"></script>
 </body>
 </html>

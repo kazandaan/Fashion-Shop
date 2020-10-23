@@ -4,11 +4,14 @@ function setUpdateStatusDiv( status, message ){
   var div = document.getElementById('updateStatus');
 
   var colour = "";
-  if( status == 1 ){ // GREEN
+  if( status == 0 ){ // RED
+    colour = "#EFABAB"; // "rgba(255, 0, 0, 0.2)"
+  }
+  else if(status == 1 ){ // GREEN
     colour = "#ADEFAB"; // "rgba(0, 255, 0, 0.2)"
   }
-  else{ // status = 0 > RED
-    colour = "#EFABAB"; // "rgba(255, 0, 0, 0.2)"
+  else if( status == 2 ){ // BLUE
+    colour = "#ABCDEF";
   }
   div.style.display = "block";
   div.style.backgroundColor = colour;
