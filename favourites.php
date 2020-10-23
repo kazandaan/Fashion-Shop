@@ -41,13 +41,13 @@
             <a class="scroll" href="index.php">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="scroll" href="#">WOMEN'S</a>
+            <a class="scroll" href="products.php?category=women">WOMEN'S</a>
           </li>
           <li class="nav-item">
-            <a class="scroll" href="#">MEN'S</a>
+            <a class="scroll" href="products.php?category=men">MEN'S</a>
           </li>
           <li class="nav-item">
-            <a class="scroll" href="#">KIDS'</a>
+            <a class="scroll" href="products.php?category=kids">KIDS'</a>
           </li>
           <li class="nav-item">
             <a class="scroll" href="#">SHOP</a>
@@ -181,9 +181,9 @@
       <div class="col">
         <h4>CATEGORIES</h4>
         <ul>
-          <li><a href="">Women</a></li>
-          <li><a href="">Men</a></li>
-          <li><a href="">Kids</a></li>
+          <li><a href="products.php?category=women">Women</a></li>
+          <li><a href="products.php?category=men">Men</a></li>
+          <li><a href="products.php?category=kids">Kids</a></li>
         </ul>
       </div>
       <div class="col">
