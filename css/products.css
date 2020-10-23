@@ -1,0 +1,31 @@
+#products{
+  letter-spacing: 2px;
+  font-size: 20px;
+  line-height: 1.6;
+}
+#products h1{
+  /* background-color: red; */
+  font-size: 60px;
+  text-align: center;
+}
+#products .productrow{
+  /* background-color: red; */
+  margin-bottom: 50px;
+  padding-top: 50px;
+}
+#products .productrow span{
+  margin: 0px auto 10px auto;
+}
+#products .productrow span a{
+  color: black;
+  text-decoration: none;
+}
+#products .productrow img{
+  height: 300px;
+  width: 250px;
+}
+#products .productrow #info{
+  margin: auto;
+  height: 100px;
+  width: 200px;
+}

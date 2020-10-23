@@ -9,13 +9,7 @@ body {
 section {
   display: block;
   padding-bottom: 2rem;
-}
-
-footer {
-  padding-top: 75px;
-  padding-bottom: 32px;
-  color : white;
-  background-color: black;
+  margin-bottom: 3rem;
 }
 
 .title-section {
@@ -30,27 +24,34 @@ footer {
   border-left: 4px solid #ee4266;
 }
 
-
-
-.container-fluid {
-  padding: 1% 15% 1%;
-  margin-left:auto;
-  margin-right:auto;
-  overflow:hidden;
+.red_button {
+  text-decoration: none;
+  color: #FFFFFF;
+  background-color: #fe4c50;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 40px;
+  display: block;
+  width: 20%;
+  border-radius: 3px;
 }
 
-.img-fluid {
-  max-width:100%;
-  height: auto;
-}
-
-.flex{
-  display: flex;
+.red_button:hover{
+  opacity: 0.6;
+  transition: 0.7s;
 }
 
 /* END OF GENERAL */
 /* -------------------------------------------------------------------------------------------------------------------------- */
 /* TITLE */
+.banner {
+  width: 100%;
+  height: 50px;
+  background: #1e1e27;
+  color: white;
+}
+
 .logo {
   margin:5px 20px 5px 20px;
 }
@@ -181,7 +182,7 @@ input::-webkit-input-placeholder {
 
 .icon-group span a{
   color: #2f2f2f;
-    text-decoration: none;
+  text-decoration: none;
   font-size: 30px;
   padding: 0 8px 0 8px;
   transition: transform .2s; /*animation*/
@@ -193,18 +194,120 @@ input::-webkit-input-placeholder {
 }
 /* END OF TITLE */
 /* -------------------------------------------------------------------------------------------------------------------------- */
+/* CATEGORIES */
+#categories {
+  margin-left: 80px;
+  margin-right: 80px;
 
-/* NEWSLETTER */
-.newsletter_content {
-  margin: 0% 5% 0% 5%;
-  position: relative;
-  display: block;
-  background-image: url(../image/newsletter.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
+.banner-item {
+  height:265px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.banner-category {
+  height: 50px;
+  min-width: 90px;
+  padding-left: 25px;
+  padding-right: 25px;
+  background: white;
+  margin:0 auto;
+}
+
+.banner-category a{
+  line-height: 50px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-size: 22px;
+
+}
+
+/* POPULAR PRODUCTS */
+#popular .title-section h2 {
+  border-left: none;
+  position: relative;
+  padding-bottom: 20px;
+  padding-left: 0;
+}
+
+#popular .title-section h2:after{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width:130px;
+  height:4px;
+  background: #ee4266;
+  content:"";
+}
+
+.product-item {
+  margin-bottom: 30px;
+  background: #f9f9f9;
+  min-height: 400px;
+  padding: 40px;
+  position:relative;
+  overflow: hidden;
+  display: block;
+}
+
+.product-item img {
+  left:50%;
+  top: 15%;
+  transform: translateX(-50%);
+  object-fit: cover;
+  position: absolute;
+}
+
+.item-title {
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+/* DELIVERY */
+#delivery {
+  margin-top: 3rem;
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-bottom : 3rem;
+}
+
+
+
+
+/* NEWSLETTER */
+#newsletter .row{
+  background-color: #f9f9f9;
+}
+
+#newsletter button {
+  width: 160px;
+  height: 46px;
+  border: none;
+  background: #fe4c50;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#newsletter button:hover {
+  opacity: 0.6;
+  transition: 0.7s;
+}
+
+#newsletter form {
+  display:block;
+  margin-top:33%;
+  margin-bottom: 33%;
+}
+
+/* END OF NEWSLETTER */
 /* MODAL */
 /* The Modal (background) */
 .modal {
@@ -287,22 +390,36 @@ input::-webkit-input-placeholder {
 }
 
 
-/* END OF NEWSLETTER */
+
 /* -------------------------------------------------------------------------------------------------------------------------- */
 /* FOOTER */
+footer {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  background-color:  #f9f9f9;
+}
+
 footer ul li
 {
-  list-style: none;
+  padding-left: px;
+  padding-bottom: 16px;
+  color: #25262a;
 }
 
 footer ul {
-  padding-inline-start: 0px;
+  list-style:none;
+  padding-inline-start:0px;
 
 }
 
 footer ul li a {
   text-decoration: none;
-  color: white;
+  color: black;
+}
+
+footer i{
+  color:#fe4c50;
+  padding-right: 1rem;
 }
 
 /* END OF FOOTER */

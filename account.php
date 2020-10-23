@@ -20,6 +20,17 @@
   </style>
 </head>
 
+<!-- Check Session -->
+<?php
+  session_start();
+  if(!isset($_SESSION['userid'])){
+    header("Location:index.php");
+  }
+  else{
+    $id = $_SESSION['userid'];
+  }
+?>
+
 <body>
   <header id="title">
           <div class="wrapHead" >
@@ -33,13 +44,13 @@
                   <a class="nav-link" href="index.php">HOME</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">WOMEN'S</a>
+                  <a class="nav-link" href="products.php?category=women">WOMEN'S</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">MEN'S</a>
+                  <a class="nav-link" href="products.php?category=men">MEN'S</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">KIDS'</a>
+                  <a class="nav-link" href="products.php?category=kids">KIDS'</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">SHOP</a>
@@ -56,24 +67,13 @@
 
             <div class="icon-group">
               <span class="material-icons"><a href="account.php" title="My Account">face</a></span>
-              <span class="material-icons"><a href="favourites.html" title="My Favourites">favorite_border</a></span>
+              <span class="material-icons"><a href="favourites.php" title="My Favourites">favorite_border</a></span>
               <span class="material-icons"><a href="cart.html" title="My Cart">shopping_cart</a></span>
             </div>
           </div>
 
 
   </header>
-
-  <!-- Check Session -->
-  <?php
-    session_start();
-    if(!isset($_SESSION['userid'])){
-      header("Location:index.php");
-    }
-    else{
-      $id = $_SESSION['userid'];
-    }
-  ?>
 
   <!-- START SCRIPT | Window ONLOAD, $_GET Stuff -->
   <script type="text/javascript" src="js/statusMessages.js"></script>
@@ -216,9 +216,9 @@
         <div class="col">
             <h4>CATEGORIES</h4>
             <ul>
-            <li><a href="">Women</a></li>
-            <li><a href="">Men</a></li>
-            <li><a href="">Kids</a></li>
+              <li><a href="products.php?category=women">Women</a></li>
+              <li><a href="products.php?category=men">Men</a></li>
+              <li><a href="products.php?category=kids">Kids</a></li>
             </ul>
           </div>
           <div class="col">
