@@ -19,7 +19,8 @@ function setUpdateStatusDiv( status, message ){
   // remove updateStatusDiv after 3 seconds
   setTimeout(function(){
     div.style.display = "none";
-    window.location = window.location.pathname; // removeQueryString from url
+    var newURL = location.pathname;
+    window.history.replaceState('object', document.title, newURL); // removeQueryString from url without refreshing
     // location.replace("account.php");
   }, 3000);
 }
