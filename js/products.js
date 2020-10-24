@@ -22,7 +22,8 @@ function favouriteProduct( productid, userid ){
     getVariables(productid);
     this.unfavBtn.style.display = "none";
     this.favBtn.style.display = "block";
-    // call php > add to rating_randa
+    // call php > set rating_favourite = 1 in rating_randa
+    location.replace("action/favouriteProduct.php?userid=" + userid + "&productid=" + productid + "&like=1");
   }
 }
 
@@ -31,7 +32,8 @@ function unfavouriteProduct( productid, userid ){
     getVariables(productid);
     this.favBtn.style.display = "none";
     this.unfavBtn.style.display = "block";
-    // call php > remove from rating_randa
+    // call php > set rating_favourite = 0 in rating_randa
+    location.replace("action/favouriteProduct.php?userid=" + userid + "&productid=" + productid + "&like=0");
   }
 }
 

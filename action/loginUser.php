@@ -27,18 +27,20 @@
       // set session
       session_start();
 		  $_SESSION['userid'] = $row['user_id'];
-      header("Location:../account.php");
+      $_SESSION['username'] = $row['user_username'];
+      // header("Location:../account.php");
     }
     else{
       // echo $sql . "<br>incorrect password<br>" . $exist;
-      header("Location:../index.php?page=loginUser&status=" . $exist);
+      // header("Location:../index.php?page=loginUser&status=" . $exist);
     }
   }
   else{
     // echo "incorrect username " . mysqli_error($conn) . $sql . "<br>DBpw: " . $dbpassword . "<br>Pw: " . md5($password) . "<br>" . $exist;
-    header("Location:../index.php?page=loginUser&status=" . $exist);
+    // header("Location:../index.php?page=loginUser&status=" . $exist);
   }
 
+  header("Location:../index.php?page=loginUser&status=" . $exist);
   mysqli_close($conn);
 
 ?>

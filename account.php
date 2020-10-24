@@ -28,6 +28,9 @@
   }
   else{
     $id = $_SESSION['userid'];
+    $username = $_SESSION['username'];
+    $dropdown = "none";
+    $logout = "block";
   }
 ?>
 

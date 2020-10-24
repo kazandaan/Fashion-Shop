@@ -21,8 +21,16 @@
 <!-- Check Session -->
 <?php
   session_start();
-  if(isset($_SESSION['userid'])){
+  if(!isset($_SESSION['userid'])){
+    $username = "My Account";
+    $dropdown = "block";
+    $logout = "none";
+  }
+  else{
     $id = $_SESSION['userid'];
+    $username = $_SESSION['username'];
+    $dropdown = "none";
+    $logout = "block";
   }
 ?>
 
@@ -232,7 +240,7 @@
               <div class="frame zoom">
                   <?php
                     // check if favourite or not
-                    if(checkFavourite($product['product_id'], $id)){
+                    if(checkFavourite($conn, $product['product_id'], $id)){
                       $favBtn = "block";
                       $unfavBtn = "none";
                     }
@@ -242,7 +250,7 @@
                     }
 
                     // Check if in cart or not
-                    if(checkCart($product['product_id'], $id)){
+                    if(checkCart($conn, $product['product_id'], $id)){
                       $removCartBtn = "block";
                       $addCartBtn = "none";
                     }
@@ -279,8 +287,8 @@
               echo "</div>";
             }
 
-            function checkFavourite( $productid, $userid ){
-              $fav = false;
+            function checkFavourite( $conn, $productid, $userid ){
+              // $fav = 0;
               if( isset($userid) ){ // user id set
                 $sql = "SELECT * FROM rating_randa WHERE product_id = $productid && user_id = $userid";
                 $runsql = mysqli_query($conn, $sql);
@@ -290,8 +298,8 @@
               return $fav;
             }
 
-            function checkCart( $productid, $userid){
-              $inCart = false;
+            function checkCart( $conn,  $productid, $userid){
+              $inCart = 0;
               if( isset($userid) ){ // user id set
                 $sql = "SELECT * FROM cart_randa WHERE product_id = $productid && user_id = $userid";
                 $runsql = mysqli_query($conn, $sql);
