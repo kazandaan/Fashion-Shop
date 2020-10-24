@@ -27,6 +27,24 @@
 ?>
 
 <body>
+  <div id="banner" class="banner" onscroll="myFunction()">
+    <div class="row">
+      <div class="col flex " style="height:50px; line-height:50px; font-size:16px; margin-left:60px; margin-right:45px; padding-right:0px;">
+          FREE SHIPPING ON ORDERS OVER SGD80
+          <div class="dropdown ml-auto">
+            <button class="login_dropdown"><?php echo $username; ?></button>
+            <div class="dropdown-content">
+              <a onclick="openModal('loginModal', 'registerModal')" style="display:<?php echo $dropdown; ?>;">Login</a>
+              <a onclick="openModal('registerModal', 'loginModal')" style="display:<?php echo $dropdown; ?>;">Register</a>
+            </div>
+
+          </div>
+          <div class="logout_icon">
+            <a href="action/logout.php" style="display:<?php echo $logout; ?>;"><i class="fas fa-sign-out-alt"></i> </a>
+          </div>
+      </div>
+    </div>
+  </div>
   <header id="title">
     <div class="wrapHead">
       <div>
