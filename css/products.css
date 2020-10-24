@@ -3,13 +3,52 @@
   font-size: 20px;
   line-height: 1.6;
 }
+
 #products h1{
   /* background-color: red; */
   font-size: 60px;
   text-align: center;
 }
+#products hr{
+  /* width: 80%; */
+}
+
+/* LEFT SIDE > SEARCH & FILTER */
+#products #left{
+  background-color: lightgrey;
+  width: 20%;
+  margin-left: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+#products form{
+  width: auto;
+  margin: auto;
+}
+#products #searchbox{
+  margin: auto;
+  width: 80%;
+}
+ #products select{
+   border: 1px solid lightgrey;
+   border-radius: 7px;
+   height: 40px;
+   width: 90%;
+   border-bottom: 1px solid black;
+   margin-top: 10px;
+ }
+
+/* RIGHT SIDE > PRODUCTS */
+#products #categories{
+  /* background-color: blue; */
+  width: 100%;
+  margin: 0px;
+}
 #products .productrow{
-  /* background-color: red; */
+  /* background-color: green; */
+  width: auto;
   margin-bottom: 50px;
   padding-top: 50px;
 }

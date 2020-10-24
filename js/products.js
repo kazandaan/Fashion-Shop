@@ -52,3 +52,23 @@ function removeProduct( productid, userid ){
     // call php > add to cart_randa
   }
 }
+
+function checkPriceRange(){
+  var priceRange = document.getElementById('priceRange').value;
+  var min = priceRange;
+  var max = parseInt(priceRange) + 50;
+  if( min == 100 ){
+    max = 500;
+  }
+  location.replace( location.pathname + "?min=" + min + "&max=" + max);
+}
+
+function checkType(){
+  var type = document.getElementById('type').value;
+  location.replace( location.pathname + "?type=" + type );
+}
+
+function checkBrand(){
+  var brand = document.getElementById('brand').value;
+  location.replace( location.pathname + "?brand=" + brand );
+}
