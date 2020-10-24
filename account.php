@@ -132,7 +132,7 @@
           </div>
         </div>
 
-        <form id="logoutForm" action="action/logout.php" method="post">
+        <form id="logoutForm" action="action/logout.php" method="post" class="buttons">
           <input type="submit" value="Logout"/>
         </form>
       </div>
@@ -142,7 +142,7 @@
           <!-- Editing Block -->
           <div id="editMode" class="flex">
             <b>* EDITING MODE *</b>
-            <div id="buttons" class="flex">
+            <div class="buttons" class="flex">
               <input type="submit" value="Update Details"/> &nbsp;
               <input type="button" onclick="cancelEdit()" value="Cancel"/>
             </div>
@@ -154,7 +154,7 @@
               <u><h3>Account Information</h3></u>
               <input type="hidden" name="userid" id="userid" value="<?php echo $user['user_id']; ?>">
               <label>Username:</label><input type="text" name="username" id="username" value="<?php echo $user['user_username']; ?>" disabled></input><br>
-              <label>Password:</label><a onclick="openModal()">Change Password</a><br>
+              <label style="margin-right:7px;">Password:</label><a onclick="openModal()">Change Password</a><br>
 
             </div>
             <div id="perosnalInfo">

@@ -1,7 +1,7 @@
 #account{
   /* background-color: darkgrey; */
   margin: 0px 100px 50px 100px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 20px;
   line-height: 1.6;
 }
@@ -13,6 +13,7 @@
 #account #leftside{
   width: 25%;
   text-align: center;
+  border-right: 1px solid black;
 }
 #account #userimage{
   /* background-image: url('../image/logo.png'); */
@@ -42,37 +43,28 @@
 /* top */
 #account #editMode{
   padding: 20px;
+  margin: 0px 0px 10px 50px;
   margin-bottom: 10px;
   display: none;
   font-weight: bold;
   border-radius: 5px;
   background-color: darkgrey;
 }
-#account #editMode #buttons{
+#account #editMode .buttons{
   float: right;
 }
-#account #editMode #buttons input, #account #logoutForm input{
-  height: 30px;
-  width: 125px;
-  background-color: lightgrey;
-  border: 1px solid black;
-}
-#account #editMode #buttons input:hover, #account #logoutForm input:hover{
-  background-color: darkgrey;
-  color: white;
-  border: 1px solid white;
-}
+
 /* bottom */
 #account #userdetails{
   /* background-color: whitesmoke; */
   height: auto;
-  border: solid black 2px;
+  /* border: solid black 1px; */
   border-radius: 5px;
-  padding: 0px 0px 25px 25px;
+  padding: 0px 0px 25px 50px;
 }
 #account #userdetails #editDetailsBtn{
   float: right;
-  margin: 20px 15px 0px 0px;
+  /* margin: 20px 15px 0px 0px; */
 }
 
 #account #userdetails label{
@@ -80,13 +72,18 @@
   display: inline-block;
   width: 175px;
 }
-#account #userdetails input, #account #userdetails select{
+#account #userdetails input{
   background-color: white;
-  font-family: 'Italiana', serif;
-  font-weight: 750;
   font-size: 20px;
   border: 0px solid #FFFFFF;
   width: 225px;
+  margin-left: 7px;
+}
+#account #userdetails select{
+  background-color: white;
+  border: 0px solid #FFFFFF;
+  width: 225px;
+  font-size: 20px;
 }
 #account #userdetails #userimg{
   width: 300px !important;

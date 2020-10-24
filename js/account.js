@@ -28,7 +28,7 @@ function editDetails(){
   var array = getVariables();
   // Show Inputbox
   array.forEach((item, i) => {
-    item.style.border = "2px solid black";
+    item.style.border = "1px solid black";
     item.removeAttribute("disabled");
   });
 }
