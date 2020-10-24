@@ -32,32 +32,6 @@
     $dropdown = "none";
     $logout = "block";
   }
-
-  // GET username to show on banner
-  if(!isset($_SESSION['userid'])){
-    $username = "My Account";
-    $dropdown = "block";
-    $logout = "none";
-  }
-  else{
-    // Create connection (servername, username, password, dbname)
-    $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");
-
-    // Check connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-
-    $id = $_SESSION['userid'];
-    $sql = "SELECT * FROM user_randa WHERE user_id = $id"; //get from session
-    $runsql = mysqli_query($conn, $sql);
-    $user = mysqli_fetch_assoc($runsql);
-
-    $username = $user['user_username'];
-    $dropdown = "none";
-    $logout = "block";
-
-  }
 ?>
 
 <body>
