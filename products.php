@@ -299,7 +299,7 @@
   <footer>
     <div class="container-fluid frame row">
       <div class="col">
-        <h4>CATEGORIES</h4>
+        <h3>CATEGORIES</h3>
         <ul>
           <li><a href="products.php?category=women">Women</a></li>
           <li><a href="products.php?category=men">Men</a></li>
@@ -307,7 +307,7 @@
         </ul>
       </div>
       <div class="col">
-        <h4>ACCOUNT</h4>
+        <h3>ACCOUNT</h3>
         <ul>
           <li><a href="#">My Account</a></li>
           <li><a href="#">Order</a></li>
@@ -316,7 +316,7 @@
         </ul>
       </div>
       <div class="col">
-        <h4>HELP</h4>
+        <h3>HELP</h3>
         <ul>
           <li><a href="#">Shipping</a></li>
           <li><a href="#">Return</a></li>
@@ -324,10 +324,28 @@
         </ul>
       </div>
       <div class="col">
-        <img src="https://via.placeholder.com/300x200.png?text=HOLDER" alt="">
+        <h3>CONTACT INFO</h3>
+        <div style=" position:relative;">
+          <ul>
+            <li class="address flex"><i class="fas fa-map-marker-alt"></i> <div class="">
+              Hougang Central 530837 Singapore.
+            </div> </li>
+            <li class="phone flex"><i class="fas fa-phone-alt"></i><div class="">
+               +65 87141256
+            </div> </li>
+            <li class="email flex"><i class="far fa-envelope"></i><div class="">
+               ntu@gmail.com
+            </div></li>
+          </ul>
+        </div>
+
       </div>
     </div>
-    @Copyright 2020 Randa
+    <div class="">
+    </div>
+    <div class="text-mid">
+      @Copyright 2020 Randa
+    </div>
   </footer>
   <script type="text/javascript" src="js/products.js"></script>
   <script type="text/javascript" src="js/statusMessages.js"></script>
