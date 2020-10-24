@@ -104,7 +104,7 @@
       window.onload = function(){
     <?php
       // SQL statements
-      include "action/productPage.php";
+      include "php/productPage.php";
     ?>
       } // end of window.onload = function()
     </script>

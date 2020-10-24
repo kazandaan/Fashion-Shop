@@ -88,8 +88,8 @@
 
         <div class="icon-group">
           <span class="material-icons zoom"><a href="account.php" title="My Account">face</a></span>
-          <span class="material-icons zoom"><a href="favourites.html" title="My Favourites">favorite_border</a></span>
-          <span class="material-icons zoom"><a href="cart.html" title="My Cart">shopping_cart</a></span>
+          <span class="material-icons zoom"><a href="products.php?page=favourites" title="My Favourites">favorite_border</a></span>
+          <span class="material-icons zoom"><a href="products.php?page=cart" title="My Cart">shopping_cart</a></span>
         </div>
       </div>
 
