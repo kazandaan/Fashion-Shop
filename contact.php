@@ -94,7 +94,7 @@
         </ul>
       </nav>
 
-      <div class="flex ml-auto" style="align-items:center; margin-right:45px;">
+      <div class="flex" style="align-items:center; margin-left:45px;">
         <form class="search-box" action="products.php" method="post">
           <input id="search-box" name="searchbox" type="search" placeholder="Search">
         </form>
