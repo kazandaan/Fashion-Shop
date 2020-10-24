@@ -5,13 +5,13 @@ function setUpdateStatusDiv( status, message ){
 
   var colour = "";
   if( status == 0 ){ // RED
-    colour = "#EFABAB"; // "rgba(255, 0, 0, 0.2)"
+    colour = "#F09CA2"; // "rgba(255, 0, 0, 0.2)"
   }
   else if(status == 1 ){ // GREEN
-    colour = "#ADEFAB"; // "rgba(0, 255, 0, 0.2)"
+    colour = "#BDF0D6"; // "rgba(0, 255, 0, 0.2)"
   }
   else if( status == 2 ){ // BLUE
-    colour = "#ABCDEF";
+    colour = "#B2C4CB";
   }
   div.style.display = "block";
   div.style.backgroundColor = colour;
