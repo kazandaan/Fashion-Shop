@@ -14,9 +14,35 @@
   <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
-
-
 </head>
+
+<!-- Check Session -->
+<?php
+  session_start();
+  if(!isset($_SESSION['userid'])){
+    $username = "My Account";
+    $dropdown = "block";
+    $logout = "none";
+  }
+  else{
+    // Create connection (servername, username, password, dbname)
+    $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");
+
+    // Check connection
+    if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $id = $_SESSION['userid'];
+    $sql = "SELECT * FROM user_randa WHERE user_id = $id"; //get from session
+    $runsql = mysqli_query($conn, $sql);
+    $user = mysqli_fetch_assoc($runsql);
+
+    $username = $user['user_username'];
+    $dropdown = "none";
+    $logout = "block";
+  }
+?>
 
 <body>
   <div class="banner">
@@ -24,15 +50,15 @@
       <div class="col flex " style="height:50px; line-height:50px; font-size:16px; margin-left:60px; margin-right:45px; padding-right:0px;">
           FREE SHIPPING ON ORDERS OVER SGD80
           <div class="dropdown ml-auto">
-            <button class="login_dropdown">MY ACCOUNTS</button>
+            <button class="login_dropdown"><?php echo $username; ?></button>
             <div class="dropdown-content">
-              <a href="#">Login</a>
-              <a href="#">Register</a>
+              <a onclick="openModal('loginModal', 'registerModal')" style="display:<?php echo $dropdown; ?>;">Login</a>
+              <a onclick="openModal('registerModal', 'loginModal')" style="display:<?php echo $dropdown; ?>;">Register</a>
             </div>
 
           </div>
           <div class="logout_icon">
-            <a href="#"><i class="fas fa-sign-out-alt"></i> </a>
+            <a href="action/logout.php" style="display:<?php echo $logout; ?>;"><i class="fas fa-sign-out-alt"></i> </a>
           </div>
       </div>
     </div>
@@ -72,21 +98,8 @@
           <input id="search-box" type="search" placeholder="Search">
         </form>
 
-        <!-- Check Session -->
-        <?php
-          session_start();
-          // $account = "";
-          if(!isset($_SESSION['userid'])){
-            $account = "onclick=\"openModal('loginModal')\"";
-          }
-          else{
-            $account = "href='account.php'";
-          }
-        ?>
-
         <div class="icon-group">
-          <!-- PHP > check session > no user > openModal('loginModal') ; got user > account.html -->
-          <span class="material-icons zoom"><a <?php echo $account; ?> title="My Account">face</a></span>
+          <span class="material-icons zoom"><a href="account.php" title="My Account">face</a></span>
           <span class="material-icons zoom"><a href="favourites.html" title="My Favourites">favorite_border</a></span>
           <span class="material-icons zoom"><a href="cart.html" title="My Cart">shopping_cart</a></span>
         </div>
@@ -362,7 +375,7 @@
         <div class="buttons">
           <input type="submit" value="Login"/> &nbsp;
         </div>
-        Don't have an account? <a href="#" onclick="openModal('registerModal', 'loginModal')">Click here</a> to Register!
+        Don't have an account? <a href="#" onclick="openModal('registerModal', 'loginModal')"><br>Click here</a> to Register!
       </form>
     </div>
   </div>
@@ -382,7 +395,7 @@
         <div class="buttons">
           <input type="submit" value="Register"/> &nbsp;
         </div>
-        Have an account? <a href="#" onclick="openModal('loginModal', 'registerModal')">Click here</a> to Login!
+        Have an account? <a href="#" onclick="openModal('loginModal', 'registerModal')"><br>Click here</a> to Login!
       </form>
     </div>
   </div>
