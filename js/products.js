@@ -43,6 +43,7 @@ function addProduct( productid, userid ){
     addCartBtn.style.display = "none";
     removeCartBtn.style.display = "block";
     // call php > add to cart_randa
+    location.replace("action/cartProduct.php?action=update&userid=" + userid + "&productid=" + productid + "&quantity=1");
   }
 }
 
@@ -51,7 +52,8 @@ function removeProduct( productid, userid ){
     getVariables(productid);
     removeCartBtn.style.display = "none";
     addCartBtn.style.display = "block";
-    // call php > add to cart_randa
+    // call php > remove from cart_randa
+    location.replace("action/cartProduct.php?action=delete&userid=" + userid + "&productid=" + productid );
   }
 }
 

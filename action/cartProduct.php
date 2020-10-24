@@ -9,7 +9,7 @@
   }
 
   //variables
-  $action = $_GET['action']; //insert or delete or update
+  $action = $_GET['action']; //insert/update or delete
   $userid = $_GET['userid'];
   $productid = $_GET['productid'];
   $quantity = $_GET['quantity'];

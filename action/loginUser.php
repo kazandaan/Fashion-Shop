@@ -39,7 +39,6 @@
     // echo "incorrect username " . mysqli_error($conn) . $sql . "<br>DBpw: " . $dbpassword . "<br>Pw: " . md5($password) . "<br>" . $exist;
     // header("Location:../index.php?page=loginUser&status=" . $exist);
   }
-
   header("Location:../index.php?page=loginUser&status=" . $exist);
   mysqli_close($conn);
 
