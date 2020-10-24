@@ -32,6 +32,32 @@
     $dropdown = "none";
     $logout = "block";
   }
+
+  // GET username to show on banner
+  if(!isset($_SESSION['userid'])){
+    $username = "My Account";
+    $dropdown = "block";
+    $logout = "none";
+  }
+  else{
+    // Create connection (servername, username, password, dbname)
+    $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");
+
+    // Check connection
+    if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $id = $_SESSION['userid'];
+    $sql = "SELECT * FROM user_randa WHERE user_id = $id"; //get from session
+    $runsql = mysqli_query($conn, $sql);
+    $user = mysqli_fetch_assoc($runsql);
+
+    $username = $user['user_username'];
+    $dropdown = "none";
+    $logout = "block";
+
+  }
 ?>
 
 <body>
@@ -39,7 +65,7 @@
     <div class="row">
       <div class="col flex " style="height:50px; line-height:50px; font-size:16px; margin-left:60px; margin-right:45px; padding-right:0px;">
           FREE SHIPPING ON ORDERS OVER SGD80
-          <div class="dropdown ml-auto">
+          <div class="dropdown ml-auto text-mid">
             <button class="login_dropdown"><?php echo $username; ?></button>
             <div class="dropdown-content">
               <a onclick="openModal('loginModal', 'registerModal')" style="display:<?php echo $dropdown; ?>;">Login</a>
@@ -54,48 +80,50 @@
     </div>
   </div>
   <header id="title">
-          <div class="wrapHead" >
-            <div>
-              <a href="index.php"><img src="image/logo.png" alt="" class="logo"></a>
-            </div>
-            <nav class="nav">
+    <div class="wrapHead">
 
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="index.php">HOME</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="products.php?category=women">WOMEN'S</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="products.php?category=men">MEN'S</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="products.php?category=kids">KIDS'</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">SHOP</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">CONTACT</a>
-                </li>
-              </ul>
-            </nav>
+      <div class="ml-auto">
+        <a href="index.php"><img src="image/logo.png" alt="" class="logo"></a>
+      </div>
+      <nav class="nav frame">
 
-            <div class="flex mr-auto" style="align-items:center;">
-              <form class="search-box" action="products.php" method="post">
-                <input id="search-box" name="searchbox" type="search" placeholder="Search">
-              </form>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="scroll" href="index.php">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="scroll" href="products.php?category=women">WOMEN'S</a>
+          </li>
+          <li class="nav-item">
+            <a class="scroll" href="products.php?category=men">MEN'S</a>
+          </li>
+          <li class="nav-item">
+            <a class="scroll" href="products.php?category=kids">KIDS'</a>
+          </li>
+          <li class="nav-item">
+            <a class="scroll" href="#">SHOP</a>
+          </li>
+          <li class="nav-item">
+            <a class="scroll" href="contact.php">CONTACT</a>
+          </li>
+        </ul>
+      </nav>
 
-              <div class="icon-group">
-                <span class="material-icons zoom"><a href="account.php" title="My Account">face</a></span>
-                <span class="material-icons zoom"><a href="favourites.html" title="My Favourites">favorite_border</a></span>
-                <span class="material-icons zoom"><a href="cart.html" title="My Cart">shopping_cart</a></span>
-              </div>
-            </div>
+      <div class="flex mr-auto" style="align-items:center;">
+        <form class="search-box" action="products.php" method="post">
+          <input id="search-box" name="searchbox" type="search" placeholder="Search">
+        </form>
 
+        <div class="icon-group">
+          <span class="material-icons zoom"><a href="account.php" title="My Account">face</a></span>
+          <span class="material-icons zoom"><a href="favourites.html" title="My Favourites">favorite_border</a></span>
+          <span class="material-icons zoom"><a href="cart.html" title="My Cart">shopping_cart</a></span>
+        </div>
+      </div>
 
+    </div>
   </header>
+
 
   <!-- START SCRIPT | Window ONLOAD, $_GET Stuff -->
   <script type="text/javascript" src="js/statusMessages.js"></script>
@@ -232,57 +260,8 @@
     mysqli_close($conn);
   ?>
 
-  <footer>
-    <div class="container-fluid frame row">
-      <div class="col">
-        <h3>CATEGORIES</h3>
-        <ul>
-          <li><a href="products.php?category=women">Women</a></li>
-          <li><a href="products.php?category=men">Men</a></li>
-          <li><a href="products.php?category=kids">Kids</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h3>ACCOUNT</h3>
-        <ul>
-          <li><a href="#">My Account</a></li>
-          <li><a href="#">Order</a></li>
-          <li><a href="#">Checkout</a></li>
-          <li><a href="#">Wishlist</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h3>HELP</h3>
-        <ul>
-          <li><a href="#">Shipping</a></li>
-          <li><a href="#">Return</a></li>
-          <li><a href="#">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h3>CONTACT INFO</h3>
-        <div style=" position:relative;">
-          <ul>
-            <li class="address flex"><i class="fas fa-map-marker-alt"></i> <div class="">
-              Hougang Central 530837 Singapore.
-            </div> </li>
-            <li class="phone flex"><i class="fas fa-phone-alt"></i><div class="">
-               +65 87141256
-            </div> </li>
-            <li class="email flex"><i class="far fa-envelope"></i><div class="">
-               ntu@gmail.com
-            </div></li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-    <div class="">
-    </div>
-    <div class="text-mid">
-      @Copyright 2020 Randa
-    </div>
-  </footer>
+  <!-- This generates footer -->
+  <?php echo file_get_contents("html/bottom.html"); ?>
 
   <script type="text/javascript" src="js/account.js"></script>
 

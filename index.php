@@ -29,6 +29,7 @@
     $username = $_SESSION['username'];
     $dropdown = "none";
     $logout = "block";
+
   }
 ?>
 
@@ -37,7 +38,7 @@
     <div class="row">
       <div class="col flex " style="height:50px; line-height:50px; font-size:16px; margin-left:60px; margin-right:45px; padding-right:0px;">
           FREE SHIPPING ON ORDERS OVER SGD80
-          <div class="dropdown ml-auto">
+          <div class="dropdown ml-auto text-mid">
             <button class="login_dropdown"><?php echo $username; ?></button>
             <div class="dropdown-content">
               <a onclick="openModal('loginModal', 'registerModal')" style="display:<?php echo $dropdown; ?>;">Login</a>
@@ -76,7 +77,7 @@
             <a class="scroll" href="#">SHOP</a>
           </li>
           <li class="nav-item">
-            <a class="scroll" href="#">CONTACT</a>
+            <a class="scroll" href="contact.php">CONTACT</a>
           </li>
         </ul>
       </nav>
@@ -95,6 +96,7 @@
 
     </div>
   </header>
+
 
   <!-- START SCRIPT | Window ONLOAD, $_GET Stuff -->
   <script type="text/javascript" src="js/statusMessages.js"></script>
@@ -397,6 +399,7 @@
     <h2 id="messageHeader"></h2>
   </div>
 
+  <!-- Modal script -->
   <script>
     var modal;
     function openModal(modalname, closemodal){
@@ -423,58 +426,11 @@
     }
   </script>
 
-  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-  <footer>
-    <div class="container-fluid frame row">
-      <div class="col">
-        <h3>CATEGORIES</h3>
-        <ul>
-          <li><a href="products.php?category=women">Women</a></li>
-          <li><a href="products.php?category=men">Men</a></li>
-          <li><a href="products.php?category=kids">Kids</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h3>ACCOUNT</h3>
-        <ul>
-          <li><a href="#">My Account</a></li>
-          <li><a href="#">Order</a></li>
-          <li><a href="#">Checkout</a></li>
-          <li><a href="#">Wishlist</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h3>HELP</h3>
-        <ul>
-          <li><a href="#">Shipping</a></li>
-          <li><a href="#">Return</a></li>
-          <li><a href="#">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h3>CONTACT INFO</h3>
-        <div style=" position:relative;">
-          <ul>
-            <li class="address flex"><i class="fas fa-map-marker-alt"></i> <div class="">
-              Hougang Central 530837 Singapore.
-            </div> </li>
-            <li class="phone flex"><i class="fas fa-phone-alt"></i><div class="">
-               +65 87141256
-            </div> </li>
-            <li class="email flex"><i class="far fa-envelope"></i><div class="">
-               ntu@gmail.com
-            </div></li>
-          </ul>
-        </div>
 
-      </div>
-    </div>
-    <div class="">
-    </div>
-    <div class="text-mid">
-      @Copyright 2020 Randa
-    </div>
-  </footer>
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+  <!-- This generates footer -->
+  <?php echo file_get_contents("html/bottom.html"); ?>
 
   <script type="text/javascript" src="js/carousel.js"></script>
   <script>
