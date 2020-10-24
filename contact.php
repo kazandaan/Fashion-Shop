@@ -58,7 +58,7 @@
       <div class="" style="margin-left:40px;">
         <a href="index.php"><img src="image/logo.png" alt="" class="logo"></a>
       </div>
-      <nav class="nav">
+      <nav class="nav frame">
 
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -82,7 +82,7 @@
         </ul>
       </nav>
 
-      <div class="flex" style="align-items:center; margin-left:45px;">
+      <div class="flex" style="align-items:center; margin-right:45px;">
         <form class="search-box" action="products.php" method="post">
           <input id="search-box" name="searchbox" type="search" placeholder="Search">
         </form>
