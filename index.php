@@ -94,8 +94,8 @@
       </nav>
 
       <div class="flex mr-auto" style="align-items:center;">
-        <form class="search-box" method="post">
-          <input id="search-box" type="search" placeholder="Search">
+        <form class="search-box" action="products.php" method="post">
+          <input id="search-box" name="searchbox" type="search" placeholder="Search">
         </form>
 
         <div class="icon-group">

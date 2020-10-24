@@ -61,16 +61,17 @@
               </ul>
             </nav>
 
-            <form class="search-box" method="post">
-              <input id="search-box" type="search" placeholder="Search">
-            </form>
+            <div class="flex mr-auto" style="align-items:center;">
+              <form class="search-box" action="products.php" method="post">
+                <input id="search-box" name="searchbox" type="search" placeholder="Search">
+              </form>
 
-            <div class="icon-group">
-              <span class="material-icons"><a href="account.php" title="My Account">face</a></span>
-              <span class="material-icons"><a href="favourites.php" title="My Favourites">favorite_border</a></span>
-              <span class="material-icons"><a href="cart.html" title="My Cart">shopping_cart</a></span>
+              <div class="icon-group">
+                <span class="material-icons zoom"><a href="account.php" title="My Account">face</a></span>
+                <span class="material-icons zoom"><a href="favourites.html" title="My Favourites">favorite_border</a></span>
+                <span class="material-icons zoom"><a href="cart.html" title="My Cart">shopping_cart</a></span>
+              </div>
             </div>
-          </div>
 
 
   </header>

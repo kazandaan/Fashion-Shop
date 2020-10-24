@@ -56,14 +56,16 @@
         </ul>
       </nav>
 
-      <form class="search-box" method="post">
-        <input id="search-box" type="search" placeholder="Search">
-      </form>
+      <div class="flex mr-auto" style="align-items:center;">
+        <form class="search-box" action="products.php" method="post">
+          <input id="search-box" name="searchbox" type="search" placeholder="Search">
+        </form>
 
-      <div class="icon-group">
-        <span class="material-icons"><a href="account.php" title="My Account">face</a></span>
-        <span class="material-icons"><a href="favourites.php" title="My Favourites">favorite_border</a></span>
-        <span class="material-icons"><a href="cart.html" title="My Cart">shopping_cart</a></span>
+        <div class="icon-group">
+          <span class="material-icons zoom"><a href="account.php" title="My Account">face</a></span>
+          <span class="material-icons zoom"><a href="favourites.html" title="My Favourites">favorite_border</a></span>
+          <span class="material-icons zoom"><a href="cart.html" title="My Cart">shopping_cart</a></span>
+        </div>
       </div>
     </div>
   </header>
@@ -73,9 +75,33 @@
   <script>
     window.onload = function(){
   <?php
-    if( isset($_GET['category']) ){
+    // category + search
+    // category > women, men, kids
+    // search > empty > view all products, not empty > LIKE
+    // all products
+    if( isset($_GET['category']) && isset($_POST['searchbox']) ){
       $category = $_GET['category'];
-
+      $search = $_POST['searchbox'];
+      $sql = "SELECT * FROM product_randa WHERE product_category = '$category' AND product_name LIKE '%$search%'";
+      $title = $category;
+      $msg = "There are no products that match '$search' in $category's category.";
+    }
+    else if( isset($_GET['category']) ){
+      $category = $_GET['category'];
+      $sql = "SELECT * FROM product_randa WHERE product_category = '$category'";
+      $title = $category;
+      $msg = "There are no products in $category's category.";
+    }
+    else if( isset($_POST['searchbox']) && $_POST['searchbox'] != null ){
+      $search = $_POST['searchbox'];
+      $sql = "SELECT * FROM product_randa WHERE product_name LIKE '%$search%'";
+      $title = "Search '$search'";
+      $msg = "There are no products that match '$search'.";
+    }
+    else{
+      $sql = "SELECT * FROM product_randa";
+      $title = "All Products";
+      $msg = "There are no products.";
     }
   ?>
     } // end of window.onload = function()
@@ -83,7 +109,7 @@
   <!-- END SCRIPT | Window ONLOAD, $_GET Stuff -->
 
   <div id="products">
-    <h1><?php echo ucfirst($category); ?></h1>
+    <h1><?php echo ucfirst($title); ?></h1>
     <hr>
     <?php
       // Create connection (servername, username, password, dbname)
@@ -99,8 +125,12 @@
       <div class="container-fluid">
 
         <?php
-          $sql = "SELECT * FROM product_randa WHERE product_category = '$category'";
+          // echo $sql . "<br>" . $_POST['searchbox'];
           $runsql = mysqli_query($conn, $sql);
+          if( !mysqli_num_rows($runsql) > 0 ){
+            echo $msg;
+          }
+
           $closeddiv = false;
           $count = 0; // 3 per row
           while ($product = mysqli_fetch_assoc($runsql)) {
