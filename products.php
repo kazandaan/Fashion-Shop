@@ -313,6 +313,43 @@
     </div>
   </div> <!-- end of products div -->
 
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('loginModal')">&times;</span>
+      <form id="loginForm" name="loginForm" action="action/loginUser.php" method="POST">
+        <h2>Login</h2>
+        <label>Username:</label><input type="text" name="username" id="username" required></input><br>
+        <label>Password:</label><input type="password" name="password" id="password" required></input><br>
+        <div class="buttons">
+          <input type="submit" value="Login"/> &nbsp;
+        </div>
+        Don't have an account? <a href="#" onclick="openModal('registerModal', 'loginModal')"><br>Click here</a> to Register!
+      </form>
+    </div>
+  </div>
+  <!-- End Login Modal -->
+
+  <!-- Register Modal -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('registerModal')">&times;</span>
+      <form id="registerForm" name="registerForm" action="action/registerUser.php" method="POST">
+        <h2>Register</h2>
+        <label>Name:</label><input type="text" name="name" id="name" required></input><br>
+        <label>Email:</label><input type="email" name="email" id="email" required></input> <br>
+        <label>Username:</label><input type="text" name="username" id="username" required></input><br>
+        <label>Password:</label><input type="password" name="password" id="password" required></input><br>
+        <label>Confirm Password:</label><input type="password" name="confirmpassword" id="confirmpassword" required></input><br>
+        <div class="buttons">
+          <input type="submit" value="Register"/> &nbsp;
+        </div>
+        Have an account? <a href="#" onclick="openModal('loginModal', 'registerModal')"><br>Click here</a> to Login!
+      </form>
+    </div>
+  </div>
+  <!-- End Register Modal -->
+
   <!-- Popup Block -->
   <div class="messagePopup" id="updateStatus">
     <h2 id="messageHeader"></h2>
@@ -373,6 +410,7 @@
       @Copyright 2020 Randa
     </div>
   </footer>
+  <script type="text/javascript" src="js/modal.js"></script> <!-- Modal script -->
   <script type="text/javascript" src="js/products.js"></script>
   <script type="text/javascript" src="js/statusMessages.js"></script>
 </body>

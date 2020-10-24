@@ -399,39 +399,12 @@
     <h2 id="messageHeader"></h2>
   </div>
 
-  <!-- Modal script -->
-  <script>
-    var modal;
-    function openModal(modalname, closemodal){
-      this.modal = document.getElementById(modalname);
-      modal.style.display = "block";
-      closeModal(closemodal);
-    }
-    function closeModal(modalname){
-      var close = document.getElementById(modalname);
-      close.style.display = "none";
-      resetForm();
-    }
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-        resetForm();
-      }
-    }
-
-    function resetForm(){
-      document.getElementById('loginForm').reset();
-      document.getElementById('registerForm').reset();
-    }
-  </script>
-
-
   <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
   <!-- This generates footer -->
   <?php echo file_get_contents("html/bottom.html"); ?>
 
+  <script type="text/javascript" src="js/modal.js"></script> <!-- Modal script -->
   <script type="text/javascript" src="js/carousel.js"></script>
   <script>
   var mybutton = document.getElementById("myBtn");
