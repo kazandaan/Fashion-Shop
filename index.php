@@ -120,6 +120,9 @@
       else if( $page == "registerUser" && $status == 0){
         $message = "Failed to Register";
       }
+      else if( $page == "unauthorized" && $status == 2){
+        $message = "Login to view page";
+      }
       echo "setUpdateStatusDiv( ".$status.", '".$message."' )";
     }
   ?>

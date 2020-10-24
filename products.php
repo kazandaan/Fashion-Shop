@@ -31,7 +31,6 @@
     $username = $_SESSION['username'];
     $dropdown = "none";
     $logout = "block";
-
   }
 ?>
 
@@ -90,8 +89,8 @@
 
         <div class="icon-group">
           <span class="material-icons zoom"><a href="account.php" title="My Account">face</a></span>
-          <span class="material-icons zoom"><a href="favourites.html" title="My Favourites">favorite_border</a></span>
-          <span class="material-icons zoom"><a href="cart.html" title="My Cart">shopping_cart</a></span>
+          <span class="material-icons zoom"><a href="products.php?page=favourites" title="My Favourites">favorite_border</a></span>
+          <span class="material-icons zoom"><a href="products.php?page=cart" title="My Cart">shopping_cart</a></span>
         </div>
       </div>
 
@@ -104,56 +103,8 @@
     <script>
       window.onload = function(){
     <?php
-    /*
-      products.php... > all products, search = null
-      ?category=value&search=value > search based on category
-      ?category=value > women, men, kids
-      ?search=value > LIKE %value%
-      ?filter=value
-    */
-      if( isset($_GET['category']) && isset($_POST['searchbox']) ){
-        $category = $_GET['category'];
-        $search = $_POST['searchbox'];
-        $sql = "SELECT * FROM product_randa WHERE product_category = '$category' AND product_name LIKE '%$search%'";
-        $title = "$category '$search'";
-        $msg = "There are no products that match '$search' in $category's category.";
-      }
-      else if( isset($_GET['category']) ){
-        $category = $_GET['category'];
-        $sql = "SELECT * FROM product_randa WHERE product_category = '$category'";
-        $title = $category;
-        $msg = "There are no products in $category's category.";
-      }
-      else if( isset($_POST['searchbox']) && $_POST['searchbox'] != null ){
-        $search = $_POST['searchbox'];
-        $sql = "SELECT * FROM product_randa WHERE product_name LIKE '%$search%'";
-        $title = "Search '$search'";
-        $msg = "There are no products that match '$search'.";
-      }
-      else if( isset($_GET['min']) && isset($_GET['max']) ){ // based on category ?
-        $min = $_GET['min'];
-        $max = $_GET['max'];
-        $sql = "SELECT * FROM product_randa WHERE product_price BETWEEN $min AND $max ORDER BY product_price ASC";
-        $title = "Filter By Price";
-        $msg = "There are no products that are within the range of '$min' and '$max'.";
-      }
-      else if( isset($_GET['type']) ){ // based on category ?
-        $type = $_GET['type'];
-        $sql = "SELECT * FROM product_randa WHERE product_type LIKE '$type' ORDER BY product_name ASC";
-        $title = "Filter By Type";
-        $msg = "There are no products that are of type '$type'.";
-      }
-      else if( isset($_GET['brand']) ){ // based on category ?
-        $brand = $_GET['brand'];
-        $sql = "SELECT * FROM product_randa WHERE product_brand LIKE '$brand' ORDER BY product_name ASC";
-        $title = "Filter By Brand";
-        $msg = "There are no products that are of '$brand' brand.";
-      }
-      else{
-        $sql = "SELECT * FROM product_randa";
-        $title = "All Products";
-        $msg = "There are no products.";
-      }
+      // SQL statements
+      include "action/productPage.php";
     ?>
       } // end of window.onload = function()
     </script>
@@ -225,7 +176,7 @@
           <div>
 
             <?php
-              // echo $sql . "<br>" . $_POST['searchbox'];
+              // echo $sql . "<br>" . $_GET['page'];
               $runsql = mysqli_query($conn, $sql);
               if( !mysqli_num_rows($runsql) > 0 ){
                 echo "<p style='margin-left:20px'>" . $msg . "</p>";

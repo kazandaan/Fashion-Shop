@@ -64,15 +64,36 @@ function checkPriceRange(){
   if( min == 100 ){
     max = 500;
   }
-  location.replace( location.pathname + "?min=" + min + "&max=" + max);
+  // window.history.replaceState('object', document.title, document.referrer);
+  var url = getURL(location);
+  location.replace(url + "min=" + min + "&max=" + max);
+   // removeQueryString from url without refreshing
+  // location.replace( location.pathname + "?min=" + min + "&max=" + max);
 }
 
 function checkType(){
   var type = document.getElementById('type').value;
-  location.replace( location.pathname + "?type=" + type );
+  var url = getURL(location);
+  location.replace(url + "type=" + type);
+  // location.replace( location.pathname + "?type=" + type );
 }
 
 function checkBrand(){
   var brand = document.getElementById('brand').value;
-  location.replace( location.pathname + "?brand=" + brand );
+  var url = getURL(location);
+  location.replace(url + "brand=" + brand);
+  // location.replace( location.pathname + "?brand=" + brand );
+}
+
+// GOT SOME BUG !! NEED TO DELETE PARAMS
+
+function getURL( location ){ // add ? or &
+  var url = location.pathname;
+  if( location.search != "" ){
+    url += location.search + "&";
+  }
+  else{
+    url += "?";
+  }
+  return url;
 }
