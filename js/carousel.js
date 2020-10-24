@@ -28,11 +28,13 @@ function showSlides(n) {
   slides[slideIndex - 1].style.display = "block";
 }
 
-
-  // linkScroll.click(function(e){
-  //     e.preventDefault();
-  //     $('body, html').animate({
-  //        scrollTop: $(this.hash).offset().top
-  //     }, 500);
-  //  });
-// });
+// SMOOTH SCROLL
+function docReady(fn) {
+    // see if DOM is already available
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+        // call on next available tick
+        setTimeout(fn, 1);
+    } else {
+        document.addEventListener("DOMContentLoaded", fn);
+    }
+}
