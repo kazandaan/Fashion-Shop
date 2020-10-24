@@ -21,16 +21,36 @@
 <!-- Check Session -->
 <?php
   session_start();
+  if(isset($_SESSION['userid'])){
+    $id = $_SESSION['userid'];
+
+
+  }
+
+  // GET username to show on banner
   if(!isset($_SESSION['userid'])){
     $username = "My Account";
     $dropdown = "block";
     $logout = "none";
   }
   else{
+    // Create connection (servername, username, password, dbname)
+    $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");
+
+    // Check connection
+    if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+    }
+
     $id = $_SESSION['userid'];
-    $username = $_SESSION['username'];
+    $sql = "SELECT * FROM user_randa WHERE user_id = $id"; //get from session
+    $runsql = mysqli_query($conn, $sql);
+    $user = mysqli_fetch_assoc($runsql);
+
+    $username = $user['user_username'];
     $dropdown = "none";
     $logout = "block";
+
   }
 ?>
 
@@ -54,10 +74,11 @@
   </div>
   <header id="title">
     <div class="wrapHead">
-      <div>
+
+      <div class="" style="margin-left:40px;">
         <a href="index.php"><img src="image/logo.png" alt="" class="logo"></a>
       </div>
-      <nav class="nav">
+      <nav class="nav frame">
 
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -76,12 +97,12 @@
             <a class="scroll" href="#">SHOP</a>
           </li>
           <li class="nav-item">
-            <a class="scroll" href="#">CONTACT</a>
+            <a class="scroll" href="contact.php">CONTACT</a>
           </li>
         </ul>
       </nav>
 
-      <div class="flex mr-auto" style="align-items:center;">
+      <div class="flex mr-auto" style="align-items:center; margin-right:45px;">
         <form class="search-box" action="products.php" method="post">
           <input id="search-box" name="searchbox" type="search" placeholder="Search">
         </form>
@@ -92,26 +113,25 @@
           <span class="material-icons zoom"><a href="cart.html" title="My Cart">shopping_cart</a></span>
         </div>
       </div>
+
     </div>
   </header>
+
 
   <!-- START SCRIPT | Window ONLOAD, $_GET Stuff -->
   <script type="text/javascript" src="js/statusMessages.js"></script>
   <script>
     window.onload = function(){
   <?php
-  /*
-    products.php... > all products, search = null
-    ?category=value&search=value > search based on category
-    ?category=value > women, men, kids
-    ?search=value > LIKE %value%
-    ?filter=value
-  */
+    // category + search
+    // category > women, men, kids
+    // search > empty > view all products, not empty > LIKE
+    // all products
     if( isset($_GET['category']) && isset($_POST['searchbox']) ){
       $category = $_GET['category'];
       $search = $_POST['searchbox'];
       $sql = "SELECT * FROM product_randa WHERE product_category = '$category' AND product_name LIKE '%$search%'";
-      $title = "$category '$search'";
+      $title = $category;
       $msg = "There are no products that match '$search' in $category's category.";
     }
     else if( isset($_GET['category']) ){
@@ -126,25 +146,6 @@
       $title = "Search '$search'";
       $msg = "There are no products that match '$search'.";
     }
-    else if( isset($_GET['min']) && isset($_GET['max']) ){ // based on category ?
-      $min = $_GET['min'];
-      $max = $_GET['max'];
-      $sql = "SELECT * FROM product_randa WHERE product_price BETWEEN $min AND $max ORDER BY product_price ASC";
-      $title = "Filter By Price";
-      $msg = "There are no products that are within the range of '$min' and '$max'.";
-    }
-    else if( isset($_GET['type']) ){ // based on category ?
-      $type = $_GET['type'];
-      $sql = "SELECT * FROM product_randa WHERE product_type LIKE '$type' ORDER BY product_name ASC";
-      $title = "Filter By Type";
-      $msg = "There are no products that are of type '$type'.";
-    }
-    else if( isset($_GET['brand']) ){ // based on category ?
-      $brand = $_GET['brand'];
-      $sql = "SELECT * FROM product_randa WHERE product_brand LIKE '$brand' ORDER BY product_name ASC";
-      $title = "Filter By Brand";
-      $msg = "There are no products that are of '$brand' brand.";
-    }
     else{
       $sql = "SELECT * FROM product_randa";
       $title = "All Products";
@@ -155,199 +156,112 @@
   </script>
   <!-- END SCRIPT | Window ONLOAD, $_GET Stuff -->
 
-  <?php
-    // Create connection (servername, username, password, dbname)
-    $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");
-
-    // Check connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-  ?>
-
   <div id="products">
     <h1><?php echo ucfirst($title); ?></h1>
     <hr>
+    <?php
+      // Create connection (servername, username, password, dbname)
+      $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");
 
-    <div class="flex">
-      <!-- Left Side -->
-      <div id="left">
-        <form class="search-box" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
-          <input id="searchbox" name="searchbox" type="search" placeholder="Search">
-        </form>
+      // Check connection
+      if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+      }
+    ?>
 
-        <!-- filtering -->
-        <select id="priceRange" name="priceRange" onchange="checkPriceRange()">
-          <option selected disabled style="display:none;">Price Range</option>
-          <option value="0">$0 to $50</option>
-          <option value="50">$50 to $100</option>
-          <option value="100">$100+</option>
-        </select>
+    <section id="categories">
+      <div class="container-fluid">
+
         <?php
-          $types = "SELECT DISTINCT product_type FROM product_randa";
-          $runsql = mysqli_query($conn, $types);
-          $type_array = array();
-          while ($result = mysqli_fetch_assoc($runsql)) {
-              array_push($type_array, $result['product_type']);
+          // echo $sql . "<br>" . $_POST['searchbox'];
+          $runsql = mysqli_query($conn, $sql);
+          if( !mysqli_num_rows($runsql) > 0 ){
+            echo $msg;
           }
+
+          $closeddiv = false;
+          $count = 0; // 3 per row
+          while ($product = mysqli_fetch_assoc($runsql)) {
+            $count++;
+            if( $count % 3 == 1 ){ // first image of row
+              echo "<div class='flex text-mid productrow'>";
+              $closeddiv = false;
+            }
         ?>
-        <select id="type" name="type" onchange="checkType()">
-          <option selected disabled style="display:none;">Type</option>
-          <?php
-            foreach( $type_array as $type ){
-              echo "<option value='$type'>" . ucfirst($type) . "</option>";
-            }
-          ?>
-        </select>
-        <?php
-          $brands = "SELECT DISTINCT product_brand FROM product_randa";
-          $runsql = mysqli_query($conn, $brands);
-          $brand_array = array();
-          while ($result = mysqli_fetch_assoc($runsql)) {
-              array_push($brand_array, $result['product_brand']);
-          }
-        ?>
-        <select id="brand" name="brand" onchange="checkBrand()">
-          <option selected disabled style="display:none;">Brand</option>
-          <?php
-            foreach( $brand_array as $brand ){
-              echo "<option value='$brand'>" . ucfirst($brand) . "</option>";
-            }
-          ?>
-        </select>
-      </div>
+            <div class="frame zoom">
+                <?php
+                  // check if favourite or not
+                  if(checkFavourite($product['product_id'], $id)){
+                    $favBtn = "block";
+                    $unfavBtn = "none";
+                  }
+                  else{
+                    $favBtn = "none";
+                    $unfavBtn = "block"; //default
+                  }
 
-      <section id="categories">
-        <div >
-
-          <?php
-            // echo $sql . "<br>" . $_POST['searchbox'];
-            $runsql = mysqli_query($conn, $sql);
-            if( !mysqli_num_rows($runsql) > 0 ){
-              echo "<p style='margin-left:20px'>" . $msg . "</p>";
-            }
-
-            $closeddiv = false;
-            $count = 0; // 3 per row
-            while ($product = mysqli_fetch_assoc($runsql)) {
-              $count++;
-              if( $count % 3 == 1 ){ // first image of row
-                echo "<div class='flex text-mid productrow'>";
-                $closeddiv = false;
-              }
-          ?>
-              <div class="frame zoom">
-                  <?php
-                    // check if favourite or not
-                    if(checkFavourite($conn, $product['product_id'], $id)){
-                      $favBtn = "block";
-                      $unfavBtn = "none";
-                    }
-                    else{
-                      $favBtn = "none";
-                      $unfavBtn = "block"; //default
-                    }
-
-                    // Check if in cart or not
-                    if(checkCart($conn, $product['product_id'], $id)){
-                      $removCartBtn = "block";
-                      $addCartBtn = "none";
-                    }
-                    else{
-                      $removCartBtn = "none";
-                      $addCartBtn = "block"; // default
-                    }
-                  ?>
-                <!-- fav and add to cart button -->
-                <div class="flex">
-                  <span class='material-icons' id='unfavBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $unfavBtn; ?>;"><a onclick="favouriteProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='favourite'>favorite_border</a></span>
-                  <span class='material-icons' id='favBtn<?php echo $product['product_id']; ?>'  style="display:<?php echo $favBtn; ?>;"><a onclick="unfavouriteProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='unfavourite'>favorite</a></span>
-                  <span class='material-icons' id='addCartBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $addCartBtn; ?>;"><a onclick="addProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='add to cart'>add_shopping_cart</a></span>
-                  <span class='material-icons' id='removeCartBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $removCartBtn; ?>;"><a onclick="removeProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='remove from cart'>remove_shopping_cart</a></span>
-                </div>
-
-                <img src="image/<?php echo $product['product_img']; ?>" alt="<?php echo $product['product_name']; ?>">
-                <div id="info">
-                  <p><?php echo $product['product_name']; ?></p>
-                  <p>$<?php echo number_format((float)$product['product_price'], 2); ?></p>
-                </div>
+                  // Check if in cart or not
+                  if(checkCart($product['product_id'], $id)){
+                    $removCartBtn = "block";
+                    $addCartBtn = "none";
+                  }
+                  else{
+                    $removCartBtn = "none";
+                    $addCartBtn = "block"; // default
+                  }
+                ?>
+              <!-- fav and add to cart button -->
+              <div class="flex">
+                <span class='material-icons' id='unfavBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $unfavBtn; ?>;"><a onclick="favouriteProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='favourite'>favorite_border</a></span>
+                <span class='material-icons' id='favBtn<?php echo $product['product_id']; ?>'  style="display:<?php echo $favBtn; ?>;"><a onclick="unfavouriteProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='unfavourite'>favorite</a></span>
+                <span class='material-icons' id='addCartBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $addCartBtn; ?>;"><a onclick="addProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='add to cart'>add_shopping_cart</a></span>
+                <span class='material-icons' id='removeCartBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $removCartBtn; ?>;"><a onclick="removeProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='remove from cart'>remove_shopping_cart</a></span>
               </div>
-          <?php
-              if( $count % 3 == 0 ){ // last image of row
-                echo "</div>" . $closeddiv;
-                $closeddiv = true;
-              }
-          ?>
 
-          <?php
-            } // end of while loop
-
-            if(!$closeddiv){ //if div was not closed
-              echo "</div>";
-            }
-
-            function checkFavourite( $conn, $productid, $userid ){
-              // $fav = 0;
-              if( isset($userid) ){ // user id set
-                $sql = "SELECT * FROM rating_randa WHERE product_id = $productid && user_id = $userid";
-                $runsql = mysqli_query($conn, $sql);
-                $rating = mysqli_fetch_assoc($runsql);
-                $fav = $rating['rating_favourite'];
-              }
-              return $fav;
-            }
-
-            function checkCart( $conn,  $productid, $userid){
-              $inCart = 0;
-              if( isset($userid) ){ // user id set
-                $sql = "SELECT * FROM cart_randa WHERE product_id = $productid && user_id = $userid";
-                $runsql = mysqli_query($conn, $sql);
-                $cart = mysqli_fetch_assoc($runsql);
-                $inCart = mysqli_num_rows($cart) > 0;
-              }
-              return $cart;
+              <img src="image/<?php echo $product['product_img']; ?>" alt="<?php echo $product['product_name']; ?>">
+              <div id="info">
+                <p><?php echo $product['product_name']; ?></p>
+                <p>$<?php echo number_format((float)$product['product_price'], 2); ?></p>
+              </div>
+            </div>
+        <?php
+            if( $count % 3 == 0 ){ // last image of row
+              echo "</div>" . $closeddiv;
+              $closeddiv = true;
             }
         ?>
-      </section>
-    </div>
-  </div> <!-- end of products div -->
 
-  <!-- Login Modal -->
-  <div id="loginModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('loginModal')">&times;</span>
-      <form id="loginForm" name="loginForm" action="action/loginUser.php" method="POST">
-        <h2>Login</h2>
-        <label>Username:</label><input type="text" name="username" id="username" required></input><br>
-        <label>Password:</label><input type="password" name="password" id="password" required></input><br>
-        <div class="buttons">
-          <input type="submit" value="Login"/> &nbsp;
-        </div>
-        Don't have an account? <a href="#" onclick="openModal('registerModal', 'loginModal')"><br>Click here</a> to Register!
-      </form>
-    </div>
-  </div>
-  <!-- End Login Modal -->
+        <?php
+          } // end of while loop
 
-  <!-- Register Modal -->
-  <div id="registerModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('registerModal')">&times;</span>
-      <form id="registerForm" name="registerForm" action="action/registerUser.php" method="POST">
-        <h2>Register</h2>
-        <label>Name:</label><input type="text" name="name" id="name" required></input><br>
-        <label>Email:</label><input type="email" name="email" id="email" required></input> <br>
-        <label>Username:</label><input type="text" name="username" id="username" required></input><br>
-        <label>Password:</label><input type="password" name="password" id="password" required></input><br>
-        <label>Confirm Password:</label><input type="password" name="confirmpassword" id="confirmpassword" required></input><br>
-        <div class="buttons">
-          <input type="submit" value="Register"/> &nbsp;
-        </div>
-        Have an account? <a href="#" onclick="openModal('loginModal', 'registerModal')"><br>Click here</a> to Login!
-      </form>
-    </div>
-  </div>
-  <!-- End Register Modal -->
+          if(!$closeddiv){ //if div was not closed
+            echo "</div>";
+          }
+
+          function checkFavourite( $productid, $userid ){
+            $fav = false;
+            if( isset($userid) ){ // user id set
+              $sql = "SELECT * FROM rating_randa WHERE product_id = $productid && user_id = $userid";
+              $runsql = mysqli_query($conn, $sql);
+              $rating = mysqli_fetch_assoc($runsql);
+              $fav = $rating['rating_favourite'];
+            }
+            return $fav;
+          }
+
+          function checkCart( $productid, $userid){
+            $inCart = false;
+            if( isset($userid) ){ // user id set
+              $sql = "SELECT * FROM cart_randa WHERE product_id = $productid && user_id = $userid";
+              $runsql = mysqli_query($conn, $sql);
+              $cart = mysqli_fetch_assoc($runsql);
+              $inCart = mysqli_num_rows($cart) > 0;
+            }
+            return $cart;
+          }
+      ?>
+    </section>
+  </div> <!-- end of favourites div -->
 
   <!-- Popup Block -->
   <div class="messagePopup" id="updateStatus">
@@ -358,58 +272,36 @@
     mysqli_close($conn);
   ?>
 
-  <footer>
-    <div class="container-fluid frame row">
-      <div class="col">
-        <h3>CATEGORIES</h3>
-        <ul>
-          <li><a href="products.php?category=women">Women</a></li>
-          <li><a href="products.php?category=men">Men</a></li>
-          <li><a href="products.php?category=kids">Kids</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h3>ACCOUNT</h3>
-        <ul>
-          <li><a href="#">My Account</a></li>
-          <li><a href="#">Order</a></li>
-          <li><a href="#">Checkout</a></li>
-          <li><a href="#">Wishlist</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h3>HELP</h3>
-        <ul>
-          <li><a href="#">Shipping</a></li>
-          <li><a href="#">Return</a></li>
-          <li><a href="#">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h3>CONTACT INFO</h3>
-        <div style=" position:relative;">
-          <ul>
-            <li class="address flex"><i class="fas fa-map-marker-alt"></i> <div class="">
-              Hougang Central 530837 Singapore.
-            </div> </li>
-            <li class="phone flex"><i class="fas fa-phone-alt"></i><div class="">
-               +65 87141256
-            </div> </li>
-            <li class="email flex"><i class="far fa-envelope"></i><div class="">
-               ntu@gmail.com
-            </div></li>
-          </ul>
-        </div>
+  <!-- This generates footer -->
+  <?php echo file_get_contents("html/bottom.html"); ?>
 
-      </div>
-    </div>
-    <div class="">
-    </div>
-    <div class="text-mid">
-      @Copyright 2020 Randa
-    </div>
-  </footer>
-  <script type="text/javascript" src="js/modal.js"></script> <!-- Modal script -->
+  <!-- Modal script -->
+  <script>
+    var modal;
+    function openModal(modalname, closemodal){
+      this.modal = document.getElementById(modalname);
+      modal.style.display = "block";
+      closeModal(closemodal);
+    }
+    function closeModal(modalname){
+      var close = document.getElementById(modalname);
+      close.style.display = "none";
+      resetForm();
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+        resetForm();
+      }
+    }
+
+    function resetForm(){
+      document.getElementById('loginForm').reset();
+      document.getElementById('registerForm').reset();
+    }
+  </script>
+
   <script type="text/javascript" src="js/products.js"></script>
   <script type="text/javascript" src="js/statusMessages.js"></script>
 </body>

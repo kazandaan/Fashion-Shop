@@ -36,7 +36,7 @@
 <body>
   <div id="banner" class="banner" onscroll="myFunction()">
     <div class="row">
-      <div class="col flex " style="height:50px; line-height:50px; font-size:16px; margin-left:60px; margin-right:45px; padding-right:0px;">
+      <div class="col flex" style="height:50px; line-height:50px; font-size:16px; margin-left:60px; margin-right:45px; padding-right:0px;">
           FREE SHIPPING ON ORDERS OVER SGD80
           <div class="dropdown ml-auto text-mid">
             <button class="login_dropdown"><?php echo $username; ?></button>
@@ -54,7 +54,7 @@
   <header id="title">
     <div class="wrapHead">
 
-      <div class="ml-auto">
+      <div class="" style="margin-left:40px;">
         <a href="index.php"><img src="image/logo.png" alt="" class="logo"></a>
       </div>
       <nav class="nav frame">
@@ -81,7 +81,7 @@
         </ul>
       </nav>
 
-      <div class="flex mr-auto" style="align-items:center;">
+      <div class="flex" style="align-items:center; margin-right:45px;">
         <form class="search-box" action="products.php" method="post">
           <input id="search-box" name="searchbox" type="search" placeholder="Search">
         </form>
