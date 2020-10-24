@@ -72,6 +72,18 @@
           <input id="search-box" type="search" placeholder="Search">
         </form>
 
+        <!-- Check Session -->
+        <?php
+          session_start();
+          // $account = "";
+          if(!isset($_SESSION['userid'])){
+            $account = "onclick=\"openModal('loginModal')\"";
+          }
+          else{
+            $account = "href='account.php'";
+          }
+        ?>
+
         <div class="icon-group">
           <!-- PHP > check session > no user > openModal('loginModal') ; got user > account.html -->
           <span class="material-icons zoom"><a <?php echo $account; ?> title="My Account">face</a></span>
@@ -79,20 +91,6 @@
           <span class="material-icons zoom"><a href="cart.html" title="My Cart">shopping_cart</a></span>
         </div>
       </div>
-
-
-      <!-- Check Session -->
-      <?php
-        session_start();
-        // $account = "";
-        if(!isset($_SESSION['userid'])){
-          $account = "onclick=\"openModal('loginModal')\"";
-        }
-        else{
-          $account = "href='account.php'";
-        }
-      ?>
-
 
     </div>
   </header>
