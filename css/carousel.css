@@ -10,7 +10,6 @@ img {
   width: 100%;
   position: relative;
   overflow: hidden;
-  padding-top: 5%;
   background-color: rgb(249, 249, 249);
   background-repeat: no-repeat;
 
@@ -85,9 +84,9 @@ img {
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
+  -webkit-animation-duration: 2.0s;
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: 2.0s;
 }
 
 @-webkit-keyframes fade {

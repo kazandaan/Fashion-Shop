@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/utility.css">
   <link rel="stylesheet" href="css/carousel.css">
   <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
@@ -20,10 +21,18 @@
 <body>
   <div class="banner">
     <div class="row">
-      <div class="col flex" style="height:50px; line-height:50px; font-size:16px; margin-left:60px; margin-right:45px;">
+      <div class="col flex " style="height:50px; line-height:50px; font-size:16px; margin-left:60px; margin-right:45px; padding-right:0px;">
           FREE SHIPPING ON ORDERS OVER SGD80
-          <div class="ml-auto">
-            My ACCOUNTS
+          <div class="dropdown ml-auto">
+            <button class="login_dropdown">MY ACCOUNTS</button>
+            <div class="dropdown-content">
+              <a href="#">Login</a>
+              <a href="#">Register</a>
+            </div>
+
+          </div>
+          <div class="logout_icon">
+            <a href="#"><i class="fas fa-sign-out-alt"></i> </a>
           </div>
       </div>
     </div>
@@ -58,16 +67,16 @@
         </ul>
       </nav>
 
-      <div class="flex mr-auto">
+      <div class="flex mr-auto" style="align-items:center;">
         <form class="search-box" method="post">
           <input id="search-box" type="search" placeholder="Search">
         </form>
 
         <div class="icon-group">
           <!-- PHP > check session > no user > openModal('loginModal') ; got user > account.html -->
-          <span class="material-icons"><a <?php echo $account; ?> title="My Account">face</a></span>
-          <span class="material-icons"><a href="favourites.html" title="My Favourites">favorite_border</a></span>
-          <span class="material-icons"><a href="cart.html" title="My Cart">shopping_cart</a></span>
+          <span class="material-icons zoom"><a <?php echo $account; ?> title="My Account">face</a></span>
+          <span class="material-icons zoom"><a href="favourites.html" title="My Favourites">favorite_border</a></span>
+          <span class="material-icons zoom"><a href="cart.html" title="My Cart">shopping_cart</a></span>
         </div>
       </div>
 
@@ -126,8 +135,8 @@
             <div class="col">
               <div class="slide_description1 text-mid" style="margin-top: 30%;">
                 <h3>#GRAB US NOW</h3>
-                <h2 style="font-size: 50px;">GET UP TO 30% NEW ARRIVAL</h2>
-                <a href="#" class="red_button frame">SHOP NOW</a>
+                <h2 style="font-size: 50px; font-weight:500;">GET UP TO 30% NEW ARRIVAL</h2>
+                <a href="#" class="shop_button red_button frame">SHOP NOW</a>
               </div>
             </div>
           </div>
@@ -135,29 +144,28 @@
 
         <div class="mySlides fade">
           <div class="row">
+
             <div class="col">
-              <img src="image/model.png" class="img-fluid">
+              <div class="slide_description2 text-mid"  style="margin-top: 30%;">
+                <h3>#FASHION KIDS</h3>
+                <h2 style="font-size: 50px; font-weight:500;">DRESS YOUR CHILD</h2>
+                <a href="#" class="shop_button red_button frame">SHOP NOW</a>
+              </div>
             </div>
             <div class="col">
-              <div class="slide_description2">
-                <h3>2nd</h3>
-                <h2>GET UP TO 30% NEW ARRIVAL</h2>
-                <a href="#" class="">SHOP NOW</a>
-              </div>
+              <img src="image/child_model.png" class="img-fluid">
             </div>
           </div>
         </div>
 
         <div class="mySlides fade">
           <div class="row">
-            <div class="col">
-              <img src="image/model.png" class="img-fluid">
-            </div>
-            <div class="col">
-              <div class="slide_description3">
-                <h3>3rd</h3>
-                <h2>GET UP TO 30% NEW ARRIVAL</h2>
-                <a href="#">SHOP NOW</a>
+            <div class="col" style="position:relative;">
+              <img src="image/guy_model.png" class="img-fluid">
+              <div class="slide_description3 text-mid" style="position:absolute; top:20%; left:60%;">
+                <h3>#OPPA</h3>
+                <h2 style="font-size: 50px; font-weight:500;">BE A HOT GUY.</h2>
+                <a href="#"  class="shop_button red_button frame" style="width: 40%;">SHOP NOW</a>
               </div>
             </div>
           </div>
@@ -289,14 +297,16 @@
     <div class="text-mid">
         <div class="row">
           <div class="col">
-            <img src="https://preview.colorlib.com/theme/shopmax/images/model_6.png" class="img-fluid" alt="">
+            <img src="image/newsletter_model.png" class="img-fluid" alt="">
           </div>
           <div class="col">
             <form class="" action="" method="post">
               <h3>#MORE SUPRISE TO COME</h3>
               <h2 style="font-size: 70px; color:black; margin-top:0;">SUBSCRIBE FOR A 30% <br>DISCOUNT!</h2>
-              <input type="email" name="" value="" placeholder="Email here" style="width:40%; height:46px; ">
-              <button type="submit" name="button" style="height:46px;">SUBSCRIBE</button>
+              <div class="subscribe_field flex" style="border-radius:3px; justify-content:center;">
+                <input type="email" name="" value="" placeholder="Email here" style="width:40%; height:46px; border:none; padding-left:20px;">
+                <button type="submit" name="button" style="height:46px;">SUBSCRIBE</button>
+              </div>
             </form>
           </div>
         </div>
@@ -307,34 +317,34 @@
 
         <div class="row">
           <div class="col flex">
-            <div style="padding-right: 10px; position:relative; top: 15px;">
+            <div class="ml-auto" style="padding-right: 10px; position:relative; top: 15px;">
               <i class="fas fa-truck  fa-2x" style="color: #fe4c50;"></i>
             </div>
-            <div>
+            <div class="mr-auto">
               <h3>FREE SHIPPING</h3>
-              <p>Lorem ipsum dolor amet mustache knausgaard +1, blue bottle waistcoat tbh semiotics artisan synt</p>
+              <p style="max-width:250px;">Enjoy free delivery right to your doorstep when spend $80.</p>
             </div>
           </div>
 
           <div class="col flex">
-            <div style="padding-right: 10px; position:relative; top: 15px;">
+            <div class="ml-auto" style="padding-right: 10px; position:relative; top: 15px;">
               <i class="fas fa-undo fa-2x" style="color: #fe4c50;"></i>
             </div>
-            <div class="">
+            <div class="mr-auto">
               <h3>FREE RETURN</h3>
-              <p>Lorem ipsum dolor amet mustache knausgaard +1, blue bottle waistcoat tbh semiotics artisan synt</p>
+              <p style="max-width:250px;">We accept exchange or return within 30 days from the date of purchase.</p>
             </div>
 
 
           </div>
 
           <div class="col flex">
-            <div style="padding-right: 10px; position:relative; top: 15px;">
+            <div class="ml-auto" contenteditable=""style="padding-right: 10px; position:relative; top: 15px;">
               <i class="fas fa-question-circle fa-2x" style="color: #fe4c50;"></i>
             </div>
-            <div class="">
+            <div class="mr-auto">
               <h3>CUSTOMER SUPPORT</h3>
-              <p>Lorem ipsum dolor amet mustache knausgaard +1, blue bottle waistcoat tbh semiotics artisan synt</p>
+              <p style="max-width:250px;">Don't worry. We got you covered 24/7.</p>
             </div>
 
 

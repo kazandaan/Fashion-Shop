@@ -2,8 +2,17 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Italiana', serif;
+  /* font-family: 'Italiana', serif; */
+  font-family: 'Poppins', sans-serif;
+}
 
+a,h2,h3,p {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 section {
@@ -14,6 +23,8 @@ section {
 
 .title-section {
     margin-bottom: 3rem;
+    font-family: 'Italiana', serif;
+
 }
 
 .title-section h2{
@@ -33,7 +44,7 @@ section {
   text-align: center;
   line-height: 40px;
   display: block;
-  width: 20%;
+  width: 30%;
   border-radius: 3px;
 }
 
@@ -50,14 +61,52 @@ section {
   height: 50px;
   background: #1e1e27;
   color: white;
+  font-family: 'Italiana', serif;
+}
+
+.banner .login_dropdown{
+  background: none;
+  border: none;
+  color: white;
+  font-family: inherit;
+  font-size: inherit;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display:none;
+  position:absolute;
+  background-color: #1e1e27;
+  min-width: 113px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index:4;
+}
+
+.dropdown-content a {
+  color: black ;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  background-color: white;
+}
+
+
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover {background-color:#ee4266;}
+.dropdown-content a:hover {background-color:#ddd;}
+
+.logout_icon a{
+  text-decoration: none;
+  color: inherit;
+  margin-left: 1.5rem;
+  display: block;
 }
 
 .logo {
   margin:5px 20px 5px 20px;
-}
-
-.icon-group {
-  margin-left: 30px;
 }
 
 .fixed {
@@ -91,10 +140,19 @@ header {
   margin-right: 15px;
 }
 
+#title {
+  font-family: 'Italiana', serif;
+}
+
 #carousel .col{
   width: 50%;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+#carousel .shop_button {
+  padding: 0 16px;
+
 }
 
 #carousel .row {
@@ -180,18 +238,22 @@ input::-webkit-input-placeholder {
   color: #999;
 }
 
+.icon-group {
+  margin-left: 30px;
+}
+
 .icon-group span a{
-  color: #2f2f2f;
+  color: #868995;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 25px;
   padding: 0 8px 0 8px;
-  transition: transform .2s; /*animation*/
 }
 
-.icon-group span:hover {
-  transform: scale(1.5);
-
+.icon-group a:hover{
+  color:black;
 }
+
+
 /* END OF TITLE */
 /* -------------------------------------------------------------------------------------------------------------------------- */
 /* CATEGORIES */
@@ -281,6 +343,10 @@ input::-webkit-input-placeholder {
 
 
 /* NEWSLETTER */
+#newsletter h2,h3{
+  font-family: 'Italiana', serif ;
+}
+
 #newsletter .row{
   background-color: #f9f9f9;
 }
