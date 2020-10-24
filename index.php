@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <div class="banner">
+  <div id="banner" class="banner" onscroll="myFunction()">
     <div class="row">
       <div class="col flex " style="height:50px; line-height:50px; font-size:16px; margin-left:60px; margin-right:45px; padding-right:0px;">
           FREE SHIPPING ON ORDERS OVER SGD80
@@ -419,6 +419,7 @@
     }
   </script>
 
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
   <footer>
     <div class="container-fluid frame row">
       <div class="col">
@@ -471,10 +472,30 @@
     </div>
   </footer>
 
-
-
-
   <script type="text/javascript" src="js/carousel.js"></script>
+  <script>
+  var mybutton = document.getElementById("myBtn");
+  window.onscroll = function(){scrollFunction()};
+  var asd = document.getElementById('banner');
+
+  function scrollFunction() {
+    if(document.body.scrollTop > 20 ||document.documentElement.scrollTop > 20){
+      asd.style.opacity = "0";
+      asd.style.height = "0px";
+      mybutton.style.display = "block";
+    }
+    else {
+      asd.style.opacity = "1";
+      asd.style.height = "50px";
+      mybutton.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+  }
+  </script>
 
 </body>
 
