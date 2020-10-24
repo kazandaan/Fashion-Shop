@@ -25,20 +25,8 @@
     $logout = "none";
   }
   else{
-    // Create connection (servername, username, password, dbname)
-    $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");
-
-    // Check connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-
     $id = $_SESSION['userid'];
-    $sql = "SELECT * FROM user_randa WHERE user_id = $id"; //get from session
-    $runsql = mysqli_query($conn, $sql);
-    $user = mysqli_fetch_assoc($runsql);
-
-    $username = $user['user_username'];
+    $username = $_SESSION['username'];
     $dropdown = "none";
     $logout = "block";
 
@@ -109,34 +97,9 @@
     </div>
   </header>
 
-
-
+  <!-- This generates modal -->
+  <?php echo file_get_contents("html/modal.html"); ?>
   <!-- This generates footer -->
   <?php echo file_get_contents("html/bottom.html"); ?>
-  <!-- Modal script -->
-  <script>
-    var modal;
-    function openModal(modalname, closemodal){
-      this.modal = document.getElementById(modalname);
-      modal.style.display = "block";
-      closeModal(closemodal);
-    }
-    function closeModal(modalname){
-      var close = document.getElementById(modalname);
-      close.style.display = "none";
-      resetForm();
-    }
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-        resetForm();
-      }
-    }
-
-    function resetForm(){
-      document.getElementById('loginForm').reset();
-      document.getElementById('registerForm').reset();
-    }
-  </script>
+  <script type="text/javascript" src="js/modal.js"></script> <!-- Modal script -->
 </body>
