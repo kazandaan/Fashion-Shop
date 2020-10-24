@@ -50,7 +50,7 @@
     <div class="row">
       <div class="col flex " style="height:50px; line-height:50px; font-size:16px; margin-left:60px; margin-right:45px; padding-right:0px;">
           FREE SHIPPING ON ORDERS OVER SGD80
-          <div class="dropdown ml-auto">
+          <div class="dropdown ml-auto text-mid">
             <button class="login_dropdown"><?php echo $username; ?></button>
             <div class="dropdown-content">
               <a onclick="openModal('loginModal', 'registerModal')" style="display:<?php echo $dropdown; ?>;">Login</a>
@@ -408,6 +408,7 @@
     <h2 id="messageHeader"></h2>
   </div>
 
+  <!-- Modal script -->
   <script>
     var modal;
     function openModal(modalname, closemodal){

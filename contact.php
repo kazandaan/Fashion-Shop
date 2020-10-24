@@ -16,12 +16,41 @@
   <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
 </head>
 
+<!-- Check Session -->
+<?php
+  session_start();
+  if(!isset($_SESSION['userid'])){
+    $username = "My Account";
+    $dropdown = "block";
+    $logout = "none";
+  }
+  else{
+    // Create connection (servername, username, password, dbname)
+    $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");
+
+    // Check connection
+    if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $id = $_SESSION['userid'];
+    $sql = "SELECT * FROM user_randa WHERE user_id = $id"; //get from session
+    $runsql = mysqli_query($conn, $sql);
+    $user = mysqli_fetch_assoc($runsql);
+
+    $username = $user['user_username'];
+    $dropdown = "none";
+    $logout = "block";
+
+  }
+?>
 <body>
+
   <div id="banner" class="banner" onscroll="myFunction()">
     <div class="row">
       <div class="col flex " style="height:50px; line-height:50px; font-size:16px; margin-left:60px; margin-right:45px; padding-right:0px;">
           FREE SHIPPING ON ORDERS OVER SGD80
-          <div class="dropdown ml-auto">
+          <div class="dropdown ml-auto text-mid">
             <button class="login_dropdown"><?php echo $username; ?></button>
             <div class="dropdown-content">
               <a onclick="openModal('loginModal', 'registerModal')" style="display:<?php echo $dropdown; ?>;">Login</a>
@@ -84,4 +113,30 @@
 
   <!-- This generates footer -->
   <?php echo file_get_contents("html/bottom.html"); ?>
+  <!-- Modal script -->
+  <script>
+    var modal;
+    function openModal(modalname, closemodal){
+      this.modal = document.getElementById(modalname);
+      modal.style.display = "block";
+      closeModal(closemodal);
+    }
+    function closeModal(modalname){
+      var close = document.getElementById(modalname);
+      close.style.display = "none";
+      resetForm();
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+        resetForm();
+      }
+    }
+
+    function resetForm(){
+      document.getElementById('loginForm').reset();
+      document.getElementById('registerForm').reset();
+    }
+  </script>
 </body>
