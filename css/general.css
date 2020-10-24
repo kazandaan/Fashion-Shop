@@ -313,8 +313,8 @@ input::-webkit-input-placeholder {
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  z-index: 3; /* Sit on top */
+  padding-top: 10%; /* Location of the box 100px */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -327,7 +327,7 @@ input::-webkit-input-placeholder {
 /* Modal Content */
 .modal-content {
   background-color: #fefefe;
-  margin: 5% auto 0px auto;
+  margin: auto;
   padding: 20px;
   border: 1px solid #888;
   width: 70%;
