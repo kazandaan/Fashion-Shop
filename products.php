@@ -231,5 +231,6 @@
   <script type="text/javascript" src="js/modal.js"></script> <!-- Modal script -->
   <script type="text/javascript" src="js/products.js"></script>
   <script type="text/javascript" src="js/statusMessages.js"></script>
+  <script type="text/javascript" src="js/banner&btoTop.js"></script> <!-- Banner & B to top button -->
 </body>
 </html>
