@@ -171,9 +171,9 @@
             <i class="far fa-envelope"></i>
             <p>ntu@gmail.com</p>
           </div>
-          <div class="flex" style="justify-content: center;">
-            <img src="image/customer_support.png" class="" alt="">
-          </div>
+          <!-- <div class="flex" style="justify-content: center;">
+            <img src="image/customer_support.png" class="img-fluid" alt="">
+          </div> -->
         </div>
       </div>
 
@@ -185,7 +185,7 @@
 
   <!-- This generates footer -->
   <?php echo file_get_contents("html/bottom.html"); ?>
-  
+
   <script type="text/javascript" src="js/modal.js"></script> <!-- Modal script -->
   <script type="text/javascript" src="js/banner&btoTop.js"></script> <!-- Banner & B to top button -->
 </body>

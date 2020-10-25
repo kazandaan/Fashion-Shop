@@ -154,7 +154,7 @@
                   $closeddiv = false;
                 }
             ?>
-                <div class="frame zoom">
+                <div class="frame">
                     <?php
                       // check if favourite or not
                       if(checkFavourite($conn, $product['product_id'], $id)){
@@ -184,7 +184,7 @@
                     <span class='material-icons' id='removeCartBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $removCartBtn; ?>;"><a onclick="removeProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='remove from cart'>remove_shopping_cart</a></span>
                   </div>
 
-                  <img src="image/<?php echo $product['product_img']; ?>" alt="<?php echo $product['product_name']; ?>">
+                  <img src="image/<?php echo $product['product_img']; ?>" alt="<?php echo $product['product_name']; ?>" class="zoom img-fluid">
                   <div id="info">
                     <p><?php echo $product['product_name']; ?></p>
                     <p>$<?php echo number_format((float)$product['product_price'], 2); ?></p>
@@ -233,7 +233,7 @@
 
   <!--back to top -->
   <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-  
+
   <!-- This generates modal -->
   <?php echo file_get_contents("html/modal.html"); ?>
 
