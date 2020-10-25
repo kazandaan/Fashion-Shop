@@ -309,7 +309,7 @@
               <h3>#MORE SUPRISE TO COME</h3>
               <h2 style="font-size: 70px; color:black; margin-top:0;">SUBSCRIBE FOR A 30% <br>DISCOUNT!</h2>
               <div class="subscribe_field flex" style="border-radius:3px; justify-content:center;">
-                <input class="form-control" type="email" name="" value="" placeholder="Email here" style="width:40%; height:46px; border:none; padding-left:20px;">
+                <input class="form-control" type="email" name="" value="" placeholder="Email here" style="width:40%; height:46px; border:none; padding-left:20px;" required>
                 <button class="form-control" type="submit" name="button" style="height:46px;">SUBSCRIBE</button>
               </div>
             </form>

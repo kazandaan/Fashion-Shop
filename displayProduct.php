@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/general.css">
   <link rel="stylesheet" href="css/utility.css">
   <link rel="stylesheet" href="css/carousel.css">
+  <link rel="stylesheet" href="css/displayProduct.css">
   <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -46,7 +47,51 @@
 ?>
 <body>
   <?php include "html/top.php";?>
-  
+  <section id="displayproduct">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col text-mid">
+            <img class="img-fluid" src="image/<?php echo 'women/2.jpg'?>" alt="">
+          </a>
+        </div>
+        <div class="col">
+          <form class="" action="" method="post">
+            <div class="product_name attribute">
+              <h2><?php echo 'Product_name' ?></h2>
+            </div>
+            <div class="product_descrption attribute">
+              <p><?php echo 'description_here' ?></p>
+            </div>
+            <div class="price_tag attribute">
+              <strong><?php echo 'PRICE_here' ?></strong>
+            </div>
+            <div class="size_selection attribute">
+              <p>Please select your size:</p>
+              <div class="flex" style="align-items:center;">
+                <input type="radio" id="XS" name="size" value="XS">
+                <label for="">XS</label><br>
+                <input type="radio" id="S" name="size" value="S">
+                <label for="">S</label><br>
+                <input type="radio" id="M" name="size" value="M">
+                <label for="">M</label><br>
+                <input type="radio" id="L" name="size" value="L">
+                <label for="">L</label><br>
+              </div>
+            </div>
+            <div class="quantity attribute">
+              <label for="">Quantity:</label><br>
+              <input type="number" name="quantity" id="quantity" value="0" step="1" min="1" max="99">
+            </div>
+
+            <div class="flex attribute">
+              <input class="form-control btnAdd2cart" type="submit" name="add2cart" id="add2cart" value="ADD TO CART">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- This generates modal -->
   <?php echo file_get_contents("html/modal.html"); ?>
