@@ -320,6 +320,10 @@ input::-webkit-input-placeholder {
   content:"";
 }
 
+#popular .col {
+  margin-bottom: 3rem; 
+}
+
 .product-item {
   margin-bottom: 30px;
   background: #f9f9f9;
@@ -332,7 +336,7 @@ input::-webkit-input-placeholder {
 
 .product-item img {
   left:50%;
-  top: 15%;
+  top: 0;
   transform: translateX(-50%);
   object-fit: cover;
   position: absolute;
