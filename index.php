@@ -38,34 +38,34 @@
 
   <!-- START SCRIPT | Window ONLOAD, $_GET Stuff -->
   <script type="text/javascript" src="js/statusMessages.js"></script>
-  <script>
-    window.onload = function(){
-  <?php
-    if( isset($_GET['page']) && isset($_GET['status'])){
-      $page = $_GET['page'];
-      $status = $_GET['status'];
+    <script>
+      window.onload = function(){
+    <?php
+      if( isset($_GET['page']) && isset($_GET['status'])){
+        $page = $_GET['page'];
+        $status = $_GET['status'];
 
-      $message = "";
-      // loginUser > 1 > account.php
-      if( $page == "loginUser" && $status == 1){
-        $message = "Hello $username!";
+        $message = "";
+        // loginUser > 1 > account.php
+        if( $page == "loginUser" && $status == 1){
+          $message = "Hello $username!";
+        }
+        else if( $page == "loginUser" && $status == 0){
+          $message = "Failed to Login";
+        }
+        else if( $page == "registerUser" && $status == 1){
+          $message = "Successfully Registered";
+        }
+        else if( $page == "registerUser" && $status == 0){
+          $message = "Failed to Register";
+        }
+        else if( $page == "unauthorized" && $status == 2){
+          $message = "Login to view page";
+        }
+        echo "setUpdateStatusDiv( ".$status.", '".$message."' )";
       }
-      else if( $page == "loginUser" && $status == 0){
-        $message = "Failed to Login";
-      }
-      else if( $page == "registerUser" && $status == 1){
-        $message = "Successfully Registered";
-      }
-      else if( $page == "registerUser" && $status == 0){
-        $message = "Failed to Register";
-      }
-      else if( $page == "unauthorized" && $status == 2){
-        $message = "Login to view page";
-      }
-      echo "setUpdateStatusDiv( ".$status.", '".$message."' )";
-    }
-  ?>
-    } // end of window.onload = function()
+    ?>
+      } // end of window.onload = function()
   </script>
   <!-- END SCRIPT | Window ONLOAD, $_GET Stuff -->
 
@@ -123,8 +123,6 @@
       </div>
     </div>
   </section>
-
-
   <section id="categories">
 
       <div class="row flex text-mid">
@@ -148,7 +146,6 @@
         </div>
       </div>
   </section>
-
   <section id="new-arrival">
     <div class="container-fluid">
       <div class="title-section">
@@ -178,7 +175,6 @@
     </div>
 
   </section>
-
   <section id="popular">
     <div class="container-fluid">
       <div class="title-section text-mid">
@@ -235,9 +231,6 @@
       </div>
     </div>
   </section>
-
-
-
   <section id="newsletter">
     <div class="text-mid">
         <div class="row">
@@ -257,7 +250,6 @@
         </div>
     </div>
   </section>
-
   <section id="delivery">
 
         <div class="row">

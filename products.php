@@ -154,17 +154,17 @@
                   $closeddiv = false;
                 }
             ?>
-                  <div class="frame zoom">
-                      <?php
-                        // check if favourite or not
-                        if(checkFavourite($conn, $product['product_id'], $id)){
-                          $favBtn = "block";
-                          $unfavBtn = "none";
-                        }
-                        else{
-                          $favBtn = "none";
-                          $unfavBtn = "block"; //default
-                        }
+                <div class="frame">
+                    <?php
+                      // check if favourite or not
+                      if(checkFavourite($conn, $product['product_id'], $id)){
+                        $favBtn = "block";
+                        $unfavBtn = "none";
+                      }
+                      else{
+                        $favBtn = "none";
+                        $unfavBtn = "block"; //default
+                      }
 
                         // Check if in cart or not
                         if(checkCart($conn, $product['product_id'], $id)){
@@ -185,7 +185,7 @@
                     </div>
 
                     <a href="displayProduct.php?productid=<?php echo $product['product_id']; ?>">
-                      <img src="image/<?php echo $product['product_img']; ?>" alt="<?php echo $product['product_name']; ?>">
+                      <img src="image/<?php echo $product['product_img']; ?>" alt="<?php echo $product['product_name']; ?>" class="zoom img-fluid">>
                       <div id="info">
                         <p><?php echo $product['product_name']; ?></p>
                         <p>$<?php echo number_format((float)$product['product_price'], 2); ?></p>
@@ -235,7 +235,7 @@
 
   <!--back to top -->
   <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-  
+
   <!-- This generates modal -->
   <?php echo file_get_contents("html/modal.html"); ?>
 

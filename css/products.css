@@ -64,6 +64,7 @@
   text-decoration: none;
 }
 #products .productrow img{
+  cursor: pointer;
   height: 300px;
   width: 250px;
 }
