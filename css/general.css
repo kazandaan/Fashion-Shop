@@ -16,7 +16,15 @@ a,h2,h3,p {
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; */  
+  user-select: none; */
+}
+
+a{
+  text-decoration: none;
+}
+
+a:focus,input:focus,button:focus {
+  outline: none;
 }
 
 section {
