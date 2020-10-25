@@ -14,7 +14,7 @@
   $username = $_POST['username']; //required
   $email = $_POST['email']; //required
   $phone = $_POST['phone']; //null
-  $birthday = date("Y-m-d", $_POST['birthday']); // null, birthday date
+  $birthday = $_POST['birthday']; //date("Y-m-d", $_POST['birthday']).""; // null, birthday date
   $address = $_POST['address']; //null
   $cardno = $_POST['cardno']; //null
   $cardname = $_POST['cadrname']; //null

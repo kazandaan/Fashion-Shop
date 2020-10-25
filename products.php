@@ -43,6 +43,24 @@
     <script>
       window.onload = function(){
     <?php
+
+      if( isset($_GET['page']) && isset($_GET['status'])){
+        $page = $_GET['page'];
+        $status = $_GET['status'];
+
+        $message = "";
+        if( $page == "checkout" && $status == 2){
+          $message = "There are no items to checkout";
+        }
+        else if( $page == "checkout" && $status == 0){
+          $message = "Checkout Failed";
+        }
+        else if( $page == "checkout" && $status == 1){
+          $message = "Successful Checkout";
+        }
+        echo "setUpdateStatusDiv( ".$status.", '".$message."' );";
+        echo "setTimeout(function(){location.replace(location.pathname)}, 1000);";
+      }
       // SQL statements
       include "php/productPage.php";
     ?>
@@ -112,7 +130,7 @@
           </select>
 
           <!-- Checkout Button -->
-          <form id="checkoutBtn" class="buttons" action="" method="POST" style="display:<?php echo $checkout; ?>;">
+          <form id="checkoutBtn" class="buttons" action="checkout.php" method="POST" style="display:<?php echo $checkout; ?>;">
             <input type="submit" value="CHECKOUT"/>
           </form>
         </div>
