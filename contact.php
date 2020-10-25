@@ -171,6 +171,9 @@
             <i class="far fa-envelope"></i>
             <p>ntu@gmail.com</p>
           </div>
+          <div class="flex" style="justify-content:center;">
+            <img src="image/customer_support.png" class="" alt="">
+          </div>
         </div>
       </div>
 

@@ -217,19 +217,19 @@
       <div class="row text-mid">
         <div class="col">
           <a href="#" class="product-item zoom">
-            <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
+            <img class="img-fluid" src="image/<?php echo 'women/3.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 1</h3>
           <strong>$</strong>
         </div>
         <div class="col">
           <a href="#" class="product-item zoom">
-            <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
+            <img class="img-fluid" src="image/<?php echo 'kids/2.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 2</h3>
           <strong>$</strong>
         </div>
         <div class="col">
           <a href="#" class="product-item zoom">
-            <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
+            <img class="img-fluid" src="image/<?php echo 'men/3.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 3</h3>
           <strong>$</strong>
         </div>
@@ -254,13 +254,13 @@
         </div>
         <div class="col">
           <a href="#" class="product-item zoom">
-            <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
+            <img class="img-fluid" src="image/<?php echo 'kids/1.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 2</h3>
           <strong>$</strong>
         </div>
         <div class="col">
           <a href="#" class="product-item zoom">
-            <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
+            <img class="img-fluid" src="image/<?php echo 'men/1.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 3</h3>
           <strong>$</strong>
         </div>
@@ -268,19 +268,19 @@
       <div class="row text-mid">
         <div class="col">
           <a href="#" class="product-item zoom">
-            <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
+            <img class="img-fluid" src="image/<?php echo 'women/4.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 1</h3>
           <strong>$</strong>
         </div>
         <div class="col">
           <a href="#" class="product-item zoom">
-            <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
+            <img class="img-fluid" src="image/<?php echo 'men/2.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 2</h3>
           <strong>$</strong>
         </div>
         <div class="col">
           <a href="#" class="product-item zoom">
-            <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
+            <img class="img-fluid" src="image/<?php echo 'kids/5.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 3</h3>
           <strong>$</strong>
         </div>
@@ -309,8 +309,8 @@
               <h3>#MORE SUPRISE TO COME</h3>
               <h2 style="font-size: 70px; color:black; margin-top:0;">SUBSCRIBE FOR A 30% <br>DISCOUNT!</h2>
               <div class="subscribe_field flex" style="border-radius:3px; justify-content:center;">
-                <input type="email" name="" value="" placeholder="Email here" style="width:40%; height:46px; border:none; padding-left:20px;">
-                <button type="submit" name="button" style="height:46px;">SUBSCRIBE</button>
+                <input class="form-control" type="email" name="" value="" placeholder="Email here" style="width:40%; height:46px; border:none; padding-left:20px;">
+                <button class="form-control" type="submit" name="button" style="height:46px;">SUBSCRIBE</button>
               </div>
             </form>
           </div>
