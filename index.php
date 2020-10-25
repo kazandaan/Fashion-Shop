@@ -11,7 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
 </head>
@@ -215,24 +214,24 @@
       <div class="title-section">
         <h2>New Arrival</h2>
       </div>
-      <div class="row">
+      <div class="row text-mid">
         <div class="col">
-          <a href="#" class="product-item">
-            <img class="img-fluid" src="https://cdn11.bigcommerce.com/s-pkla4xn3/images/stencil/1280x1280/products/13648/135217/Female-Blusas-Spring-Autumn-Blouse-Office-Lady-Slim-Pink-Shirts-Women-Blouses-Leisure-Long-Sleeve-Plus__49882.1544087736.jpg?c=2?imbypass=on" alt=""></a>
+          <a href="#" class="product-item zoom">
+            <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 1</h3>
-          <strong>$8.00</strong>
+          <strong>$</strong>
         </div>
         <div class="col">
-          <a href="#" class="product-item">
-            <img class="img-fluid" src="https://cdn11.bigcommerce.com/s-pkla4xn3/images/stencil/1280x1280/products/13648/135217/Female-Blusas-Spring-Autumn-Blouse-Office-Lady-Slim-Pink-Shirts-Women-Blouses-Leisure-Long-Sleeve-Plus__49882.1544087736.jpg?c=2?imbypass=on" alt=""></a>
+          <a href="#" class="product-item zoom">
+            <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 2</h3>
-          <strong>$8.00</strong>
+          <strong>$</strong>
         </div>
         <div class="col">
-          <a href="#" class="product-item">
-            <img class="img-fluid" src="https://cdn11.bigcommerce.com/s-pkla4xn3/images/stencil/1280x1280/products/13648/135217/Female-Blusas-Spring-Autumn-Blouse-Office-Lady-Slim-Pink-Shirts-Women-Blouses-Leisure-Long-Sleeve-Plus__49882.1544087736.jpg?c=2?imbypass=on" alt=""></a>
+          <a href="#" class="product-item zoom">
+            <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 3</h3>
-          <strong>$8.00</strong>
+          <strong>$</strong>
         </div>
       </div>
 
@@ -248,42 +247,42 @@
 
       <div class="row text-mid">
         <div class="col">
-          <a href="#" class="product-item">
-            <img class="img-fluid" src="https://preview.colorlib.com/theme/shopmax/images/prod_2.png" alt=""></a>
+          <a href="#" class="product-item zoom">
+            <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 1</h3>
-          <strong>$8.00</strong>
+          <strong>$</strong>
         </div>
         <div class="col">
-          <a href="#" class="product-item">
-            <img class="img-fluid" src="https://media.lovebonito.com/media/catalog/product/t/h/th1375-031-1_4.jpg?width=480&height=672" alt=""></a>
+          <a href="#" class="product-item zoom">
+            <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 2</h3>
-          <strong>$8.00</strong>
+          <strong>$</strong>
         </div>
         <div class="col">
-          <a href="#" class="product-item">
-            <img class="img-fluid" src="https://preview.colorlib.com/theme/shopmax/images/model_5.png" alt=""></a>
+          <a href="#" class="product-item zoom">
+            <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 3</h3>
-          <strong>$8.00</strong>
+          <strong>$</strong>
         </div>
       </div>
       <div class="row text-mid">
         <div class="col">
-          <a href="#" class="product-item">
-            <img class="img-fluid" src="https://cdn11.bigcommerce.com/s-pkla4xn3/images/stencil/1280x1280/products/13648/135217/Female-Blusas-Spring-Autumn-Blouse-Office-Lady-Slim-Pink-Shirts-Women-Blouses-Leisure-Long-Sleeve-Plus__49882.1544087736.jpg?c=2?imbypass=on" alt=""></a>
+          <a href="#" class="product-item zoom">
+            <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 1</h3>
-          <strong>$8.00</strong>
+          <strong>$</strong>
         </div>
         <div class="col">
-          <a href="#" class="product-item">
-            <img class="img-fluid" src="https://cdn11.bigcommerce.com/s-pkla4xn3/images/stencil/1280x1280/products/13648/135217/Female-Blusas-Spring-Autumn-Blouse-Office-Lady-Slim-Pink-Shirts-Women-Blouses-Leisure-Long-Sleeve-Plus__49882.1544087736.jpg?c=2?imbypass=on" alt=""></a>
+          <a href="#" class="product-item zoom">
+            <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 2</h3>
-          <strong>$8.00</strong>
+          <strong>$</strong>
         </div>
         <div class="col">
-          <a href="#" class="product-item">
-            <img class="img-fluid" src="https://cdn11.bigcommerce.com/s-pkla4xn3/images/stencil/1280x1280/products/13648/135217/Female-Blusas-Spring-Autumn-Blouse-Office-Lady-Slim-Pink-Shirts-Women-Blouses-Leisure-Long-Sleeve-Plus__49882.1544087736.jpg?c=2?imbypass=on" alt=""></a>
+          <a href="#" class="product-item zoom">
+            <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 3</h3>
-          <strong>$8.00</strong>
+          <strong>$</strong>
         </div>
       </div>
       <br>
