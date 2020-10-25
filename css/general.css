@@ -209,6 +209,8 @@ input[type=search] {
   -webkit-box-sizing: content-box;
   font-family: inherit;
   font-size: 100%;
+  outline-offset: 0px;
+  outline:none;
 }
 
 #search-box input::-webkit-search-decoration,
@@ -516,11 +518,35 @@ footer ul li a {
   color: black;
 }
 
-footer i{
+.contact-icon i,footer i{
   color:#fe4c50;
   padding-right: 1rem;
 }
-
-
-
 /* END OF FOOTER */
+
+/* CONTACT PAGE */
+#contact {
+ /* background? maybe */
+}
+
+.contact-icon i{
+  font-size: 2rem;
+}
+#contact span{
+  color: red;
+}
+
+#contact p{
+  font-size:1.2rem;
+  margin:0;
+  padding-left: 0.5rem;
+}
+
+.contact-holder {
+  align-items: center;
+  border-radius: 6px;
+  margin-left:1.5rem;
+  margin-bottom:2rem;
+  padding:1rem 1rem;
+  box-shadow:0px 8px 35px 10px #E8E8E8;
+}

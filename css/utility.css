@@ -183,3 +183,41 @@
 .frame {
   margin: auto;
 }
+
+.form-group {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.form-control {
+  display: block;
+  width:100%;
+  padding: 0.375rem 0.375rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  margin-top: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-control:focus {
+  outline-offset:0px;
+  outline:none;
+  border: 1px solid #007bff;
+}
+
+.btnSubmit {
+  color: white;
+  cursor: pointer;
+  background-color: #7971ea;
+  border-color: #7971ea;
+}
+
+.btnSubmit:hover {
+  opacity: 0.6;
+}
