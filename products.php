@@ -154,42 +154,44 @@
                   $closeddiv = false;
                 }
             ?>
-                <div class="frame zoom">
-                    <?php
-                      // check if favourite or not
-                      if(checkFavourite($conn, $product['product_id'], $id)){
-                        $favBtn = "block";
-                        $unfavBtn = "none";
-                      }
-                      else{
-                        $favBtn = "none";
-                        $unfavBtn = "block"; //default
-                      }
+                  <div class="frame zoom">
+                      <?php
+                        // check if favourite or not
+                        if(checkFavourite($conn, $product['product_id'], $id)){
+                          $favBtn = "block";
+                          $unfavBtn = "none";
+                        }
+                        else{
+                          $favBtn = "none";
+                          $unfavBtn = "block"; //default
+                        }
 
-                      // Check if in cart or not
-                      if(checkCart($conn, $product['product_id'], $id)){
-                        $removCartBtn = "block";
-                        $addCartBtn = "none";
-                      }
-                      else{
-                        $removCartBtn = "none";
-                        $addCartBtn = "block"; // default
-                      }
-                    ?>
-                  <!-- fav and add to cart button -->
-                  <div class="flex">
-                    <span class='material-icons' id='unfavBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $unfavBtn; ?>;"><a onclick="favouriteProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='favourite'>favorite_border</a></span>
-                    <span class='material-icons' id='favBtn<?php echo $product['product_id']; ?>'  style="display:<?php echo $favBtn; ?>;"><a onclick="unfavouriteProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='unfavourite'>favorite</a></span>
-                    <span class='material-icons' id='addCartBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $addCartBtn; ?>;"><a onclick="addProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='add to cart'>add_shopping_cart</a></span>
-                    <span class='material-icons' id='removeCartBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $removCartBtn; ?>;"><a onclick="removeProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='remove from cart'>remove_shopping_cart</a></span>
-                  </div>
+                        // Check if in cart or not
+                        if(checkCart($conn, $product['product_id'], $id)){
+                          $removCartBtn = "block";
+                          $addCartBtn = "none";
+                        }
+                        else{
+                          $removCartBtn = "none";
+                          $addCartBtn = "block"; // default
+                        }
+                      ?>
+                    <!-- fav and add to cart button -->
+                    <div class="flex">
+                      <span class='material-icons' id='unfavBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $unfavBtn; ?>;"><a onclick="favouriteProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='favourite'>favorite_border</a></span>
+                      <span class='material-icons' id='favBtn<?php echo $product['product_id']; ?>'  style="display:<?php echo $favBtn; ?>;"><a onclick="unfavouriteProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='unfavourite'>favorite</a></span>
+                      <span class='material-icons' id='addCartBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $addCartBtn; ?>;"><a onclick="addProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='add to cart'>add_shopping_cart</a></span>
+                      <span class='material-icons' id='removeCartBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $removCartBtn; ?>;"><a onclick="removeProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='remove from cart'>remove_shopping_cart</a></span>
+                    </div>
 
-                  <img src="image/<?php echo $product['product_img']; ?>" alt="<?php echo $product['product_name']; ?>">
-                  <div id="info">
-                    <p><?php echo $product['product_name']; ?></p>
-                    <p>$<?php echo number_format((float)$product['product_price'], 2); ?></p>
+                    <a href="displayProduct.php?productid=<?php echo $product['product_id']; ?>">
+                      <img src="image/<?php echo $product['product_img']; ?>" alt="<?php echo $product['product_name']; ?>">
+                      <div id="info">
+                        <p><?php echo $product['product_name']; ?></p>
+                        <p>$<?php echo number_format((float)$product['product_price'], 2); ?></p>
+                      </div>
+                    </a>
                   </div>
-                </div>
             <?php
                 if( $count % 3 == 0 ){ // last image of row
                   echo "</div>" . $closeddiv;

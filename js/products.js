@@ -43,7 +43,7 @@ function addProduct( productid, userid ){
     addCartBtn.style.display = "none";
     removeCartBtn.style.display = "block";
     // call php > add to cart_randa
-    location.replace("action/cartProduct.php?action=update&userid=" + userid + "&productid=" + productid + "&quantity=1");
+    location.replace("action/cartProduct.php?action=insert&userid=" + userid + "&productid=" + productid);
   }
 }
 
@@ -84,8 +84,6 @@ function checkBrand(){
   location.replace(url + "brand=" + brand);
   // location.replace( location.pathname + "?brand=" + brand );
 }
-
-// GOT SOME BUG !! NEED TO DELETE PARAMS
 
 function getURL( location ){ // add ? or &
   var url = location.pathname;
