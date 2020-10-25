@@ -47,6 +47,7 @@
 ?>
 <body>
   <?php include "html/top.php";?>
+  
   <section id="displayproduct">
     <div class="container-fluid">
       <div class="row img-wrapper" style="align-items:center;">
