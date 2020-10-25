@@ -25,20 +25,8 @@
     $logout = "none";
   }
   else{
-    // Create connection (servername, username, password, dbname)
-    $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");
-
-    // Check connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-
     $id = $_SESSION['userid'];
-    $sql = "SELECT * FROM user_randa WHERE user_id = $id"; //get from session
-    $runsql = mysqli_query($conn, $sql);
-    $user = mysqli_fetch_assoc($runsql);
-
-    $username = $user['user_username'];
+    $username = $_SESSION['username'];
     $dropdown = "none";
     $logout = "block";
 
@@ -94,15 +82,15 @@
         </ul>
       </nav>
 
-      <div class="flex" style="align-items:center; margin-right:45px;">
+      <div class="flex mr-auto" style="align-items:center; margin-right:45px;">
         <form class="search-box" action="products.php" method="post">
           <input id="search-box" name="searchbox" type="search" placeholder="Search">
         </form>
 
         <div class="icon-group">
           <span class="material-icons zoom"><a href="account.php" title="My Account">face</a></span>
-          <span class="material-icons zoom"><a href="favourites.html" title="My Favourites">favorite_border</a></span>
-          <span class="material-icons zoom"><a href="cart.html" title="My Cart">shopping_cart</a></span>
+          <span class="material-icons zoom"><a href="products.php?page=favourites" title="My Favourites">favorite_border</a></span>
+          <span class="material-icons zoom"><a href="products.php?page=cart" title="My Cart">shopping_cart</a></span>
         </div>
       </div>
 
@@ -177,34 +165,11 @@
     </div>
   </section>
 
-
+  <!-- This generates modal -->
+  <?php echo file_get_contents("html/modal.html"); ?>
 
   <!-- This generates footer -->
   <?php echo file_get_contents("html/bottom.html"); ?>
-  <!-- Modal script -->
-  <script>
-    var modal;
-    function openModal(modalname, closemodal){
-      this.modal = document.getElementById(modalname);
-      modal.style.display = "block";
-      closeModal(closemodal);
-    }
-    function closeModal(modalname){
-      var close = document.getElementById(modalname);
-      close.style.display = "none";
-      resetForm();
-    }
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-        resetForm();
-      }
-    }
 
-    function resetForm(){
-      document.getElementById('loginForm').reset();
-      document.getElementById('registerForm').reset();
-    }
-  </script>
+  <script type="text/javascript" src="js/modal.js"></script> <!-- Modal script -->
 </body>
