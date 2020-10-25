@@ -185,7 +185,7 @@
                     </div>
 
                     <a href="displayProduct.php?productid=<?php echo $product['product_id']; ?>">
-                      <img src="image/<?php echo $product['product_img']; ?>" alt="<?php echo $product['product_name']; ?>" class="zoom img-fluid">>
+                      <img src="image/<?php echo $product['product_img']; ?>" alt="<?php echo $product['product_name']; ?>" class="zoom img-fluid">
                       <div id="info">
                         <p><?php echo $product['product_name']; ?></p>
                         <p>$<?php echo number_format((float)$product['product_price'], 2); ?></p>
