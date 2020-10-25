@@ -40,6 +40,10 @@
    margin-top: 10px;
  }
 
+ #products #checkoutBtn input{
+   margin-top: 20px;
+ }
+
 /* RIGHT SIDE > PRODUCTS */
 #products #categories{
   /* background-color: blue; */

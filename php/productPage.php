@@ -11,6 +11,7 @@
   WOMEN, MEN, KIDS + FILTER >
     ?category=value&filter=value
 */
+  $checkout = "none";
   if( isset($_GET['category']) ){
     // Category (alone)
     $category = $_GET['category'];
@@ -53,6 +54,8 @@
       $filter = $sql . " AND"; //"$sql AND"
       include "php/filter.php";
       $msg .= " in your cart";
+
+      $checkout = "block";
     }
   }
   else{

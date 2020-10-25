@@ -20,16 +20,13 @@
 <?php
   session_start();
   if(!isset($_SESSION['userid'])){
-    $username = "My Account";
-    $dropdown = "block";
-    $logout = "none";
+    header("Location:index.php?page=unauthorized&status=2");
   }
   else{
     $id = $_SESSION['userid'];
     $username = $_SESSION['username'];
     $dropdown = "none";
     $logout = "block";
-
   }
 ?>
 <body>
@@ -98,9 +95,6 @@
           <div class="contact-holder flex">
             <i class="far fa-envelope"></i>
             <p>ntu@gmail.com</p>
-          </div>
-          <div class="flex" style="justify-content:center;">
-            <img src="image/customer_support.png" class="" alt="">
           </div>
         </div>
       </div>
