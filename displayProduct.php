@@ -49,10 +49,9 @@
   <?php include "html/top.php";?>
   <section id="displayproduct">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col text-mid">
+      <div class="row img-wrapper" style="align-items:center;">
+        <div class="col text-mid ">
             <img class="img-fluid" src="image/<?php echo 'women/2.jpg'?>" alt="">
-          </a>
         </div>
         <div class="col">
           <form class="" action="" method="post">
