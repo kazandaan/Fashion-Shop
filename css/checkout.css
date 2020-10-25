@@ -1,0 +1,31 @@
+#checkout{
+  /* background-color: darkgrey; */
+  margin: 0px 100px 50px 100px;
+  letter-spacing: 1px;
+  font-size: 20px;
+  line-height: 1.6;
+}
+#checkout h1{
+  font-size: 50px;
+}
+
+#checkout table{
+  margin: auto;
+  text-align: center;
+}
+#checkout tr:first-child{
+  background-color: black;
+  color: white;
+}
+#checkout th, #checkout td{
+  padding: 20px;
+  border-bottom: 1px solid black;
+}
+#checkout .last{
+  border-bottom: 0px;
+}
+
+#checkout #checkoutBtn input{
+  margin-top: 30px;
+  width: auto;
+}
