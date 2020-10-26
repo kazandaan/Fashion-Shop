@@ -43,7 +43,7 @@
   $execute = 0;
 
   // set auto-increment for INSERT statements
-  $ai = "ALTER TABLE user_randa AUTO_INCREMENT = 1";
+  $ai = "ALTER TABLE cart_randa AUTO_INCREMENT = 1";
   $run = mysqli_query($conn, $ai);
 
   // check if userid and productid is in the table

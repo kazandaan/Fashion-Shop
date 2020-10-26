@@ -34,11 +34,6 @@
     $logout = "block";
   }
 
-
-
-  // if(isset($_GET['product_id'])){
-  //   header("Location:products.php");
-  // }
 ?>
 <body>
   <?php include "html/top.php";?>
@@ -49,6 +44,10 @@
       window.onload = function(){
     <?php
 
+      if( empty($_GET['productid']) ){
+        echo "window.history.back();";
+      }
+
       if( isset($_GET['productid']) && isset($_GET['status'])){
         $productid = (int)$_GET['productid'];
         $status = $_GET['status'];
@@ -58,7 +57,7 @@
           $message = "Failed to add to cart";
         }
         else if( $productid > 0 && $status == 1){
-          $message = "Added to cart";
+          $message = "Added to cart"; //update?
         }
         else if( $productid > 0 && $status == 2){
           $message = "Login to add product";
