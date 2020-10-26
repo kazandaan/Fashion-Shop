@@ -31,6 +31,47 @@
     $logout = "block";
 
   }
+
+  /**
+   * Connect DB
+   */
+  $servername = "localhost";
+  $username2 = "f32ee";
+  $password = "f32ee";
+  $database = "f32ee";
+
+  // Create connection
+ $conn = new mysqli($servername, $username2, $password, $database);
+
+ // Check connection
+ if ($conn->connect_error) {
+   die("Connection failed: " . $conn->connect_error);
+ }
+
+ $price = $conn->query("SELECT FORMAT(product_price, 2) AS product_price from product_randa");
+ $name =  $conn->query("SELECT product_name from product_randa");
+
+ $storeArray = Array();
+ $storeArray2 = Array();
+
+ if (!$price) {
+   trigger_error('Invalid query: ' . $conn->error);
+ }
+
+ if (!$name) {
+   trigger_error('Invalid query: ' . $conn->error);
+ }
+
+
+ while ($row = $price->fetch_assoc()){
+         $storeArray2[] =  $row['product_price'];
+         //Fetch all the price into array
+       }
+
+ while ($row = $name->fetch_assoc()){
+         $storeArray[] =  $row['product_name'];
+         //Fetch all the price into array
+       }
 ?>
 
 <body>
@@ -154,20 +195,20 @@
         <div class="col">
           <a href="displayProduct.php?productid=3" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'women/3.jpg'?>" alt=""></a>
-          <h3 class="item-title">Product 1</h3>
-          <strong>$</strong>
+          <h3 class="item-title"><?php echo $storeArray[2] ?></h3>
+          <strong>$<?php echo $storeArray2[2] ?></strong>
         </div>
         <div class="col">
           <a href="displayProduct.php?productid=12" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'kids/2.jpg'?>" alt=""></a>
-          <h3 class="item-title">Product 2</h3>
-          <strong>$</strong>
+          <h3 class="item-title"><?php echo $storeArray[11] ?></h3>
+          <strong>$<?php echo $storeArray2[11] ?></strong>
         </div>
         <div class="col">
           <a href="displayProduct.php?productid=8" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'men/3.jpg'?>" alt=""></a>
-          <h3 class="item-title">Product 3</h3>
-          <strong>$</strong>
+          <h3 class="item-title"><?php echo $storeArray[7] ?></h3>
+          <strong>$<?php echo $storeArray2[7] ?></strong>
         </div>
       </div>
 
@@ -184,40 +225,40 @@
         <div class="col">
           <a href="displayProduct.php?productid=1" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
-          <h3 class="item-title">Product 1</h3>
-          <strong>$</strong>
+          <h3 class="item-title"><?php echo $storeArray[0] ?></h3>
+          <strong>$<?php echo $storeArray2[0] ?></strong>
         </div>
         <div class="col">
           <a href="displayProduct.php?productid=11" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'kids/1.jpg'?>" alt=""></a>
-          <h3 class="item-title">Product 2</h3>
-          <strong>$</strong>
+          <h3 class="item-title"><?php echo $storeArray[10] ?></h3>
+          <strong>$<?php echo $storeArray2[10] ?></strong>
         </div>
         <div class="col">
           <a href="displayProduct.php?productid=6" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'men/1.jpg'?>" alt=""></a>
-          <h3 class="item-title">Product 3</h3>
-          <strong>$</strong>
+          <h3 class="item-title"><?php echo $storeArray[5] ?></h3>
+          <strong>$<?php echo $storeArray2[5] ?></strong>
         </div>
       </div>
       <div class="row text-mid">
         <div class="col">
           <a href="displayProduct.php?productid=4" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'women/4.jpg'?>" alt=""></a>
-          <h3 class="item-title">Product 1</h3>
-          <strong>$</strong>
+          <h3 class="item-title"><?php echo $storeArray[3] ?></h3>
+          <strong>$<?php echo $storeArray2[3] ?></strong>
         </div>
         <div class="col">
           <a href="displayProduct.php?productid=7" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'men/2.jpg'?>" alt=""></a>
-          <h3 class="item-title">Product 2</h3>
-          <strong>$</strong>
+          <h3 class="item-title"><?php echo $storeArray[6] ?></h3>
+          <strong>$<?php echo $storeArray2[6] ?></strong>
         </div>
         <div class="col">
           <a href="displayProduct.php?productid=15" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'kids/5.jpg'?>" alt=""></a>
-          <h3 class="item-title">Product 3</h3>
-          <strong>$</strong>
+          <h3 class="item-title"><?php echo $storeArray[14] ?></h3>
+          <strong>$<?php echo $storeArray2[14] ?></strong>
         </div>
       </div>
       <br>
