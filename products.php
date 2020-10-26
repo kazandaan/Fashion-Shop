@@ -188,7 +188,13 @@
                       <img src="image/<?php echo $product['product_img']; ?>" alt="<?php echo $product['product_name']; ?>" class="zoom img-fluid">
                       <div id="info">
                         <p><?php echo $product['product_name']; ?></p>
-                        <p>$<?php echo number_format((float)$product['product_price'], 2); ?></p>
+                        <?php
+                          if($product['quantity'] != null && $product['size'] != null ){
+                            $qty_str = $product['quantity'] . " x ";
+                            $size_str = "[Size: " . $product['size'] . "]";
+                          }
+                        ?>
+                        <p><?php echo $qty_str; ?> $<?php echo number_format((float)$product['product_price'], 2); ?><br><?php echo $size_str; ?></p>
                       </div>
                     </a>
                   </div>

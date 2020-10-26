@@ -125,7 +125,7 @@
               <label>Name:</label><input type="text" name="name" id="name" value="<?php echo $user['user_name']; ?>" disabled></input><br>
               <label>Email:</label><input type="email" name="email" id="email" value="<?php echo $user['user_email']; ?>" disabled></input> <br>
               <label>Phone:</label><input type="text" name="phone" id="phone" value="<?php echo $user['user_phone']; ?>" disabled></input> <br>
-              <label>Birthday:</label><input type="date" name="birthday" id="birthday" min="2002-01-01" value="<?php echo $user['user_birthday']; ?>" disabled></input> <br> 
+              <label>Birthday:</label><input type="date" name="birthday" id="birthday" min="2002-01-01" value="<?php echo $user['user_birthday']; ?>" disabled></input> <br>
               <label>Address:</label><input type="text" name="address" id="address" value="<?php echo $user['user_address']; ?>" disabled></input> <br>
               <input type="file" name="userimg" id="userimg" onchange="displayimg()"/><input type="hidden" name="existingimg" value="<?php echo $user['user_img']; ?>">
             </div>
