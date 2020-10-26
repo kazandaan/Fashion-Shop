@@ -12,7 +12,7 @@
         <div class="col-12">
           <!-- <label>Password</label><br> -->
           <input class="form-control" type="password" name="password" id="password" placeholder="Enter you password"required></input>
-          <i id="2" class="fas fa-eye togglePassword" onclick="togglePW()"></i>
+          <i id="1" class="fas fa-eye togglePassword" onclick="togglePW(1)"></i>
         </div>
       </div>
 
@@ -49,12 +49,12 @@
         </div>
         <div class="col-12" >
           <!-- <label>Password</label><br> -->
-          <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password" required></input>
-          <i id="3" class="fas fa-eye" onclick="togglePW()"></i>
+          <input class="form-control" type="password" name="password" id="password2" placeholder="Enter your password" required></input>
+          <i id="2" class="fas fa-eye" onclick="togglePW(2)"></i>
         </div>
         <div class="col-12" >
           <!-- <label>Confirm Password</label><br> -->
-          <input class="form-control" type="password" name="confirmpassword" id="confirmpassword" placeholder="Enter your password again"v required></input>
+          <input class="form-control" type="password" name="confirmpassword" id="confirmpassword" placeholder="Enter your password again" required></input>
         </div>
       </div>
       <div class="buttons">
@@ -67,16 +67,27 @@
 <!-- End Register Modal -->
 
 <script>
-  function togglePW() {
-    var y = document.getElementById("2");
-    var z = document.getElementById("3");
+  function togglePW(no) {
+    var y = document.getElementById("1");
+    var z = document.getElementById("2")
     var x = document.getElementById("password");
-    y.classList.toggle("fa-eye-slash");
-    z.classList.toggle("fa-eye-slash");
-    if (x.type === "password") {
+    var x2 = document.getElementById("password2");
+
+
+    if(no == 1){
+      y.classList.toggle("fa-eye-slash");
+    if (x.type === "password" ) {
       x.type = "text";
     } else {
       x.type = "password";
     }
+  }else if(no == 2){
+      z.classList.toggle("fa-eye-slash");
+    if (x2.type === "password") {
+      x2.type = "text";
+    } else {
+      x2.type = "password";
+    }
+  }
   }
 </script>
