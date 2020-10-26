@@ -58,13 +58,10 @@ input[type=number]:focus{
     border-radius: 3px;
 }
 
-#displayproduct img:hover {
-    transform:scale(1.5);
-}
-
-#displayproduct img  {
-  height: 400px;
-  width:300px;
+#displayproduct #myImg {
+  height: 500px;
+  width:auto;
+  object-fit: cover;
   transition: 0.7s;
 }
 

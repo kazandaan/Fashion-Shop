@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="css/utility.css">
   <link rel="stylesheet" href="css/carousel.css">
   <link rel="stylesheet" href="css/displayProduct.css">
+  <link rel="stylesheet" href="css/imageModal.css">
+  <link rel="stylesheet" href="css/loginmodal.css">
   <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -31,6 +33,8 @@
     $dropdown = "none";
     $logout = "block";
   }
+
+
 
   // if(isset($_GET['product_id'])){
   //   header("Location:products.php");
@@ -90,7 +94,7 @@
         ?>
 
         <div class="col text-mid ">
-            <img class="img-fluid" src="image/<?php echo $product['product_img']; ?>" alt="">
+            <img id="myImg" class="img-fluid zoom" src="image/<?php echo $product['product_img']; ?>" alt="<?php echo $product['product_name']; ?>">
         </div>
         <div class="col">
           <form class="" action="action/cartProduct.php?action=update" method="post">
@@ -152,6 +156,8 @@
         </div>
       </div>
     </div>
+
+    <?php echo file_get_contents ("html/imageModal.html"); ?>
   </section>
 
   <?php
@@ -183,6 +189,7 @@
   <!-- This generates footer -->
   <?php echo file_get_contents("html/bottom.html"); ?>
 
+  <script type="text/javascript" src="js/imageModal.js"></script> <!-- Product Image Modal script -->
   <script type="text/javascript" src="js/modal.js"></script> <!-- Modal script -->
   <script type="text/javascript" src="js/banner&btoTop.js"></script> <!-- Banner & B to top button -->
 </body>

@@ -1,13 +1,25 @@
 <!-- Login Modal -->
 <div id="loginModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('loginModal')">&times;</span>
+  <div class="modal-content2   ">
+    <span class="close2" onclick="closeModal('loginModal')">&times;</span>
     <form id="loginForm" name="loginForm" action="action/loginUser.php" method="POST">
       <h2>Login</h2>
-      <label>Username:</label><input type="text" name="username" id="username" required></input><br>
-      <label>Password:</label><input type="password" name="password" id="password" required></input><br>
+      <div class="row">
+        <div class="col-12">
+          <!-- <label>Username</label><br> -->
+          <input class="form-control" type="text" name="username" placeholder="Enter your username"id="username" required></input>
+        </div>
+        <div class="col-12">
+          <!-- <label>Password</label><br> -->
+          <input class="form-control" type="password" name="password" id="password" placeholder="Enter you password"required></input>
+          <i id="2" class="fas fa-eye togglePassword" onclick="togglePW()"></i>
+        </div>
+      </div>
+
+
+
       <div class="buttons">
-        <input type="submit" value="Login"/> &nbsp;
+        <input type="submit" value="LOGIN"/> &nbsp;
       </div>
       Don't have an account? <a href="#" onclick="openModal('registerModal', 'loginModal')"><br>Click here</a> to Register!
     </form>
@@ -17,15 +29,34 @@
 
 <!-- Register Modal -->
 <div id="registerModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('registerModal')">&times;</span>
+  <div class="modal-content2">
+    <span class="close2" onclick="closeModal('registerModal')">&times;</span>
+
     <form id="registerForm" name="registerForm" action="action/registerUser.php" method="POST">
       <h2>Register</h2>
-      <label>Name:</label><input type="text" name="name" id="name" required></input><br>
-      <label>Email:</label><input type="email" name="email" id="email" required></input> <br>
-      <label>Username:</label><input type="text" name="username" id="username" required></input><br>
-      <label>Password:</label><input type="password" name="password" id="password" required></input><br>
-      <label>Confirm Password:</label><input type="password" name="confirmpassword" id="confirmpassword" required></input><br>
+      <div class="row">
+        <div class="col-12" >
+          <!-- <label>Name</label><br> -->
+          <input class="form-control" type="text" name="name" id="name" placeholder="Enter your name" required></input>
+        </div>
+        <div class="col-12" >
+          <!-- <label>Email</label><br> -->
+          <input class="form-control" type="email" name="email" id="email" placeholder="Enter your email" required></input>
+        </div>
+        <div class="col-12" >
+          <!-- <label>Username</label><br> -->
+          <input class="form-control" type="text" name="username" id="username" placeholder="Enter your username" required></input>
+        </div>
+        <div class="col-12" >
+          <!-- <label>Password</label><br> -->
+          <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password" required></input>
+          <i id="3" class="fas fa-eye" onclick="togglePW()"></i>
+        </div>
+        <div class="col-12" >
+          <!-- <label>Confirm Password</label><br> -->
+          <input class="form-control" type="password" name="confirmpassword" id="confirmpassword" placeholder="Enter your password again"v required></input>
+        </div>
+      </div>
       <div class="buttons">
         <input type="submit" value="Register"/> &nbsp;
       </div>
@@ -34,3 +65,18 @@
   </div>
 </div>
 <!-- End Register Modal -->
+
+<script>
+  function togglePW() {
+    var y = document.getElementById("2");
+    var z = document.getElementById("3");
+    var x = document.getElementById("password");
+    y.classList.toggle("fa-eye-slash");
+    z.classList.toggle("fa-eye-slash");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+</script>

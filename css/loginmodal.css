@@ -1,0 +1,127 @@
+/* Modal Content */
+.modal-content2 {
+  font-family: "Poppins",sans-serif;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  max-width: 700px;
+  height: auto;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.6;
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+  display: block;
+  overflow: visible;
+}
+
+.modal-content2 h2{
+  background-image: -webkit-linear-gradient(to right, #56ab2f, #a8e063);
+  background-image: -o-linear-gradient(to right, #56ab2f, #a8e063);
+  background-image: linear-gradient(to right, #56ab2f, #a8e063);
+  padding: 20px 0;
+  margin-top: 0;
+  border-radius: 20px;
+  color: white;
+  font-family: inherit;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)}
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+.modal-content2 label{
+  font-weight: normal;
+  width: 200px;
+  text-align: left;
+    color: #555555;
+}
+.modal-content2 .buttons{
+  margin: 30px 0px 30px 0px;
+}
+.modal-content2 .buttons input, .buttons input{
+  width: 70%;
+  color: white;
+  border: none;
+  padding: 10px;
+  height: 46px;
+  font-size: 1rem;
+  background-color: #57b846;
+  box-shadow: 0 10px 30px 0px rgba(87, 184, 70, 0.5);
+  border-radius: 25px;
+  font-family: inherit;
+}
+.modal-content2 .buttons input:hover, .buttons input:hover{
+  opacity: 0.6;
+  transition: 0.7s;
+  cursor: pointer;
+}
+
+/* The Close Button */
+.close2 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: relative;
+  bottom:25px;
+  left: 15px;
+}
+
+.close2:hover,
+.close2:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* END MODAL */
+
+.messagePopup{
+  background-color: darkgrey;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  margin: 140px 25% 0px 25%;
+  width: 50%;
+  height: auto;
+  padding: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  display: none;
+}
+
+.modal-content2 input[type=text], .modal-content2 input[type=password],.modal-content2 input[type=email]{
+  margin-top:10px;
+  width:70%;
+  height: 46px;
+  margin-right:auto;
+  margin-left: auto;
+  box-shadow: 0px 2px 2px #DDDDDD;
+  border: none;
+  border-radius: 20px;
+  padding-left: 20px;
+  font-family: inherit;
+}
+
+.modal-content2 div.col-12{
+  margin-bottom: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content2 i {
+  position: absolute;
+  bottom:10px;
+  right: 130px;
+  cursor:pointer;
+}

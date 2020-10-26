@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/general.css">
   <link rel="stylesheet" href="css/utility.css">
   <link rel="stylesheet" href="css/carousel.css">
+  <link rel="stylesheet" href="css/loginmodal.css">
   <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -129,20 +130,18 @@
 
         <div class="col zoom banner-item" style="background-image:url(image/woman_banner.jpg)">
             <div class="banner-category">
-              <a href="#">WOMEN'S</a>
+              <a href="products.php?category=women">WOMEN'S</a>
             </div>
         </div>
         <div class="col zoom banner-item" style="background-image:url(image/girl_banner.jpg)">
           <div class="banner-category">
-              <a href="#">KIDS'</a>
+              <a href="products.php?category=kids">KIDS'</a>
           </div>
-          <!-- <img src="https://via.placeholder.com/300x200.png?text=MEN" alt="MEN"> -->
         </div>
         <div class="col zoom banner-item" style="background-image:url(image/man_banner.jpg)">
             <div class="banner-category">
-                <a href="#">MEN'S</a>
+                <a href="products.php?category=men">MEN'S</a>
             </div>
-          <!-- <img src="https://via.placeholder.com/300x200.png?text=KIDS" alt="KIDS"> -->
         </div>
       </div>
   </section>
@@ -153,19 +152,19 @@
       </div>
       <div class="row text-mid">
         <div class="col">
-          <a href="#" class="product-item zoom">
+          <a href="displayProduct.php?productid=3" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'women/3.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 1</h3>
           <strong>$</strong>
         </div>
         <div class="col">
-          <a href="#" class="product-item zoom">
+          <a href="displayProduct.php?productid=12" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'kids/2.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 2</h3>
           <strong>$</strong>
         </div>
         <div class="col">
-          <a href="#" class="product-item zoom">
+          <a href="displayProduct.php?productid=8" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'men/3.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 3</h3>
           <strong>$</strong>
@@ -183,19 +182,19 @@
 
       <div class="row text-mid">
         <div class="col">
-          <a href="#" class="product-item zoom">
+          <a href="displayProduct.php?productid=1" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'women/1.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 1</h3>
           <strong>$</strong>
         </div>
         <div class="col">
-          <a href="#" class="product-item zoom">
+          <a href="displayProduct.php?productid=11" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'kids/1.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 2</h3>
           <strong>$</strong>
         </div>
         <div class="col">
-          <a href="#" class="product-item zoom">
+          <a href="displayProduct.php?productid=6" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'men/1.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 3</h3>
           <strong>$</strong>
@@ -203,19 +202,19 @@
       </div>
       <div class="row text-mid">
         <div class="col">
-          <a href="#" class="product-item zoom">
+          <a href="displayProduct.php?productid=4" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'women/4.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 1</h3>
           <strong>$</strong>
         </div>
         <div class="col">
-          <a href="#" class="product-item zoom">
+          <a href="displayProduct.php?productid=7" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'men/2.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 2</h3>
           <strong>$</strong>
         </div>
         <div class="col">
-          <a href="#" class="product-item zoom">
+          <a href="displayProduct.php?productid=15" class="product-item zoom">
             <img class="img-fluid" src="image/<?php echo 'kids/5.jpg'?>" alt=""></a>
           <h3 class="item-title">Product 3</h3>
           <strong>$</strong>

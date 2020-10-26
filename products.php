@@ -8,13 +8,13 @@
   <link rel="stylesheet" href="css/utility.css">
   <link rel="stylesheet" href="css/carousel.css">
   <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/loginmodal.css">
   <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
 
 </head>
 

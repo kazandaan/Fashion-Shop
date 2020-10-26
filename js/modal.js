@@ -1,18 +1,18 @@
-var modal;
+var modal2;
 function openModal(modalname, closemodal){
-  this.modal = document.getElementById(modalname);
-  modal.style.display = "block";
+  this.modal2 = document.getElementById(modalname);
+  modal2.style.display = "block";
   closeModal(closemodal);
 }
 function closeModal(modalname){
-  var close = document.getElementById(modalname);
-  close.style.display = "none";
+  var close2 = document.getElementById(modalname);
+  close2.style.display = "none";
   resetForm();
 }
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == modal2) {
+    modal2.style.display = "none";
     resetForm();
   }
 }

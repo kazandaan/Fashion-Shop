@@ -19,7 +19,7 @@
 <header id="title">
   <div class="wrapHead">
 
-    <div class="" style="margin-left:40px;">
+    <div class="logo-wrapper" style="margin-left:40px;">
       <a href="index.php"><img src="image/logo.png" alt="" class="logo"></a>
     </div>
     <nav class="nav frame">
