@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 26, 2020 at 03:05 PM
+-- Generation Time: Oct 26, 2020 at 03:03 PM
 -- Server version: 5.5.44-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.11
 
@@ -23,30 +23,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart_randa`
+-- Table structure for table `checkout_randa`
 --
 
-CREATE TABLE IF NOT EXISTS `cart_randa` (
-  `cart_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `checkout_randa` (
+  `checkout_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL DEFAULT '1',
-  `size` enum('XS','S','M','L') NOT NULL DEFAULT 'S',
-  PRIMARY KEY (`cart_id`),
-  KEY `product_id` (`product_id`),
+  `total_price` float NOT NULL,
+  `checkout_date` varchar(10) NOT NULL,
+  PRIMARY KEY (`checkout_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=48 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `cart_randa`
+-- Constraints for table `checkout_randa`
 --
-ALTER TABLE `cart_randa`
-  ADD CONSTRAINT `cart_randa_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product_randa` (`product_id`),
-  ADD CONSTRAINT `cart_randa_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user_randa` (`user_id`);
+ALTER TABLE `checkout_randa`
+  ADD CONSTRAINT `checkout_randa_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_randa` (`user_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
