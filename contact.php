@@ -153,7 +153,7 @@
 
             <div class="form-group row">
                 <div class="col">
-                  <input class="form-control btnSubmit" type="submit" id="submit" name="submit" value="Send Message" style="letter-spacing: 2px;">
+                  <input class="form-control btnSubmit" type="submit" id="submit" name="submit" value="Send Message">
                 </div>
             </div>
           </form>

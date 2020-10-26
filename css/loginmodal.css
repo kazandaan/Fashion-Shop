@@ -50,16 +50,18 @@
   margin: 30px 0px 30px 0px;
 }
 .modal-content2 .buttons input, .buttons input{
-  width: 70%;
+  width: 30%;
   color: white;
   border: none;
+  outline:0;
   padding: 10px;
   height: 46px;
   font-size: 1rem;
-  background-color: #57b846;
-  box-shadow: 0 10px 30px 0px rgba(87, 184, 70, 0.5);
-  border-radius: 25px;
+  background-color: #fe4c50;
+  /* box-shadow: 0 10px 30px 0px #fe4c50;; */
   font-family: inherit;
+  border-radius: 3px;
+  box-shadow: 0px 2px 2px #DDDDDD;
 }
 .modal-content2 .buttons input:hover, .buttons input:hover{
   opacity: 0.6;

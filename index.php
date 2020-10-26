@@ -152,7 +152,7 @@
               <div class="slide_description3 text-mid" style="position:absolute; top:20%; left:60%;">
                 <h3>#OPPA</h3>
                 <h2 style="font-size: 50px; font-weight:500;">BE A HOT GUY.</h2>
-                <a href="#"  class="shop_button red_button frame" style="width: 40%;">SHOP NOW</a>
+                <a href="#"  class="shop_button red_button frame">SHOP NOW</a>
               </div>
             </div>
           </div>
@@ -266,7 +266,7 @@
       </br>
       <div class="row">
         <div class="col">
-            <a href="#" class="red_button" style="margin:auto;">SEE MORE</a>
+            <a href="#" class="red_button frame see_more">SEE MORE</a>
         </div>
       </div>
     </div>
@@ -282,8 +282,8 @@
               <h3>#MORE SUPRISE TO COME</h3>
               <h2 style="font-size: 70px; color:black; margin-top:0;">SUBSCRIBE FOR A 30% <br>DISCOUNT!</h2>
               <div class="subscribe_field flex" style="border-radius:3px; justify-content:center;">
-                <input class="form-control" type="email" name="" value="" placeholder="Email here" style="width:40%; height:46px; border:none; padding-left:20px;" required>
-                <button class="form-control" type="submit" name="button" style="height:46px;">SUBSCRIBE</button>
+                <input class="form-control" type="email" name="" value="" placeholder="Email here" style="width:40%; border:none; padding-left:20px;" required>
+                <button class="form-control red_button" type="submit" name="button">SUBSCRIBE</button>
               </div>
             </form>
           </div>
@@ -316,7 +316,7 @@
           </div>
 
           <div class="col flex">
-            <div class="ml-auto" contenteditable=""style="padding-right: 10px; position:relative; top: 15px;">
+            <div class="ml-auto" style="padding-right: 10px; position:relative; top: 15px;">
               <i class="fas fa-question-circle fa-2x" style="color: #fe4c50;"></i>
             </div>
             <div class="mr-auto">
@@ -340,7 +340,7 @@
   </div>
 
   <!--back to top -->
-  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+  <button onclick="topFunction()" id="myBtn" class="red_button" title="Go to top" style="width: 5%;">Top</button>
 
   <!-- This generates footer -->
   <?php echo file_get_contents("html/bottom.html"); ?>
