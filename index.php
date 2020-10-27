@@ -123,7 +123,7 @@
               <div class="slide_description1 text-mid" style="margin-top: 30%;">
                 <h3>#GRAB US NOW</h3>
                 <h2 style="font-size: 50px; font-weight:500;">GET UP TO 30% NEW ARRIVAL</h2>
-                <a href="#" class="shop_button red_button frame">SHOP NOW</a>
+                <a href="products.php" class="shop_button red_button frame">SHOP NOW</a>
               </div>
             </div>
           </div>
@@ -136,7 +136,7 @@
               <div class="slide_description2 text-mid"  style="margin-top: 30%;">
                 <h3>#FASHION KIDS</h3>
                 <h2 style="font-size: 50px; font-weight:500;">DRESS YOUR CHILD</h2>
-                <a href="#" class="shop_button red_button frame">SHOP NOW</a>
+                <a href="product.php?category=kids" class="shop_button red_button frame">SHOP NOW</a>
               </div>
             </div>
             <div class="col">
@@ -152,7 +152,7 @@
               <div class="slide_description3 text-mid" style="position:absolute; top:20%; left:60%;">
                 <h3>#OPPA</h3>
                 <h2 style="font-size: 50px; font-weight:500;">BE A HOT GUY.</h2>
-                <a href="#"  class="shop_button red_button frame">SHOP NOW</a>
+                <a href="product.php?category=men"  class="shop_button red_button frame">SHOP NOW</a>
               </div>
             </div>
           </div>
@@ -266,7 +266,7 @@
       </br>
       <div class="row">
         <div class="col">
-            <a href="#" class="red_button frame see_more">SEE MORE</a>
+            <a href="products.php" class="red_button frame see_more">SEE MORE</a>
         </div>
       </div>
     </div>
