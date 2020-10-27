@@ -90,13 +90,29 @@
           $sql = "SELECT * FROM product_randa WHERE product_id = $productid";
           $runsql = mysqli_query($conn, $sql);
           $product = mysqli_fetch_assoc($runsql);
+
+          // check if userid and productid is in the table, get values
+          $val = "ADD TO CART";
+          $action = "insert";
+
+          // HERE NOT DONE -------> GET EXISITNG VALUES
+          $cartsql = "SELECT * FROM cart_randa JOIN product_randa ON cart_randa.product_id = product_randa.product_id
+          WHERE cart_randa.user_id = $id AND cart_randa.product_id = $productid";
+          $runcartsql = mysqli_query($conn, $cartsql);
+
+          if( isset($_GET['page']) == "cart" ){
+            if( mysqli_num_rows($runcartsql) > 0 ){
+              $val = "UPDATE";
+              $action = "update";
+            }
+          }
         ?>
 
         <div class="col text-mid ">
             <img id="myImg" class="img-fluid zoom" src="image/<?php echo $product['product_img']; ?>" alt="<?php echo $product['product_name']; ?>">
         </div>
         <div class="col">
-          <form class="" action="action/cartProduct.php?action=update" method="post">
+          <form class="" action="action/cartProduct.php?action=<?php echo $action; ?>" method="post">
             <div class="product_name attribute">
               <h2><?php echo $product['product_name']; ?></h2>
             </div>
@@ -111,13 +127,29 @@
             <input type="hidden" name="productid" value="<?php echo $product['product_id']; ?>">
 
             <?php
-              // check if userid and productid is in the table, get values
+              if( isset($_GET['page']) == "cart" ){
 
-              // HERE NOT DONE -------> GET EXISITNG VALUES
-              $sql = "SELECT * FROM cart_randa WHERE user_id = $userid AND product_id = $productid";
-              $runsql = mysqli_query($conn, $sql);
+                // HERE NOT DONE -------> GET EXISITNG VALUES
+                // $cartsql = "SELECT * FROM cart_randa JOIN product_randa ON cart_randa.product_id = product_randa.product_id
+                // WHERE cart_randa.user_id = $id AND cart_randa.product_id = $productid";
+                // $runcartsql = mysqli_query($conn, $cartsql);
 
-              if( mysqli_num_rows($runsql) > 0 ){ }
+                if( mysqli_num_rows($runcartsql) > 0 ){
+                  $cart = mysqli_fetch_assoc($runcartsql);
+                  $cartid = $cart['cart_id'];
+                  $size = $cart['size'];
+                  $quantity = $cart['quantity'];
+
+                  $val = "UPDATE";
+                  $action = "update";
+            ?>
+                  <input type="hidden" name="cartid" value="<?php echo $cartid; ?>">
+                  <input type="hidden" name="sizedb" value="<?php echo $size; ?>">
+                  <input type="hidden" name="qtydb" value="<?php echo $quantity; ?>">
+            <?php
+
+                }
+              }
             ?>
 
             <div class="size_selection attribute">
@@ -139,16 +171,6 @@
             </div>
 
             <div class="flex attribute">
-
-              <?php
-                // Check if in cart or not
-                if(checkCart($conn, $product['product_id'], $id) > 1){
-                  $val = "UPDATE";
-                }
-                else{
-                  $val = "ADD TO CART";
-                }
-              ?>
               <input class="form-control btnAdd2cart" type="submit" name="add2cart" id="add2cart" value="<?php echo $val; ?>" >
             </div>
           </form>

@@ -166,10 +166,19 @@
                         $unfavBtn = "block"; //default
                       }
 
+                      $iconid = $product['product_id'];
                         // Check if in cart or not
                         if(checkCart($conn, $product['product_id'], $id)){
-                          $removCartBtn = "block";
-                          $addCartBtn = "none";
+                          // $removCartBtn = "block"; //only display in cart
+                          if( isset($_GET['page']) == "cart" ){
+                            $removCartBtn = "block"; //only display in cart
+                            $addCartBtn = "none";
+                            $iconid = $product['cart_id'];
+                          }
+                          else{
+                            $removCartBtn = "none";
+                          }
+                          // $addCartBtn = "none";
                         }
                         else{
                           $removCartBtn = "none";
@@ -178,13 +187,21 @@
                       ?>
                     <!-- fav and add to cart button -->
                     <div class="flex">
-                      <span class='material-icons' id='unfavBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $unfavBtn; ?>;"><a onclick="favouriteProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='favourite'>favorite_border</a></span>
-                      <span class='material-icons' id='favBtn<?php echo $product['product_id']; ?>'  style="display:<?php echo $favBtn; ?>;"><a onclick="unfavouriteProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='unfavourite'>favorite</a></span>
-                      <span class='material-icons' id='addCartBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $addCartBtn; ?>;"><a onclick="addProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='add to cart'>add_shopping_cart</a></span>
-                      <span class='material-icons' id='removeCartBtn<?php echo $product['product_id']; ?>' style="display:<?php echo $removCartBtn; ?>;"><a onclick="removeProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='remove from cart'>remove_shopping_cart</a></span>
+                      <span class='material-icons' id='unfavBtn<?php echo $iconid; ?>' style="display:<?php echo $unfavBtn; ?>;"><a onclick="favouriteProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='favourite' style="color:red;">favorite_border</a></span>
+                      <span class='material-icons' id='favBtn<?php echo $iconid; ?>'  style="display:<?php echo $favBtn; ?>;"><a onclick="unfavouriteProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='unfavourite' style="color:red;">favorite</a></span>
+                      <span class='material-icons' id='addCartBtn<?php echo $iconid; ?>' style="display:<?php echo $addCartBtn; ?>;"><a onclick="addProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='add to cart'>add_shopping_cart</a></span>
+                      <span class='material-icons' id='removeCartBtn<?php echo $iconid; ?>' style="display:<?php echo $removCartBtn; ?>;"><a onclick="removeProduct(<?php echo $product['cart_id'] . ',' . $id; ?>)" title='remove from cart'>remove_shopping_cart</a></span>
                     </div>
+                    <?php
+                      if( isset($_GET['page']) == "cart" ){
+                        $cartparam = "page=cart&"; //only display in cart
+                      }
+                      else{
+                        $cartparam = "";
+                      }
+                    ?>
 
-                    <a href="displayProduct.php?productid=<?php echo $product['product_id']; ?>">
+                    <a href="displayProduct.php?<?php echo $cartparam; ?>productid=<?php echo $product['product_id']; ?>">
                       <img src="image/<?php echo $product['product_img']; ?>" alt="<?php echo $product['product_name']; ?>" class="zoom img-fluid">
                       <div id="info">
                         <p><?php echo $product['product_name']; ?></p>
