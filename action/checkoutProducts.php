@@ -8,6 +8,8 @@
       die("Connection failed: " . mysqli_connect_error());
   }
 
+  // Check if payment details are THERE yes>continue, no>go back
+
   //variables
   $userid = $_POST['userid'];
   $totalprice = $_POST['totalprice'];
@@ -88,10 +90,10 @@
   }
 
   if($success == 1){
-    header("Location:../products.php?page=checkout&status=$success"); //pop up receipt ?
+    header("Location:../products.php?page=checkout&status=$success"); //OrderPage > open "succesful" modal
   }
   else{
-    header("Location:../products.php?page=checkout&status=$success");
+    header("Location:../products.php?page=cart&status=$success");
   }
 
   mysqli_close($conn);

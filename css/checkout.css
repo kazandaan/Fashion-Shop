@@ -23,9 +23,11 @@
 }
 #checkout .last{
   border-bottom: 0px;
+  text-align: right;
 }
 
 #checkout #checkoutBtn input{
-  margin-top: 30px;
+  margin-top: 20px;
+  float: right;
   width: auto;
 }

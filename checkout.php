@@ -55,8 +55,10 @@
           <tr>
             <th>S/N</th>
             <th>Name</th>
+            <th>Size</th>
             <th>Quantity</th>
             <th>Price</th>
+            <th></th>
           </tr>
           <?php
             $sql = "SELECT * FROM product_randa
@@ -79,23 +81,26 @@
           <tr>
             <td><?php echo $sn; ?></td>
             <td><?php echo $product['product_name']; ?></td>
+            <td><?php echo $product['size']; ?></td>
             <td>$<?php echo $price2dp . " x " . $product['quantity']; ?></td>
             <td>$<?php echo number_format($total, 2); ?></td>
+            <td><span class="material-icons" id="bin<?php echo $product['cart_id']; ?>"><a onclick="removeProduct(<?php echo $product['cart_id'] . ',' . $id; ?>)" title="delete order">delete_forever</a></span></td>
           </tr>
           <?php
             }
           ?>
           <tr>
-            <th colspan="3" style="text-align:right;">Total</th>
+            <th colspan="4" style="text-align:right;">Total</th>
             <th>$<?php echo number_format($totalPrice, 2); ?></th>
+            <th></th>
           </tr>
           <tr>
-            <td class="last" colspan="4">
+            <td class="last" colspan="5">
               <!-- Hidden values -->
               <input type="hidden" name="userid" value="<?php echo $id; ?>"/>
               <input type="hidden" name="totalprice" value="<?php echo $totalPrice; ?>"/>
               <!-- Checkout Button -->
-              <input type="submit" value="CONFIRM CHECKOUT"/>
+              <input type="submit" class="red_button" value="CONFIRM CHECKOUT"/>
             </td>
           </tr>
           <tr>
@@ -114,6 +119,15 @@
   <?php
     mysqli_close($conn);
   ?>
+
+  <script>
+  // For the delete icon
+  function removeProduct(cartid){
+    var bin = document.getElementById('bin' + cartid);
+    location.replace("action/cartProduct.php?action=delete&cartid=" + cartid );
+  }
+
+  </script>
 
   <!-- This generates footer -->
   <?php echo file_get_contents("html/bottom.html"); ?>

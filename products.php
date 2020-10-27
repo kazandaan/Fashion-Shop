@@ -52,10 +52,10 @@
         if( $page == "checkout" && $status == 2){
           $message = "There are no items to checkout";
         }
-        else if( $page == "checkout" && $status == 0){
+        else if( $page == "cart" && $status == 0){
           $message = "Checkout Failed";
         }
-        else if( $page == "checkout" && $status == 1){
+        else if( $page == "checkout" && $status == 1){ // to be removed when OrderPage is made
           $message = "Successful Checkout";
         }
         echo "setUpdateStatusDiv( ".$status.", '".$message."' );";
@@ -130,8 +130,8 @@
           </select>
 
           <!-- Checkout Button -->
-          <form id="checkoutBtn" class="buttons" action="checkout.php" method="POST" style="display:<?php echo $checkout; ?>;">
-            <input type="submit" value="CHECKOUT"/>
+          <form id="checkoutBtn" action="checkout.php" method="POST" style="display:<?php echo $checkout; ?>;">
+            <input type="submit" class="red_button" value="CHECKOUT"/>
           </form>
         </div>
 
@@ -194,59 +194,14 @@
                         }
                         $removCartBtn = "none";
                         $addCartBtn = "block";
-                        // if(checkCart($conn, $product['product_id'], $id)){
-                        //   $removCartBtn = "block"; //only display in cart
-                        //   $addCartBtn = "none";
-                        // }
-                        // else{
-                        //   $removCartBtn = "none";
-                        //   $addCartBtn = "block"; // default
-                        // }
                       }
-
-
-
-                      // check if favourite or not
-                      // if(checkFavourite($conn, $product['product_id'], $id)){
-                      //   $favBtn = "block";
-                      //   $unfavBtn = "none";
-                      // }
-                      // else{
-                      //   $favBtn = "none";
-                      //   $unfavBtn = "block"; //default
-                      // }
-                      //
-                      // if( $_GET['page'] == "cart" ){
-                      //   $favBtn = "none";
-                      //   $unfavBtn = "none";
-                      // }
-                      //
-                      // $iconid = $product['product_id'];
-                      //   // Check if in cart or not
-                      //   if(checkCart($conn, $product['product_id'], $id)){
-                      //     // $removCartBtn = "block"; //only display in cart
-                      //     if( isset($_GET['page']) == "cart" ){
-                      //       $removCartBtn = "block"; //only display in cart
-                      //       $addCartBtn = "none";
-                      //
-                      //       $iconid = $product['cart_id'];
-                      //     }
-                      //     else{
-                      //       $removCartBtn = "none";
-                      //     }
-                      //     // $addCartBtn = "none";
-                      //   }
-                      //   else{
-                      //     $removCartBtn = "none";
-                      //     $addCartBtn = "block"; // default
-                      //   }
                       ?>
                     <!-- fav and add to cart button -->
                     <div class="flex">
-                      <span class='material-icons' id='unfavBtn<?php echo $iconid; ?>' style="display:<?php echo $unfavBtn; ?>;"><a onclick="favouriteProduct(<?php echo $iconid .',' . $product['product_id'] . ',' . $id; ?>)" title='favourite' style="color:red;">favorite_border</a></span>
-                      <span class='material-icons' id='favBtn<?php echo $iconid; ?>'  style="display:<?php echo $favBtn; ?>;"><a onclick="unfavouriteProduct(<?php echo $iconid .','. $product['product_id'] . ',' . $id; ?>)" title='unfavourite' style="color:red;">favorite</a></span>
-                      <span class='material-icons' id='addCartBtn<?php echo $iconid; ?>' style="display:<?php echo $addCartBtn; ?>;"><a onclick="addProduct(<?php echo $iconid .','. $id; ?>)" title='add to cart'>add_shopping_cart</a></span>
-                      <span class='material-icons' id='removeCartBtn<?php echo $iconid; ?>' style="display:<?php echo $removCartBtn; ?>;"><a onclick="removeProduct(<?php echo $iconid . ',' . $id; ?>)" title='remove from cart'>remove_shopping_cart</a></span>
+                      <span class="material-icons" id="unfavBtn<?php echo $iconid; ?>" style="display:<?php echo $unfavBtn; ?>;"><a onclick="favouriteProduct(<?php echo $iconid .',' . $product['product_id'] . ',' . $id; ?>)" title="favourite" style="color:red;">favorite_border</a></span>
+                      <span class="material-icons" id="favBtn<?php echo $iconid; ?>"  style="display:<?php echo $favBtn; ?>;"><a onclick="unfavouriteProduct(<?php echo $iconid .','. $product['product_id'] . ',' . $id; ?>)" title="unfavourite" style="color:red;">favorite</a></span>
+                      <span class="material-icons" id="addCartBtn<?php echo $iconid; ?>" style="display:<?php echo $addCartBtn; ?>;"><a onclick="addProduct(<?php echo $iconid .','. $id; ?>)" title="add to cart">add_shopping_cart</a></span>
+                      <span class="material-icons" id="removeCartBtn<?php echo $iconid; ?>" style="display:<?php echo $removCartBtn; ?>;"><a onclick="removeProduct(<?php echo $iconid . ',' . $id; ?>)" title="remove from cart">remove_shopping_cart</a></span>
                     </div>
                     <?php
                       if( isset($_GET['page']) == "cart" ){
