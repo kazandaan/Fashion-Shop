@@ -20,12 +20,20 @@
   if( isset($_GET['productid']) ){ $productid = $_GET['productid']; }
   else if( isset($_POST['productid']) ){ $productid = $_POST['productid']; }
 
-  if( isset($_POST['quantity']) ){
+  if( isset($_POST['quantity']) && isset($_POST['size']) ){
     $quantity = $_POST['quantity'];
+    $size = $_POST['size'];
+  }
+  else{
+    $quantity = 1;
+    $size = 'S';
   }
 
-  if( isset($_POST['size']) ){
-    $size = $_POST['size'];
+  if( isset($_GET['cartid']) ){
+    $cartid = $_GET['cartid'];
+  }
+  else if( isset($_POST['cartid']) ){
+    $cartid = $_POST['cartid'];
   }
 
   if($userid == ""){
@@ -38,37 +46,23 @@
     header("Location:" .  $url);
   }
 
-  // $userid = $_GET['userid'];
-  // $productid = $_GET['productid'];
   $execute = 0;
 
   // set auto-increment for INSERT statements
   $ai = "ALTER TABLE cart_randa AUTO_INCREMENT = 1";
   $run = mysqli_query($conn, $ai);
 
-  // check if userid and productid is in the table
-  $sql = "SELECT * FROM cart_randa WHERE user_id = $userid AND product_id = $productid";
-  $runsql = mysqli_query($conn, $sql);
-
-  if( mysqli_num_rows($runsql) > 0 ){ // UPDATE or DELETE
-    $rating = mysqli_fetch_assoc($runsql);
-    if($action == "update"){
-      $sql = "UPDATE cart_randa SET quantity = $quantity, size = '$size' WHERE user_id = $userid AND product_id = $productid";
-      $runsql = mysqli_query($conn, $sql);
-    }
-    else if($action == "delete"){
-      $sql = "DELETE FROM cart_randa WHERE user_id = $userid AND product_id = $productid";
-      $runsql = mysqli_query($conn, $sql);
-    }
+  if($action == "insert"){
+    $sql = "INSERT INTO cart_randa (user_id, product_id, quantity, size) VALUES ($userid, $productid, $quantity, '$size')";
+    $runsql = mysqli_query($conn, $sql);
   }
-  else{ // INSERT
-    if($action == "update"){ //the button
-      $sql = "INSERT INTO cart_randa (user_id, product_id, quantity, size) VALUES ($userid, $productid, $quantity, '$size')";
-      echo $sql;
-    }
-    else{
-      $sql = "INSERT INTO cart_randa (user_id, product_id) VALUES ($userid, $productid)";
-    }
+  else if($action == "update"){
+    $sql = "UPDATE cart_randa SET quantity = $quantity, size = '$size' WHERE cart_id = $cartid";
+    echo $sql;
+    $runsql = mysqli_query($conn, $sql);
+  }
+  else if($action == "delete"){
+    $sql = "DELETE FROM cart_randa WHERE cart_id = $cartid";
     $runsql = mysqli_query($conn, $sql);
   }
 
