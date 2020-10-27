@@ -38,7 +38,7 @@
           <a class="scroll" href="products.php?category=kids">KIDS'</a>
         </li>
         <li class="nav-item">
-          <a class="scroll" href="#">SHOP</a>
+          <a class="scroll" href="products.php">SHOP</a>
         </li>
         <li class="nav-item">
           <a class="scroll" href="contact.php">CONTACT</a>

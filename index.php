@@ -339,8 +339,6 @@
     <h2 id="messageHeader"></h2>
   </div>
 
-  <!--back to top -->
-  <button onclick="topFunction()" id="myBtn" class="red_button" title="Go to top" style="width: 5%;">Top</button>
 
   <!-- This generates footer -->
   <?php echo file_get_contents("html/bottom.html"); ?>

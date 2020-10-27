@@ -130,8 +130,8 @@
           </select>
 
           <!-- Checkout Button -->
-          <form id="checkoutBtn" class="buttons" action="checkout.php" method="POST" style="display:<?php echo $checkout; ?>;">
-            <input type="submit" value="CHECKOUT"/>
+          <form id="checkoutBtn" class="" action="checkout.php" method="POST" style="display:<?php echo $checkout; ?>;">
+            <input type="submit" class="red_button frame" value="CHECKOUT" style="width:90%;"/>
           </form>
         </div>
 
@@ -238,9 +238,6 @@
         </section>
       </div>
     </div> <!-- end of products div -->
-
-  <!--back to top -->
-  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
   <!-- This generates modal -->
   <?php echo file_get_contents("html/modal.html"); ?>

@@ -5,7 +5,7 @@ function setUpdateStatusDiv( status, message ){
 
   var colour = "";
   if( status == 0 ){ // RED // FAIL
-    colour = "#F09CA2"; // "rgba(255, 0, 0, 0.2)"
+    colour = "#F09CA2"; // "rgba(255 , 0, 0, 0.2)"
   }
   else if(status == 1 ){ // GREEN // PASS
     colour = "#BDF0D6"; // "rgba(0, 255, 0, 0.2)"
@@ -25,5 +25,5 @@ function setUpdateStatusDiv( status, message ){
     var newURL = location.pathname;
     window.history.replaceState('object', document.title, newURL); // removeQueryString from url without refreshing
     // location.replace("account.php");
-  }, 3000);
+  }, 40000);
 }
