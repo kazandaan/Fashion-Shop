@@ -130,8 +130,8 @@
           </select>
 
           <!-- Checkout Button -->
-          <form id="checkoutBtn" class="" action="checkout.php" method="POST" style="display:<?php echo $checkout; ?>;">
-            <input type="submit" class="red_button frame" value="CHECKOUT" style="width:90%;"/>
+          <form id="checkoutBtn" class="buttons" action="checkout.php" method="POST" style="display:<?php echo $checkout; ?>;">
+            <input type="submit" value="CHECKOUT"/>
           </form>
         </div>
 
@@ -187,10 +187,10 @@
                       ?>
                     <!-- fav and add to cart button -->
                     <div class="flex">
-                      <span class='material-icons' id='unfavBtn<?php echo $iconid; ?>' style="display:<?php echo $unfavBtn; ?>;"><a onclick="favouriteProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='favourite' style="color:red;">favorite_border</a></span>
-                      <span class='material-icons' id='favBtn<?php echo $iconid; ?>'  style="display:<?php echo $favBtn; ?>;"><a onclick="unfavouriteProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='unfavourite' style="color:red;">favorite</a></span>
-                      <span class='material-icons' id='addCartBtn<?php echo $iconid; ?>' style="display:<?php echo $addCartBtn; ?>;"><a onclick="addProduct(<?php echo $product['product_id'] .','. $id; ?>)" title='add to cart'>add_shopping_cart</a></span>
-                      <span class='material-icons' id='removeCartBtn<?php echo $iconid; ?>' style="display:<?php echo $removCartBtn; ?>;"><a onclick="removeProduct(<?php echo $product['cart_id'] . ',' . $id; ?>)" title='remove from cart'>remove_shopping_cart</a></span>
+                      <span class='material-icons' id='unfavBtn<?php echo $iconid; ?>' style="display:<?php echo $unfavBtn; ?>;"><a onclick="favouriteProduct(<?php echo $iconid .',' . $product['product_id'] . ',' . $id; ?>)" title='favourite' style="color:red;">favorite_border</a></span>
+                      <span class='material-icons' id='favBtn<?php echo $iconid; ?>'  style="display:<?php echo $favBtn; ?>;"><a onclick="unfavouriteProduct(<?php echo $iconid .','. $product['product_id'] . ',' . $id; ?>)" title='unfavourite' style="color:red;">favorite</a></span>
+                      <span class='material-icons' id='addCartBtn<?php echo $iconid; ?>' style="display:<?php echo $addCartBtn; ?>;"><a onclick="addProduct(<?php echo $iconid .','. $id; ?>)" title='add to cart'>add_shopping_cart</a></span>
+                      <span class='material-icons' id='removeCartBtn<?php echo $iconid; ?>' style="display:<?php echo $removCartBtn; ?>;"><a onclick="removeProduct(<?php echo $iconid . ',' . $id; ?>)" title='remove from cart'>remove_shopping_cart</a></span>
                     </div>
                     <?php
                       if( isset($_GET['page']) == "cart" ){
@@ -255,6 +255,9 @@
         </section>
       </div>
     </div> <!-- end of products div -->
+
+  <!--back to top -->
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
   <!-- This generates modal -->
   <?php echo file_get_contents("html/modal.html"); ?>

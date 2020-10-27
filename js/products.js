@@ -17,9 +17,9 @@ function checkUser(userid){
   }
 }
 
-function favouriteProduct( productid, userid ){
+function favouriteProduct( iconid, productid, userid ){
   if(checkUser(userid)){
-    getVariables(productid);
+    getVariables(iconid);
     this.unfavBtn.style.display = "none";
     this.favBtn.style.display = "block";
     // call php > set rating_favourite = 1 in rating_randa
@@ -27,9 +27,9 @@ function favouriteProduct( productid, userid ){
   }
 }
 
-function unfavouriteProduct( productid, userid ){
+function unfavouriteProduct( iconid, productid, userid ){
   if(checkUser(userid)){
-    getVariables(productid);
+    getVariables(iconid);
     this.favBtn.style.display = "none";
     this.unfavBtn.style.display = "block";
     // call php > set rating_favourite = 0 in rating_randa
