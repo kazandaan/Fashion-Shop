@@ -69,7 +69,8 @@
   if($runsql){
     $execute = 1;
 
-    if($_SERVER['HTTP_REFERER'] == "http://192.168.56.2/f32ee/Fashion-Shop/displayProduct.php?productid=" . $productid){
+    if($_SERVER['HTTP_REFERER'] == "http://192.168.56.2/f32ee/Fashion-Shop/displayProduct.php?productid=" . $productid
+    || $_SERVER['HTTP_REFERER'] == "http://192.168.56.2/f32ee/Fashion-Shop/displayProduct.php?page=cart&cartid=" . $cartid ){
       $url = $_SERVER['HTTP_REFERER'] . "&status=$execute";
     }
     else{

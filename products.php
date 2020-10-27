@@ -156,34 +156,90 @@
             ?>
                 <div class="frame">
                     <?php
-                      // check if favourite or not
-                      if(checkFavourite($conn, $product['product_id'], $id)){
-                        $favBtn = "block";
-                        $unfavBtn = "none";
-                      }
-                      else{
-                        $favBtn = "none";
-                        $unfavBtn = "block"; //default
-                      }
-
+                      // fav and cart icon
                       $iconid = $product['product_id'];
-                        // Check if in cart or not
+                      if( $_GET['page'] == "cart" ){
+                        $iconid = $product['cart_id'];
                         if(checkCart($conn, $product['product_id'], $id)){
-                          // $removCartBtn = "block"; //only display in cart
-                          if( isset($_GET['page']) == "cart" ){
-                            $removCartBtn = "block"; //only display in cart
-                            $addCartBtn = "none";
-                            $iconid = $product['cart_id'];
-                          }
-                          else{
-                            $removCartBtn = "none";
-                          }
-                          // $addCartBtn = "none";
+                          $removCartBtn = "block"; //only display in cart
+                          $addCartBtn = "none";
                         }
                         else{
                           $removCartBtn = "none";
                           $addCartBtn = "block"; // default
                         }
+                        $favBtn = "none";
+                        $unfavBtn = "none";
+                      }
+                      else if( $_GET['page'] == "favourites" ){
+                        if(checkFavourite($conn, $product['product_id'], $id)){
+                          $favBtn = "block";
+                          $unfavBtn = "none";
+                        }
+                        else{
+                          $favBtn = "none";
+                          $unfavBtn = "block"; //default
+                        }
+                        $removCartBtn = "none";
+                        $addCartBtn = "block";
+                      }
+                      else{ // normal page (women, men, kids)
+                        if(checkFavourite($conn, $product['product_id'], $id)){
+                          $favBtn = "block";
+                          $unfavBtn = "none";
+                        }
+                        else{
+                          $favBtn = "none";
+                          $unfavBtn = "block"; //default
+                        }
+                        $removCartBtn = "none";
+                        $addCartBtn = "block";
+                        // if(checkCart($conn, $product['product_id'], $id)){
+                        //   $removCartBtn = "block"; //only display in cart
+                        //   $addCartBtn = "none";
+                        // }
+                        // else{
+                        //   $removCartBtn = "none";
+                        //   $addCartBtn = "block"; // default
+                        // }
+                      }
+
+
+
+                      // check if favourite or not
+                      // if(checkFavourite($conn, $product['product_id'], $id)){
+                      //   $favBtn = "block";
+                      //   $unfavBtn = "none";
+                      // }
+                      // else{
+                      //   $favBtn = "none";
+                      //   $unfavBtn = "block"; //default
+                      // }
+                      //
+                      // if( $_GET['page'] == "cart" ){
+                      //   $favBtn = "none";
+                      //   $unfavBtn = "none";
+                      // }
+                      //
+                      // $iconid = $product['product_id'];
+                      //   // Check if in cart or not
+                      //   if(checkCart($conn, $product['product_id'], $id)){
+                      //     // $removCartBtn = "block"; //only display in cart
+                      //     if( isset($_GET['page']) == "cart" ){
+                      //       $removCartBtn = "block"; //only display in cart
+                      //       $addCartBtn = "none";
+                      //
+                      //       $iconid = $product['cart_id'];
+                      //     }
+                      //     else{
+                      //       $removCartBtn = "none";
+                      //     }
+                      //     // $addCartBtn = "none";
+                      //   }
+                      //   else{
+                      //     $removCartBtn = "none";
+                      //     $addCartBtn = "block"; // default
+                      //   }
                       ?>
                     <!-- fav and add to cart button -->
                     <div class="flex">
@@ -194,14 +250,14 @@
                     </div>
                     <?php
                       if( isset($_GET['page']) == "cart" ){
-                        $cartparam = "page=cart&"; //only display in cart
+                        $cartparam = "page=cart&cartid=" . $product['cart_id']; //only display in cart
                       }
                       else{
-                        $cartparam = "";
+                        $cartparam = "productid=" . $product['product_id'];
                       }
                     ?>
 
-                    <a href="displayProduct.php?<?php echo $cartparam; ?>productid=<?php echo $product['product_id']; ?>">
+                    <a href="displayProduct.php?<?php echo $cartparam; ?>"> <!-- productid=<?php //echo $product['product_id']; ?> -->
                       <img src="image/<?php echo $product['product_img']; ?>" alt="<?php echo $product['product_name']; ?>" class="zoom img-fluid">
                       <div id="info">
                         <p><?php echo $product['product_name']; ?></p>

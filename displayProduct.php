@@ -44,7 +44,11 @@
       window.onload = function(){
     <?php
 
-      if( empty($_GET['productid']) ){
+      if(isset($_GET['productid']) || isset($_GET['cartid'])){
+        $productid = $_GET['productid'];
+        $cartid = $_GET['cartid'];
+      }
+      else{
         echo "window.history.back();";
       }
 
@@ -57,13 +61,22 @@
           $message = "Failed to add to cart";
         }
         else if( $productid > 0 && $status == 1){
-          $message = "Added to cart"; //update?
+          $message = "Added to Cart";
         }
         else if( $productid > 0 && $status == 2){
           $message = "Login to add product";
         }
         echo "setUpdateStatusDiv( ".$status.", '".$message."' );";
         // echo "setTimeout(function(){location.replace(location.pathname)}, 1000);";
+      }
+
+      if( isset($_GET['cartid']) && isset($_GET['status'])){
+        $cartid = (int)$_GET['cartid'];
+        $status = $_GET['status'];
+        if( $cartid > 0 && $status == 1){
+          $message = "Cart Updated"; //update
+        }
+        echo "setUpdateStatusDiv( ".$status.", '".$message."' );";
       }
       // SQL statements
       include "php/productPage.php";
@@ -87,24 +100,22 @@
 
           $productid = $_GET['productid'];
 
-          $sql = "SELECT * FROM product_randa WHERE product_id = $productid";
-          $runsql = mysqli_query($conn, $sql);
-          $product = mysqli_fetch_assoc($runsql);
+          if($_GET['page'] == "cart"){ // from cart > displayProduct
+            $sql = "SELECT * FROM cart_randa JOIN product_randa ON cart_randa.product_id = product_randa.product_id
+            WHERE user_id = $id AND cart_id = $cartid";
+            $runsql = mysqli_query($conn, $sql);
+            $product = mysqli_fetch_assoc($runsql);
 
-          // check if userid and productid is in the table, get values
-          $val = "ADD TO CART";
-          $action = "insert";
+            $val = "UPDATE";
+            $action = "update";
+          }
+          else{ // from normal > displayProduct
+            $sql = "SELECT * FROM product_randa WHERE product_id = $productid";
+            $runsql = mysqli_query($conn, $sql);
+            $product = mysqli_fetch_assoc($runsql);
 
-          // HERE NOT DONE -------> GET EXISITNG VALUES
-          $cartsql = "SELECT * FROM cart_randa JOIN product_randa ON cart_randa.product_id = product_randa.product_id
-          WHERE cart_randa.user_id = $id AND cart_randa.product_id = $productid";
-          $runcartsql = mysqli_query($conn, $cartsql);
-
-          if( isset($_GET['page']) == "cart" ){
-            if( mysqli_num_rows($runcartsql) > 0 ){
-              $val = "UPDATE";
-              $action = "update";
-            }
+            $val = "ADD TO CART";
+            $action = "insert";
           }
         ?>
 
@@ -125,33 +136,9 @@
             <!-- Hidden values -->
             <input type="hidden" name="userid" value="<?php echo $id; ?>">
             <input type="hidden" name="productid" value="<?php echo $product['product_id']; ?>">
+            <input type="hidden" name="cartid" value="<?php echo $product['cart_id']; ?>">
 
-            <?php
-              if( isset($_GET['page']) == "cart" ){
-
-                // HERE NOT DONE -------> GET EXISITNG VALUES
-                // $cartsql = "SELECT * FROM cart_randa JOIN product_randa ON cart_randa.product_id = product_randa.product_id
-                // WHERE cart_randa.user_id = $id AND cart_randa.product_id = $productid";
-                // $runcartsql = mysqli_query($conn, $cartsql);
-
-                if( mysqli_num_rows($runcartsql) > 0 ){
-                  $cart = mysqli_fetch_assoc($runcartsql);
-                  $cartid = $cart['cart_id'];
-                  $size = $cart['size'];
-                  $quantity = $cart['quantity'];
-
-                  $val = "UPDATE";
-                  $action = "update";
-            ?>
-                  <input type="hidden" name="cartid" value="<?php echo $cartid; ?>">
-                  <input type="hidden" name="sizedb" value="<?php echo $size; ?>">
-                  <input type="hidden" name="qtydb" value="<?php echo $quantity; ?>">
-            <?php
-
-                }
-              }
-            ?>
-
+            <!-- display db results, javascript below -->
             <div class="size_selection attribute">
               <p>Please select your size:</p>
               <div class="flex" style="align-items:center;">
@@ -177,32 +164,26 @@
         </div>
       </div>
     </div>
-
     <?php echo file_get_contents ("html/imageModal.html"); ?>
   </section>
 
+  <script>
+    // set size and quantity from db
+    var radio = document.getElementById("<?php echo $product['size']; ?>");
+    radio.checked = true;
+
+    var qty = document.getElementById("quantity");
+    qty.value = <?php echo $product['quantity']; ?>;
+  </script>
+
   <?php
-
-  function checkCart($conn, $productid, $userid){
-    $inCart = false;
-    if( isset($userid) ){ // user id set
-      $sql = "SELECT * FROM cart_randa WHERE product_id = $productid && user_id = $userid";
-      $runsql = mysqli_query($conn, $sql);
-      $cart = mysqli_fetch_assoc($runsql);
-      $inCart = mysqli_num_rows($cart);
-    }
-    return $cart;
-  }
-
   mysqli_close($conn);
-
   ?>
 
   <!-- Popup Block -->
   <div class="messagePopup" id="updateStatus">
     <h2 id="messageHeader"></h2>
   </div>
-
 
   <!-- This generates modal -->
   <?php echo file_get_contents("html/modal.html"); ?>
