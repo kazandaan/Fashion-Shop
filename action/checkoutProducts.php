@@ -55,10 +55,11 @@
       $productid = $product['product_id'];
       $productprice = $product['product_price'];
       $quantity = $product['quantity'];
+      $size = $product['size'];
 
       // INSERT into checkout_randa
-      $sql = "INSERT INTO checkoutDetails_randa (checkout_id, user_id, product_id, price, quantity, checkoutDetails_date)
-      VALUES ($checkoutid, $userid, $productid, $productprice, $quantity, '$date')";
+      $sql = "INSERT INTO checkoutDetails_randa (checkout_id, user_id, product_id, price, quantity, size, checkoutDetails_date)
+      VALUES ($checkoutid, $userid, $productid, $productprice, $quantity, '$size', '$date')";
 
       if (mysqli_query($conn, $sql)) {
         // DELETE from cart_randa
@@ -90,7 +91,7 @@
   }
 
   if($success == 1){
-    header("Location:../products.php?page=checkout&status=$success"); //OrderPage > open "succesful" modal
+    header("Location:../orders.php?checkoutid=$checkoutid&page=checkout&status=$success");
   }
   else{
     header("Location:../products.php?page=cart&status=$success");

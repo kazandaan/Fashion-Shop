@@ -53,7 +53,18 @@
   $run = mysqli_query($conn, $ai);
 
   if($action == "insert"){
-    $sql = "INSERT INTO cart_randa (user_id, product_id, quantity, size) VALUES ($userid, $productid, $quantity, '$size')";
+    $sql = "SELECT * FROM cart_randa WHERE size LIKE '$size' AND product_id = $productid AND user_id = $userid";
+    $runsql = mysqli_query($conn, $sql);
+    if(mysqli_num_rows($runsql) > 0){
+      $cart = mysqli_fetch_assoc($runsql);
+      $cartid = $cart['cart_id'];
+      $quantity += $cart['quantity'];
+      $sql = "UPDATE cart_randa SET quantity = $quantity WHERE size LIKE '$size' AND product_id = $productid AND user_id = $userid";
+    }
+    else{
+      $sql = "INSERT INTO cart_randa (user_id, product_id, quantity, size) VALUES ($userid, $productid, $quantity, '$size')";
+
+    }
     $runsql = mysqli_query($conn, $sql);
   }
   else if($action == "update"){

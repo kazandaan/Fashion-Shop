@@ -25,5 +25,5 @@ function setUpdateStatusDiv( status, message ){
     var newURL = location.pathname;
     window.history.replaceState('object', document.title, newURL); // removeQueryString from url without refreshing
     // location.replace("account.php");
-  }, 40000);
+  }, 3000);
 }
