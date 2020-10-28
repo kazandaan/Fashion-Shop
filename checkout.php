@@ -112,9 +112,11 @@
   </section>
 
   <!-- Popup Block -->
-  <div class="messagePopup" id="updateStatus">
-    <h2 id="messageHeader"></h2>
-  </div>
+    <div class="messagePopup text-mid" id="updateStatus">
+      <img id="msgBackground" src="" alt="" style="width:75%; height:auto; ">
+      <h2 id="messageHeader"></h2>
+
+    </div>
 
   <?php
     mysqli_close($conn);

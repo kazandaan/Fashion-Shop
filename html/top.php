@@ -1,9 +1,10 @@
 <div id="banner" class="banner" onscroll="myFunction()">
   <div class="row">
-    <div class="col flex " style="height:50px; line-height:50px; font-size:16px; margin-left:60px; margin-right:45px; padding-right:0px;">
+    <div class="col flex" style="line-height:60px; font-size:16px; margin-left:60px; margin-right:45px; padding-right:0px;
+   justify-content:center;">
         FREE SHIPPING ON ORDERS OVER SGD80
-        <div class="dropdown ml-auto text-mid">
-          <button class="login_dropdown"><?php echo $username; ?></button>
+        <div class="dropdown ml-auto text-mid" style="align-items:center;">
+          <button class="login_dropdown"><?php echo $username ?></button>
           <div class="dropdown-content">
             <a onclick="openModal('loginModal', 'registerModal')" style="display:<?php echo $dropdown; ?>;">Login</a>
             <a onclick="openModal('registerModal', 'loginModal')" style="display:<?php echo $dropdown; ?>;">Register</a>

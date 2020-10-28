@@ -1,17 +1,21 @@
 // index.php, account.php
 // registerUser, loginUser, updateUser, updatePassword
+var msgBackground = document.getElementById("msgBackground");
 function setUpdateStatusDiv( status, message ){
   var div = document.getElementById('updateStatus');
 
   var colour = "";
   if( status == 0 ){ // RED // FAIL
-    colour = "#F09CA2"; // "rgba(255 , 0, 0, 0.2)"
+    msgBackground.setAttribute("src","image/svg/denied.svg");
   }
   else if(status == 1 ){ // GREEN // PASS
-    colour = "#BDF0D6"; // "rgba(0, 255, 0, 0.2)"
+    msgBackground.setAttribute("src","image/svg/welcome.svg");
   }
   else if( status == 2 ){ // BLUE // NOTIFY
-    colour = "#B2C4CB";
+    msgBackground.setAttribute("src","image/svg/logintoviewpg.svg");
+  }
+  else if( status == 3 ){ // BLUE // NOTIFY
+    msgBackground.setAttribute("src","image/svg/regSuccess.svg");
   }
   div.style.display = "block";
   div.style.backgroundColor = colour;
@@ -21,9 +25,9 @@ function setUpdateStatusDiv( status, message ){
 
   // remove updateStatusDiv after 3 seconds
   setTimeout(function(){
-    div.style.display = "none";
+    div.style.opacity = "0";
     var newURL = location.pathname;
     window.history.replaceState('object', document.title, newURL); // removeQueryString from url without refreshing
     // location.replace("account.php");
-  }, 40000);
+  }, 3000);
 }

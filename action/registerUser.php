@@ -31,7 +31,7 @@
     VALUES ('$name', '$email', '$username', '$password')";
 
     if ($inserted = mysqli_query($conn, $sql)) {
-      $inserted = 1;
+      $inserted = 3;
       // echo "New record created successfully";
       // header("Location:../index.php?page=registerUser&updated=" . $inserted);
     } else {

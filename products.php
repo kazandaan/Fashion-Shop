@@ -66,6 +66,36 @@
     ?>
       } // end of window.onload = function()
     </script>
+
+    <script>
+        window.onload = function(){
+          <?php
+            if( isset($_GET['page']) && isset($_GET['status'])){
+              $page = $_GET['page'];
+              $status = $_GET['status'];
+
+              $message = "";
+              // loginUser > 1 > account.php
+              if( $page == "loginUser" && $status == 1){
+                $message = "Hello $username!";
+              }
+              else if( $page == "loginUser" && $status == 0){
+                $message = "Failed to Login";
+              }
+              else if( $page == "registerUser" && $status == 1){
+                $message = "Successfully Registered";
+              }
+              else if( $page == "registerUser" && $status == 0){
+                $message = "Failed to Register";
+              }
+              else if( $page == "unauthorized" && $status == 2){
+                $message = "Login to view page";
+              }
+              echo "setUpdateStatusDiv( ".$status.", '".$message."' )";
+            }
+          ?>
+        } // end of window.onload = function()
+    </script>
     <!-- END SCRIPT | Window ONLOAD, $_GET Stuff -->
 
     <?php
@@ -268,15 +298,17 @@
     </div> <!-- end of products div -->
 
   <!--back to top -->
-  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+  <button class="red_button btopTop" onclick="topFunction()" title="Go to top">Top</button>
 
   <!-- This generates modal -->
   <?php echo file_get_contents("html/modal.html"); ?>
 
   <!-- Popup Block -->
-  <div class="messagePopup" id="updateStatus">
-    <h2 id="messageHeader"></h2>
-  </div>
+    <div class="messagePopup text-mid" id="updateStatus">
+      <img id="msgBackground" src="" alt="">
+      <h2 id="messageHeader"></h2>
+
+    </div>
 
   <?php
     mysqli_close($conn);

@@ -79,34 +79,33 @@
 
 
   <!-- START SCRIPT | Window ONLOAD, $_GET Stuff -->
-  <script type="text/javascript" src="js/statusMessages.js"></script>
     <script>
       window.onload = function(){
-    <?php
-      if( isset($_GET['page']) && isset($_GET['status'])){
-        $page = $_GET['page'];
-        $status = $_GET['status'];
+        <?php
+          if( isset($_GET['page']) && isset($_GET['status'])){
+            $page = $_GET['page'];
+            $status = $_GET['status'];
 
-        $message = "";
-        // loginUser > 1 > account.php
-        if( $page == "loginUser" && $status == 1){
-          $message = "Hello $username!";
-        }
-        else if( $page == "loginUser" && $status == 0){
-          $message = "Failed to Login";
-        }
-        else if( $page == "registerUser" && $status == 1){
-          $message = "Successfully Registered";
-        }
-        else if( $page == "registerUser" && $status == 0){
-          $message = "Failed to Register";
-        }
-        else if( $page == "unauthorized" && $status == 2){
-          $message = "Login to view page";
-        }
-        echo "setUpdateStatusDiv( ".$status.", '".$message."' )";
-      }
-    ?>
+            $message = "";
+            // loginUser > 1 > account.php
+            if( $page == "loginUser" && $status == 1){
+              $message = "Welcome back, $username!";
+            }
+            else if( $page == "loginUser" && $status == 0){
+              $message = "Username or password is incorrect. ";
+            }
+            else if( $page == "registerUser" && $status == 3){
+              $message = "Successfully Registered";
+            }
+            else if( $page == "registerUser" && $status == 0){
+              $message = "Failed to Register";
+            }
+            else if( $page == "unauthorized" && $status == 2){
+              $message = "Login to view page";
+            }
+            echo "setUpdateStatusDiv( ".$status.", '".$message."' )";
+          }
+        ?>
       } // end of window.onload = function()
   </script>
   <!-- END SCRIPT | Window ONLOAD, $_GET Stuff -->
@@ -332,17 +331,23 @@
   </section>
 
   <!-- This generates modal -->
-  <?php echo file_get_contents("html/modal.html"); ?>
+    <?php echo file_get_contents("html/modal.html"); ?>
 
   <!-- Popup Block -->
-  <div class="messagePopup" id="updateStatus">
-    <h2 id="messageHeader"></h2>
-  </div>
+    <div class="messagePopup text-mid" id="updateStatus">
+      <img id="msgBackground" src="" alt="" style="width:75%; height:auto; ">
+      <h2 id="messageHeader"></h2>
+
+    </div>
+
+
+
+
 
 
   <!-- This generates footer -->
   <?php echo file_get_contents("html/bottom.html"); ?>
-
+  <script type="text/javascript" src="js/statusMessages.js"></script>
   <script type="text/javascript" src="js/modal.js"></script> <!-- Modal script -->
   <script type="text/javascript" src="js/carousel.js"></script> <!--carousel script -->
   <script type="text/javascript" src="js/banner&btoTop.js"></script> <!-- Banner & B to top button -->
