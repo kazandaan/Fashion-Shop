@@ -1,0 +1,37 @@
+#orders{
+  /* background-color: darkgrey; */
+  margin: 0px 100px 50px 100px;
+  letter-spacing: 1px;
+  font-size: 20px;
+  line-height: 1.6;
+}
+#orders h1{
+  font-size: 50px;
+}
+
+#orders table{
+  width: 100%;
+}
+#orders tr:first-child{
+  background-color: lightgrey;
+}
+
+#orders table, #orders td{
+  padding: 7px;
+  /* border: 1px solid black; */
+}
+#orders table tr td img{
+  height: 325px;
+  width: auto;
+}
+
+#orders #divider{
+  padding: 5px;
+  background-color: lightgrey;
+}
+#ordersModal a p{
+  cursor:pointer;
+}
+#ordersModal a p:hover{
+  background-color: lightgrey;
+}
