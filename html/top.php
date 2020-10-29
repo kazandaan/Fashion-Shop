@@ -1,6 +1,6 @@
 <div id="banner" class="banner" onscroll="myFunction()">
   <div class="row">
-    <div class="col flex" style="line-height:60px; font-size:16px; margin-left:60px; margin-right:45px; padding-right:0px;
+    <div class="col flex" style="line-height:50px; font-size:16px; margin-left:60px; margin-right:45px; padding-right:0px;
    justify-content:center;">
         FREE SHIPPING ON ORDERS OVER SGD80
         <div class="dropdown ml-auto text-mid" style="align-items:center;">

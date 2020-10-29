@@ -13,7 +13,7 @@
 #account #leftside{
   width: 25%;
   text-align: center;
-  border-right: 1px solid black;
+  border-right: 1px solid #E8E8E8;
 }
 #account #userimage{
   /* background-image: url('../image/logo.png'); */
@@ -42,7 +42,7 @@
 }
 /* top */
 #account #editMode{
-  padding: 20px;
+  padding: 30px;
   margin: 0px 0px 10px 50px;
   margin-bottom: 10px;
   display: none;
@@ -73,6 +73,7 @@
   width: 175px;
 }
 #account #userdetails input{
+  font-family:'Poppins',sans-serif !important;
   background-color: white;
   font-size: 20px;
   border: 0px solid #FFFFFF;
@@ -97,4 +98,9 @@
 
 #account .icon-group{
   margin: 0px;
+}
+
+#account .contentwrapper {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+  border-radius: 8px;
 }

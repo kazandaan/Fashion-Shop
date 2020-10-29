@@ -202,7 +202,7 @@
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   margin-top: 1rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 .form-control:focus {

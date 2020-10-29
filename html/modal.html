@@ -18,8 +18,8 @@
 
 
 
-      <div class="buttons">
-        <input type="submit" value="LOGIN"/> &nbsp;
+      <div class="">
+        <input  class="red_button frame" type="submit" value="LOGIN"/> &nbsp;
       </div>
       Don't have an account? <a href="#" onclick="openModal('registerModal', 'loginModal')"><br>Click here</a> to Register!
     </form>
@@ -57,8 +57,8 @@
           <input class="form-control" type="password" name="confirmpassword" id="confirmpassword" placeholder="Enter your password again" required></input>
         </div>
       </div>
-      <div class="buttons">
-        <input type="submit" value="Register"/> &nbsp;
+      <div class="">
+        <input class="red_button frame" type="submit" value="REGISTER"/> &nbsp;
       </div>
       Have an account? <a href="#" onclick="openModal('loginModal', 'registerModal')"><br>Click here</a> to Login!
     </form>
@@ -96,15 +96,42 @@
           <i id="2" class="fas fa-eye" onclick="togglePW(2)"></i>
         </div>
       </div>
-      <div class="buttons">
-        <input type="submit" value="NEXT"/> &nbsp;
+      <div class="">
+        <input class="red_button frame" type="submit" value="NEXT"/> &nbsp;
       </div>
     </form>
   </div>
 </div>
 <!-- End Payment Modal -->
 
+<!-- Password Modal -->
+<div id="passwordModal" class="modal">
+  <div class="modal-content2">
+    <span class="close2" onclick="closeModal(passwordModal)">&times;</span>
+    <form name="passwordForm" action="action/updatePassword.php" method="POST" >
+      <h2>Change Password</h2>
+      <input type="hidden" name="userid" id="userid" value="<?php echo $user['user_id']; ?>">
+      <div class="row">
+        <div class="col-12">
+          <input class="form-control" type="password" name="oldpassword" id="oldpassword" required placeholder="Enter your current password"></input>
+        </div>
+        <div class="col-12">
+          <input class="form-control" type="password" name="newpassword" id="newpassword" required placeholder="Enter your new password"></input>
+        </div>
+        <div class="col-12">
+          <input class="form-control" type="password" name="confirmpassword" id="confirmpassword" required placeholder="Enter your new password again"></input>
+        </div>
+      </div>
+      <div class="">
+        <input class="red_button frame" type="submit" value="CHANGE PASSWORD"/>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- End Password Modal -->
+
 <script>
+  //REVEAL PASSWORD
   function togglePW(no) {
     var y = document.getElementById("1");
     var z = document.getElementById("2")

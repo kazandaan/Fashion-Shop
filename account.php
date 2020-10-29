@@ -6,9 +6,10 @@
   <title>RANDA - Account</title>
   <link rel="stylesheet" href="css/general.css">
   <link rel="stylesheet" href="css/account.css">
-  <link rel="stylesheet" href="css/carousel.css">
   <link rel="stylesheet" href="css/utility.css">
+  <link rel="stylesheet" href="css/loginmodal.css">
   <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
@@ -85,7 +86,7 @@
   <div id="account">
     <h1>Welcome <?php echo $user['user_name']; ?></h1>
 
-    <div class="flex">
+    <div class="flex contentwrapper">
 
       <div id="leftside">
         <div id="userimage" style="background-image: url('image/<?php echo $user['user_img']; ?>');">
@@ -94,16 +95,16 @@
           </div>
         </div>
 
-        <form id="logoutForm" action="action/logout.php" method="post" class="buttons">
-          <input type="button" class="red_button" onclick="viewOrders()" value="VIEW ORDERS"/>
-          <input type="submit" class="red_button" value="LOGOUT"/>
+        <form id="logoutForm" action="action/logout.php" method="post" class="">
+            <input type="button" class="red_button" onclick="viewOrders()" value="VIEW ORDERS"/>
+            <input type="submit" class="red_button" value="LOGOUT"/>
         </form>
       </div>
 
       <div id="rightSide">
         <form name="accountForm" action="action/updateUser.php" method="POST" enctype="multipart/form-data">
           <!-- Editing Block -->
-          <div id="editMode" class="flex">
+          <div id="editMode" class="flex" style="line-height: 50px;">
             <b>* EDITING MODE *</b>
             <div class="flex">
               <input type="submit" class="red_button" value="UPDATE DETAILS"/> &nbsp;
@@ -117,7 +118,7 @@
               <u><h3>Account Information</h3></u>
               <input type="hidden" name="userid" id="userid" value="<?php echo $user['user_id']; ?>">
               <label>Username:</label><input type="text" name="username" id="username" value="<?php echo $user['user_username']; ?>" disabled></input><br>
-              <label style="margin-right:7px;">Password:</label><a onclick="openModal()">Change Password</a><br>
+              <label style="margin-right:7px;">Password:</label><a onclick="openModal(passwordModal)">Change Password</a><br>
 
             </div>
             <div id="perosnalInfo">
@@ -145,23 +146,7 @@
       </div><!--end rightSide div-->
     </div><!--end flex div-->
 
-    <!-- Password Modal -->
-    <div id="passwordModal" class="modal">
-      <div class="modal-content2">
-        <span class="close2" onclick="closeModal()">&times;</span>
-        <form name="passwordForm" action="action/updatePassword.php" method="POST" >
-          <h2>Change Password</h2>
-          <input type="hidden" name="userid" id="userid" value="<?php echo $user['user_id']; ?>">
-          <label>Current Password:</label><input type="password" name="oldpassword" id="oldpassword" required></input><br>
-          <label>New Password:</label><input type="password" name="newpassword" id="newpassword" required></input><br>
-          <label>Confirm Password:</label><input type="password" name="confirmpassword" id="confirmpassword" required></input><br>
-          <div class="buttons">
-            <input type="submit" value="Change Password"/>
-          </div>
-        </form>
-      </div>
-    </div>
-    <!-- End Password Modal -->
+
   </div><!-- End account div -->
 
   <script>
@@ -173,11 +158,12 @@
   <?php
     mysqli_close($conn);
   ?>
-  <script type="text/javascript" src="js/modal.js"></script> <!-- Modal script -->
 
+  <?php echo file_get_contents("html/modal.html"); ?>
   <!-- This generates footer -->
   <?php echo file_get_contents("html/bottom.html"); ?>
 
+  <script type="text/javascript" src="js/modal.js"></script> <!-- Modal script -->
   <script type="text/javascript" src="js/banner&btoTop.js"></script>
   <script type="text/javascript" src="js/account.js"></script>
 
