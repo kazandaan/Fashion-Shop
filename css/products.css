@@ -6,14 +6,10 @@
 
 }
 
-
 #products h1{
   /* background-color: red; */
   font-size: 50px;
   text-align: center;
-}
-#products hr{
-  /* width: 80%; */
 }
 
 /* LEFT SIDE > SEARCH & FILTER */
@@ -41,6 +37,7 @@
    width: 90%;
    border-bottom: 1px solid black;
    margin-top: 10px;
+   font-family: 'Poppins', sans-serif;
  }
 
  #products #checkoutBtn input{
@@ -51,7 +48,7 @@
 #products #categories{
   /* background-color: blue; */
   width: 100%;
-  margin: 0px;
+  margin: 0px 0px 60px 0px;
 }
 #products .productrow{
   /* background-color: green; */
