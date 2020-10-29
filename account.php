@@ -13,7 +13,6 @@
   <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
 
   <style>
 
@@ -164,13 +163,6 @@
     <!-- End Password Modal -->
   </div><!-- End account div -->
 
-  <!-- Popup Block -->
-    <div class="messagePopup text-mid" id="updateStatus">
-      <img id="msgBackground" src="" alt="">
-      <h2 id="messageHeader"></h2>
-
-    </div>
-
   <?php
     mysqli_close($conn);
   ?>
@@ -178,6 +170,7 @@
   <!-- This generates footer -->
   <?php echo file_get_contents("html/bottom.html"); ?>
 
+  <script type="text/javascript" src="js/banner&btoTop.js"></script>
   <script type="text/javascript" src="js/account.js"></script>
 
 </body>

@@ -277,18 +277,9 @@
       </div>
     </div> <!-- end of products div -->
 
-  <!--back to top -->
-  <button class="red_button btopTop" onclick="topFunction()" title="Go to top">Top</button>
-
   <!-- This generates modal -->
   <?php echo file_get_contents("html/modal.html"); ?>
 
-  <!-- Popup Block -->
-    <div class="messagePopup text-mid" id="updateStatus">
-      <img id="msgBackground" src="" alt="">
-      <h2 id="messageHeader"></h2>
-
-    </div>
 
   <?php
     mysqli_close($conn);
