@@ -52,19 +52,10 @@
         if( $page == "checkout" && $status == 2){ // status ?
           $message = "There are no items to checkout";
         }
-        // don't need
-        else if( $page == "loginUser" && $status == 1){
-          $message = "Hello $username!";
+        else if( $page == "cart" && $status == 0){ // fail checkout (no payment details)
+          echo "openModal('paymentModal');";
         }
-        else if( $page == "loginUser" && $status == 0){
-          $message = "Failed to Login";
-        }
-        else if( $page == "registerUser" && $status == 1){
-          $message = "Successfully Registered";
-        }
-        else if( $page == "registerUser" && $status == 0){
-          $message = "Failed to Register";
-        }
+        // don't need ?
         else if( $page == "unauthorized" && $status == 2){
           $message = "Login to view page";
         }

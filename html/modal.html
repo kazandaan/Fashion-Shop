@@ -66,6 +66,44 @@
 </div>
 <!-- End Register Modal -->
 
+<!-- Payment Modal -->
+<div id="paymentModal" class="modal">
+  <div class="modal-content2">
+    <span class="close2" onclick="closeModal('paymentModal')">&times;</span>
+
+    <form id="paymentForm" name="paymentForm" action="checkout.php" method="POST">
+      <h2>Payment Details</h2>
+      <div class="row">
+        <div class="col-12" >
+          <!-- <label>Name</label><br> -->
+          <input class="form-control" type="text" name="cardnumber" id="cardnumber" placeholder="Enter your card number" required></input>
+        </div>
+        <div class="col-12" >
+          <!-- <label>Email</label><br> -->
+          <input class="form-control" type="text" name="cardname" id="cardname" placeholder="Enter your name on the card" required></input>
+        </div>
+        <div class="col-12" >
+          <!-- <label>Username</label><br> -->
+          <select name="card" id="card" required>
+            <option disabled selected>--Select card type--</option>
+            <option id="Visa" value="Visa">Visa</option>
+            <option id="MasterCard" value="MasterCard">MasterCard</option>
+          </select>
+        </div>
+        <div class="col-12" >
+          <!-- <label>Password</label><br> -->
+          <input class="form-control" type="password" name="password" id="password2" maxlength="3" placeholder="Enter CSV" required></input>
+          <i id="2" class="fas fa-eye" onclick="togglePW(2)"></i>
+        </div>
+      </div>
+      <div class="buttons">
+        <input type="submit" value="NEXT"/> &nbsp;
+      </div>
+    </form>
+  </div>
+</div>
+<!-- End Payment Modal -->
+
 <script>
   function togglePW(no) {
     var y = document.getElementById("1");

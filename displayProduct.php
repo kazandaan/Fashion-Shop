@@ -61,7 +61,8 @@
           $message = "Failed to add to cart";
         }
         else if( $productid > 0 && $status == 3){
-          $message = "Added to Cart";
+          // $message = "Added to Cart";
+          echo "alert('added to cart');";
         }
         else if( $productid > 0 && $status == 2){
           $message = "Login to add product";

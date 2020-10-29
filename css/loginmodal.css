@@ -106,7 +106,7 @@
   transition: 2s;
 }
 
-.modal-content2 input[type=text], .modal-content2 input[type=password],.modal-content2 input[type=email]{
+.modal-content2 input[type=text], .modal-content2 input[type=password],.modal-content2 input[type=email],.modal-content2 select{
   margin-top:10px;
   width:70%;
   height: 46px;

@@ -135,9 +135,9 @@
               <label>Name on Card:</label><input type="text" name="cardname" id="cardname" value="<?php echo $user['user_cardname']; ?>" disabled></input><br>
               <label>Type:</label>
               <select name="card" id="card" disabled>
-                <option disabled selected style="display:none;"><?php echo $user['user_card']; ?></option> <!-- how to not repeat -->
-                <option value="Visa">Visa</option>
-                <option value="MasterCard">MasterCard</option>
+                <option disabled selected style="display:none;"></option>
+                <option id="Visa" value="Visa">Visa</option>
+                <option id="MasterCard" value="MasterCard">MasterCard</option>
               </select><br>
             </div>
           </div>
@@ -163,6 +163,12 @@
     </div>
     <!-- End Password Modal -->
   </div><!-- End account div -->
+
+  <script>
+    // set select option CARD TYPE from db
+    var cardtype = document.getElementById("<?php echo $user['user_card']; ?>");
+    cardtype.selected = true;
+  </script>
 
   <?php
     mysqli_close($conn);

@@ -29,6 +29,12 @@
     $dropdown = "none";
     $logout = "block";
   }
+
+  // paymentModal variables
+  $cardnumber = $_POST['cardnumber'];
+  $cardname= $_POST['cardname'];
+  $cardtype = $_POST['card'];
+  $csv = $_POST['password']; //csv
 ?>
 <body>
 
@@ -54,10 +60,11 @@
     $sql = "SELECT * FROM user_randa WHERE user_id = $id";
     $runsql = mysqli_query($conn, $sql);
     $user = mysqli_fetch_assoc($runsql);
-    if($user['user_cardno'] == "" && $user['user_cardname'] == "" && $user['user_card'] == "" ){
-      header("Location:" . $_SERVER['HTTP_REFERER']); // popup > key in payment details OR go account and update ?
-    }
 
+    if( ($cardnumber == "" && $cardname == "" && $cardtype == "" && $csv == "") &&
+    ($user['user_cardno'] == "" && $user['user_cardname'] == "" && $user['user_card'] == "")  ){
+
+      header("Location:products.php?page=cart&status=0"); // popup > key in payment details OR go account and update ?
     }
   ?>
     } // end of window.onload = function()
@@ -140,7 +147,6 @@
     var bin = document.getElementById('bin' + cartid);
     location.replace("action/cartProduct.php?action=delete&cartid=" + cartid );
   }
-
   </script>
 
   <!-- This generates footer -->
