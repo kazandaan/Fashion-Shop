@@ -53,16 +53,13 @@
     $updated = mysqli_query($conn, $sql);
     if ($updated) {
       // echo "Image: " . $img . "<br>" . $sql;
-      // header("Location:../account.php?page=updateUser&status=" . $updated);
     }
     else {
       // echo "Error updating record: " . mysqli_error($conn) . $sql;
-      // header("Location:../account.php?page=updateUser&status=" . $updated);
     }
 	}
 	else
 	{
-		// header("Location:../ManagePage.php?status=file");
     echo print_r($_FILES) . "<br>tmp: " . $_FILES['userimg']['tmp_name'] . "<br>target: " . $target;
 	}
 

@@ -26,7 +26,6 @@
 
   if($execute){
     header("Location:../orders.php");
-    // header("Location:" .  $_SERVER['HTTP_REFERER'] );
   }
   else{
     echo "could not insert/update to cart_randa table" . $runsql;
