@@ -17,7 +17,7 @@
   $birthday = $_POST['birthday']; //date("Y-m-d", $_POST['birthday']).""; // null, birthday date
   $address = $_POST['address']; //null
   $cardno = $_POST['cardno']; //null
-  $cardname = $_POST['cadrname']; //null
+  $cardname = $_POST['cardname']; //null
   $card = $_POST['card']; //null
   $img = $_FILES['userimg']['name']; //null
     $existingimg = $_POST['existingimg']; //hidden

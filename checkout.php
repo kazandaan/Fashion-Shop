@@ -45,6 +45,25 @@
     }
   ?>
 
+  <!-- START SCRIPT | Window ONLOAD, $_GET Stuff -->
+  <script>
+    window.onload = function(){
+  <?php
+
+    // Check user's payment details
+    $sql = "SELECT * FROM user_randa WHERE user_id = $id";
+    $runsql = mysqli_query($conn, $sql);
+    $user = mysqli_fetch_assoc($runsql);
+    if($user['user_cardno'] == "" && $user['user_cardname'] == "" && $user['user_card'] == "" ){
+      header("Location:" . $_SERVER['HTTP_REFERER']); // popup > key in payment details OR go account and update ?
+    }
+
+    }
+  ?>
+    } // end of window.onload = function()
+  </script>
+  <!-- END SCRIPT | Window ONLOAD, $_GET Stuff -->
+
   <section id="checkout">
     <h1>Checkout Items</h1>
     <hr>
