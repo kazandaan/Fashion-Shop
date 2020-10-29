@@ -46,7 +46,6 @@
   ?>
 
   <!-- START SCRIPT | Window ONLOAD, $_GET Stuff -->
-  <script type="text/javascript" src="js/statusMessages.js"></script>
   <script>
     window.onload = function(){
   <?php
@@ -59,24 +58,6 @@
       header("Location:" . $_SERVER['HTTP_REFERER']); // popup > key in payment details OR go account and update ?
     }
 
-    if( isset($_GET['page']) && isset($_GET['status'])){
-      $page = $_GET['page'];
-      $status = $_GET['status'];
-
-      $message = "";
-      if( $page == "updateUser" && $status == 1){
-        $message = "Profile Successfully Updated";
-      }
-      else if( $page == "updateUser" && $status == 0){
-        $message = "Profile Failed to Update";
-      }
-      else if( $page == "updatePassword" && $status == 1){
-        $message = "Password Successfully Updated";
-      }
-      else if( $page == "updatePassword" && $status == 0){
-        $message = "Password Failed to Update";
-      }
-      echo "setUpdateStatusDiv( ".$status.", '".$message."' )";
     }
   ?>
     } // end of window.onload = function()

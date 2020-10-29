@@ -169,11 +169,15 @@
 
   <script>
     // set size and quantity from db
+    <?php
+      if($_GET['page'] == "cart"){
+    ?>
     var radio = document.getElementById("<?php echo $product['size']; ?>");
     radio.checked = true;
 
     var qty = document.getElementById("quantity");
     qty.value = <?php echo $product['quantity']; ?>;
+    <?php } ?>
   </script>
 
   <?php
