@@ -52,49 +52,29 @@
         if( $page == "checkout" && $status == 2){
           $message = "There are no items to checkout";
         }
-        else if( $page == "cart" && $status == 0){
-          $message = "Checkout Failed";
+        // don't need 
+        else if( $page == "loginUser" && $status == 1){
+          $message = "Hello $username!";
         }
-        else if( $page == "checkout" && $status == 1){ // to be removed when OrderPage is made
-          $message = "Successful Checkout";
+        else if( $page == "loginUser" && $status == 0){
+          $message = "Failed to Login";
+        }
+        else if( $page == "registerUser" && $status == 1){
+          $message = "Successfully Registered";
+        }
+        else if( $page == "registerUser" && $status == 0){
+          $message = "Failed to Register";
+        }
+        else if( $page == "unauthorized" && $status == 2){
+          $message = "Login to view page";
         }
         echo "setUpdateStatusDiv( ".$status.", '".$message."' );";
-        echo "setTimeout(function(){location.replace(location.pathname)}, 1000);";
+        echo "setTimeout(function(){location.replace(location.pathname)}, 2000);";
       }
       // SQL statements
       include "php/productPage.php";
     ?>
       } // end of window.onload = function()
-    </script>
-
-    <script>
-        window.onload = function(){
-          <?php
-            if( isset($_GET['page']) && isset($_GET['status'])){
-              $page = $_GET['page'];
-              $status = $_GET['status'];
-
-              $message = "";
-              // loginUser > 1 > account.php
-              if( $page == "loginUser" && $status == 1){
-                $message = "Hello $username!";
-              }
-              else if( $page == "loginUser" && $status == 0){
-                $message = "Failed to Login";
-              }
-              else if( $page == "registerUser" && $status == 1){
-                $message = "Successfully Registered";
-              }
-              else if( $page == "registerUser" && $status == 0){
-                $message = "Failed to Register";
-              }
-              else if( $page == "unauthorized" && $status == 2){
-                $message = "Login to view page";
-              }
-              echo "setUpdateStatusDiv( ".$status.", '".$message."' )";
-            }
-          ?>
-        } // end of window.onload = function()
     </script>
     <!-- END SCRIPT | Window ONLOAD, $_GET Stuff -->
 
