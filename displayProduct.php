@@ -180,12 +180,6 @@
   mysqli_close($conn);
   ?>
 
-  <!-- Popup Block -->
-    <div class="messagePopup text-mid" id="updateStatus">
-      <img id="msgBackground" src="" alt="" style="width:75%; height:auto; ">
-      <h2 id="messageHeader"></h2>
-
-    </div>
 
   <!-- This generates modal -->
   <?php echo file_get_contents("html/modal.html"); ?>
