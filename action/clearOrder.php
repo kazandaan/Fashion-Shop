@@ -14,15 +14,9 @@
   }
 
 //change
-  // if($userid == ""){
-  //   if($_SERVER['HTTP_REFERER'] == "http://192.168.56.2/f32ee/Fashion-Shop/displayProduct.php?productid=" . $productid){
-  //     $url = $_SERVER['HTTP_REFERER'] . "&status=2";
-  //   }
-  //   else{
-  //     $url = $_SERVER['HTTP_REFERER'];
-  //   }
-  //   header("Location:" .  $url);
-  // }
+  if($userid == ""){
+    header("Location:" . $_SERVER['HTTP_REFERER']);
+  }
 
   $sql = "DELETE FROM checkoutDetails_randa WHERE checkout_id = $checkoutid";
   if(mysqli_query($conn, $sql)){
@@ -31,16 +25,7 @@
   }
 
   if($execute){
-
-// change
-    if($_SERVER['HTTP_REFERER'] == "http://192.168.56.2/f32ee/Fashion-Shop/displayProduct.php?productid=" . $productid
-    || $_SERVER['HTTP_REFERER'] == "http://192.168.56.2/f32ee/Fashion-Shop/displayProduct.php?page=cart&cartid=" . $cartid ){
-      $url = $_SERVER['HTTP_REFERER'] . "&status=$execute";
-    }
-    else{
-      $url = $_SERVER['HTTP_REFERER'];
-    }
-    header("Location:" .  $url);
+    header("Location:../orders.php");
     // header("Location:" .  $_SERVER['HTTP_REFERER'] );
   }
   else{

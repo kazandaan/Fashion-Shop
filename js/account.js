@@ -75,3 +75,7 @@ function displayimg(){
 
   imageCircle.style.backgroundImage = "url('image/user/" + filename + "')";
 }
+
+function viewOrders(){
+  location.href = "orders.php";
+}

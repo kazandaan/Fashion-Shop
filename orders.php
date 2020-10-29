@@ -51,8 +51,9 @@
       $status = $_GET['status'];
 
       if( $page == "checkout" && $status == 1){
+        // set url without query string
+        echo "window.history.pushState('object', document.title, 'orders.php?checkoutid=" . $checkoutid ."');";
         echo "openModal('checkoutSuccessModal');";
-        // set url to back
       }
     }
   ?>
@@ -223,6 +224,9 @@
   }
   function clearOrder(checkoutid){
     location.replace("action/clearOrder.php?checkoutid=" + checkoutid );
+  }
+  function setURL(){
+    setTimeout(function(){window.history.replaceState('object', document.title, "index.php");}, 2000);
   }
 
   </script>

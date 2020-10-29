@@ -96,7 +96,8 @@
         </div>
 
         <form id="logoutForm" action="action/logout.php" method="post" class="buttons">
-          <input type="submit" value="Logout"/>
+          <input type="button" class="red_button" onclick="viewOrders()" value="VIEW ORDERS"/>
+          <input type="submit" class="red_button" value="LOGOUT"/>
         </form>
       </div>
 
@@ -105,9 +106,9 @@
           <!-- Editing Block -->
           <div id="editMode" class="flex">
             <b>* EDITING MODE *</b>
-            <div class="buttons" class="flex">
-              <input type="submit" value="Update Details"/> &nbsp;
-              <input type="button" onclick="cancelEdit()" value="Cancel"/>
+            <div class="flex">
+              <input type="submit" class="red_button" value="UPDATE DETAILS"/> &nbsp;
+              <input type="button" class="red_button" onclick="cancelEdit()" value="CANCEL"/>
             </div>
           </div>
 
@@ -147,8 +148,8 @@
 
     <!-- Password Modal -->
     <div id="passwordModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
+      <div class="modal-content2">
+        <span class="close2" onclick="closeModal()">&times;</span>
         <form name="passwordForm" action="action/updatePassword.php" method="POST" >
           <h2>Change Password</h2>
           <input type="hidden" name="userid" id="userid" value="<?php echo $user['user_id']; ?>">
@@ -174,6 +175,7 @@
   <?php
     mysqli_close($conn);
   ?>
+  <script type="text/javascript" src="js/modal.js"></script> <!-- Modal script -->
 
   <!-- This generates footer -->
   <?php echo file_get_contents("html/bottom.html"); ?>
