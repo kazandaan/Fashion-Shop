@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 26, 2020 at 03:03 PM
+-- Generation Time: Oct 29, 2020 at 11:36 PM
 -- Server version: 5.5.44-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.11
 
@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `checkoutDetails_randa` (
   `product_id` int(11) NOT NULL,
   `price` float NOT NULL,
   `quantity` int(11) NOT NULL,
+  `size` enum('XS','S','M','L') NOT NULL,
   `checkoutDetails_date` varchar(10) NOT NULL,
   KEY `checkout_id` (`checkout_id`),
   KEY `user_id` (`user_id`),
