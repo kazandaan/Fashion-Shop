@@ -49,10 +49,10 @@
         $status = $_GET['status'];
 
         $message = "";
-        if( $page == "checkout" && $status == 2){
+        if( $page == "checkout" && $status == 2){ // status ?
           $message = "There are no items to checkout";
         }
-        // don't need 
+        // don't need
         else if( $page == "loginUser" && $status == 1){
           $message = "Hello $username!";
         }

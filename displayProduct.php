@@ -60,7 +60,7 @@
         if( $productid > 0 && $status == 0){
           $message = "Failed to add to cart";
         }
-        else if( $productid > 0 && $status == 1){
+        else if( $productid > 0 && $status == 3){
           $message = "Added to Cart";
         }
         else if( $productid > 0 && $status == 2){
