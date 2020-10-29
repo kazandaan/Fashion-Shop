@@ -45,6 +45,44 @@
     }
   ?>
 
+  <!-- START SCRIPT | Window ONLOAD, $_GET Stuff -->
+  <script type="text/javascript" src="js/statusMessages.js"></script>
+  <script>
+    window.onload = function(){
+  <?php
+
+    // Check user's payment details
+    $sql = "SELECT * FROM user_randa WHERE user_id = $id";
+    $runsql = mysqli_query($conn, $sql);
+    $user = mysqli_fetch_assoc($runsql);
+    if($user['user_cardno'] == "" && $user['user_cardname'] == "" && $user['user_card'] == "" ){
+      header("Location:" . $_SERVER['HTTP_REFERER']); // popup > key in payment details OR go account and update ?
+    }
+
+    if( isset($_GET['page']) && isset($_GET['status'])){
+      $page = $_GET['page'];
+      $status = $_GET['status'];
+
+      $message = "";
+      if( $page == "updateUser" && $status == 1){
+        $message = "Profile Successfully Updated";
+      }
+      else if( $page == "updateUser" && $status == 0){
+        $message = "Profile Failed to Update";
+      }
+      else if( $page == "updatePassword" && $status == 1){
+        $message = "Password Successfully Updated";
+      }
+      else if( $page == "updatePassword" && $status == 0){
+        $message = "Password Failed to Update";
+      }
+      echo "setUpdateStatusDiv( ".$status.", '".$message."' )";
+    }
+  ?>
+    } // end of window.onload = function()
+  </script>
+  <!-- END SCRIPT | Window ONLOAD, $_GET Stuff -->
+
   <section id="checkout">
     <h1>Checkout Items</h1>
     <hr>
