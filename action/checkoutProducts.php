@@ -91,6 +91,15 @@
   }
 
   if($success == 1){
+    // send email
+    $sql = "SELECT * FROM user_randa WHERE user_id = $userid";
+    $runsql = mysqli_query($conn, $sql);
+    $user = mysqli_fetch_assoc($runsql);
+
+    $subject = "Checkout Confirmed";
+    $message = "To: " . $user['user_email'] . "\nSuccessful Checkout";
+    include "../php/mail.php";
+
     header("Location:../orders.php?checkoutid=$checkoutid&page=checkout&status=$success");
   }
   else{

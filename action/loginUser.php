@@ -28,7 +28,6 @@
       session_start();
 		  $_SESSION['userid'] = $row['user_id'];
       $_SESSION['username'] = $row['user_username'];
-      // header("Location:../account.php");
     }
     else{
       // echo $sql . "<br>incorrect password<br>" . $exist;
@@ -37,7 +36,7 @@
   else{
     // echo "incorrect username " . mysqli_error($conn) . $sql . "<br>DBpw: " . $dbpassword . "<br>Pw: " . md5($password) . "<br>" . $exist;
   }
-  header("Location:../index.php?page=loginUser&status=" . $exist);
+  header("Location:../index.php?page=loginUser&status=" . $exist); //change to previous page
   mysqli_close($conn);
 
 ?>

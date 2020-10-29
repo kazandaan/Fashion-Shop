@@ -188,7 +188,13 @@
     <div class="modal-content2">
       <span class="close2" onclick="closeModal('checkoutSuccessModal')">&times;</span>
         <h2>Checkout Successful</h2>
-        <p>An email has been sent to ...</p>
+        <?php
+          $sql = "SELECT * FROM user_randa WHERE user_id = $id";
+          $runsql = mysqli_query($conn, $sql);
+          $user = mysqli_fetch_assoc($runsql);
+          $text = "An email has been sent to " . $user['user_email'];
+          echo "<p>$text</p>";
+        ?>
     </div>
   </div>
   <!-- End Checkout Success Modal -->

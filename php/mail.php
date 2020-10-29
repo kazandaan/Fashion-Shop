@@ -1,7 +1,7 @@
 <?php
 $to      = 'f32ee@localhost';
-$subject = 'the subject';
-$message = ''
+// $subject = 'the subject';
+// $message = ''
 $headers = 'From: f32ee@localhost' . "\r\n" .
     'Reply-To: f32ee@localhost' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();

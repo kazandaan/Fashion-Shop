@@ -87,7 +87,6 @@
       $url = $_SERVER['HTTP_REFERER'];
     }
     header("Location:" .  $url);
-    // header("Location:" .  $_SERVER['HTTP_REFERER'] );
   }
   else{
     echo "could not insert/update to cart_randa table" . $runsql;

@@ -40,15 +40,6 @@
     // echo "<br>Old Passwords do not match.";
   }
 
-  if ($updated) {
-    // echo $sql;
-    // header("Location:../account.php?page=updatePassword&status=" . $updated);
-  }
-  else {
-    // echo "Error updating record: " . mysqli_error($conn) . $sql . $error . "<br>array" . $error_array;
-
-  }
-
   header("Location:../account.php?page=updatePassword&status=" . $updated);
   mysqli_close($conn);
 
