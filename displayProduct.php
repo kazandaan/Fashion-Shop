@@ -39,7 +39,7 @@
   <?php include "html/top.php";?>
 
   <!-- START SCRIPT | Window ONLOAD, $_GET Stuff -->
-    <script type="text/javascript" src="js/statusMessages.js"></script>
+
     <script>
       window.onload = function(){
     <?php
@@ -61,8 +61,8 @@
           $message = "Failed to add to cart";
         }
         else if( $productid > 0 && $status == 3){
-          // $message = "Added to Cart";
-          echo "alert('added to cart');";
+          $message = "Added to Cart";
+
         }
         else if( $productid > 0 && $status == 2){
           $message = "Login to add product";
@@ -192,6 +192,7 @@
   <!-- This generates footer -->
   <?php echo file_get_contents("html/bottom.html"); ?>
 
+  <script type="text/javascript" src="js/statusMessages.js"></script>
   <script type="text/javascript" src="js/imageModal.js"></script> <!-- Product Image Modal script -->
   <script type="text/javascript" src="js/modal.js"></script> <!-- Modal script -->
   <script type="text/javascript" src="js/banner&btoTop.js"></script> <!-- Banner & B to top button -->
