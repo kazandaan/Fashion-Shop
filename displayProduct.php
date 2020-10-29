@@ -158,7 +158,7 @@
             </div>
 
             <div class="flex attribute">
-              <input class="form-control btnAdd2cart" type="submit" name="add2cart" id="add2cart" value="<?php echo $val; ?>" >
+              <input class="form-control btnAdd2cart red_button" type="submit" name="add2cart" id="add2cart" value="<?php echo $val; ?>" >
             </div>
           </form>
         </div>
