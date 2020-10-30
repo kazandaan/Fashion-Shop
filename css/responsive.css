@@ -1,23 +1,9 @@
-@media (min-width: 576px) {
-  .container-fluid {
-    max-width: 540px;
+@media (max-width: 1509px) {
+  #nav_res {
+    display: block;
   }
-}
+  nav.nav.frame{
+    display: none;
+  }
 
-@media (min-width: 768px) {
-  .container-fluid {
-    max-width: 720px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container-fluid {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container-fluid {
-    max-width: 1140px;
-  }
 }

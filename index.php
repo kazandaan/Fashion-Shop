@@ -8,10 +8,12 @@
   <link rel="stylesheet" href="css/utility.css">
   <link rel="stylesheet" href="css/carousel.css">
   <link rel="stylesheet" href="css/loginmodal.css">
+  <link rel="stylesheet" href="css/responsive.css">
   <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
 </head>
@@ -164,6 +166,7 @@
       </div>
     </div>
   </section>
+  
   <section id="categories">
 
       <div class="row flex text-mid">
@@ -346,7 +349,7 @@
   <script type="text/javascript" src="js/modal.js"></script> <!-- Modal script -->
   <script type="text/javascript" src="js/carousel.js"></script> <!--carousel script -->
   <script type="text/javascript" src="js/banner&btoTop.js"></script> <!-- Banner & B to top button -->
-
+  <script type="text/javascript" src="js/sidebar.js"></script>
 </body>
 
 </html>
