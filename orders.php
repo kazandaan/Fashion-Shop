@@ -84,18 +84,7 @@
     <hr>
 
     <div class="container-fluid">
-      <div class="flex">
-        <input type="button" class="red_button" onclick="openModal('ordersModal')" value="VIEW ORDERS"/>
-        <?php
-          if($noOrder){
-            $display = "none";
-          }
-          else{
-            $display = "block";
-          }
-        ?>
-        <input type="button" class="red_button" onclick="clearOrder('<?php echo $checkoutid; ?>')" value="CANCEL ORDER" style="display:<?php echo $display; ?>;"/>
-      </div>
+
       <div style="display:<?php echo $display; ?>;">
         <table >
           <tr>
@@ -130,7 +119,7 @@
             <td rowspan="8" align="center"><img src="image/<?php echo $product['product_img']; ?>" alt="<?php echo $product['product_name']; ?>"></td>
           </tr>
           <tr>
-            <td colspan="2">Brand: <?php echo $product['product_brand']; ?> (<?php echo $product['product_type']; ?>)</td>
+            <td colspan="2"><?php echo 'Brand: ',$product['product_brand']; ?> (<?php echo $product['product_type']; ?>)</td>
           </tr>
           <tr>
             <td align="center"><b>Size</b></td>
@@ -179,6 +168,19 @@
         } // end of product_array foreach loop
           ?>
         </table>
+      </div>
+
+      <div class="flex">
+        <input type="button" class="red_button" onclick="openModal('ordersModal')" value="VIEW ORDERS"/>
+        <?php
+          if($noOrder){
+            $display = "none";
+          }
+          else{
+            $display = "block";
+          }
+        ?>
+        <input type="button" class="red_button" onclick="clearOrder('<?php echo $checkoutid; ?>')" value="CANCEL ORDER" style="display:<?php echo $display; ?>;"/>
       </div>
     </div>
   </section>
