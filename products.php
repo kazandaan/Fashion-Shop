@@ -27,6 +27,9 @@
     $username = "My Account";
     $dropdown = "block";
     $logout = "none";
+    if($_GET['page'] == "cart" || $_GET['page'] == "favourites" ){
+      header("Location:index.php?page=unauthorized&status=2");
+    }
   }
   else{
     $id = $_SESSION['userid'];
