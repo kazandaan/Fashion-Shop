@@ -52,9 +52,9 @@
       </form>
 
       <div class="icon-group">
-        <span class="material-icons"><a href="account.php" title="My Account">face</a></span>
-        <span class="material-icons"><a href="products.php?page=favourites" title="My Favourites">favorite_border</a></span>
-        <span class="material-icons"><a href="products.php?page=cart" title="My Cart">shopping_cart</a></span>
+        <i class="far fa-user-circle" onclick="location.href='account.php'"></i>
+        <i class="far fa-heart" onclick="location.href='products.php?page=favourites'"></i>
+        <i class="fas fa-shopping-cart" onclick="location.href='products.php?page=cart'"></i>
       </div>
 
       <i id="nav_res" class="fas fa-bars fa-2x" onclick="opensidebar()"></i>

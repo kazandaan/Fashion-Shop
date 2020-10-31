@@ -263,14 +263,14 @@ input::-webkit-input-placeholder {
   margin-left: 30px;
 }
 
-.icon-group span a {
+.icon-group i {
   color: #868995;
-  text-decoration: none;
   font-size: 25px;
   padding: 0 8px 0 8px;
+  cursor: pointer;
 }
 
-.icon-group a:hover {
+.icon-group i:hover {
   color: black
 }
 #sidebarwrapper {
