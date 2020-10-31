@@ -37,25 +37,38 @@
 
   if($result)
 	{
-    $sql = "UPDATE user_randa SET
-    user_name = '$name',
-    user_username = '$username',
-    user_email = '$email',
-    user_phone = '$phone',
-    user_birthday = '$birthday',
-    user_address = '$address',
-    user_cardno = '$cardno',
-    user_cardname = '$cardname',
-    user_card = '$card',
-    user_img = '$image'
-    WHERE user_id = $id";
-
-    $updated = mysqli_query($conn, $sql);
-    if ($updated) {
-      // echo "Image: " . $img . "<br>" . $sql;
+    $sql = "SELECT * FROM user_randa"; //get from session
+    $runsql = mysqli_query($conn, $sql);
+    $username_exist = false;
+    if(mysqli_num_rows($runsql) > 0){
+      $user = mysqli_fetch_assoc($runsql);
+      if($user['user_username'] == $username){
+        $username_exist = true;
+        echo "username is taken";
+      }
     }
-    else {
-      // echo "Error updating record: " . mysqli_error($conn) . $sql;
+
+    if(!$username_exist){
+      $sql = "UPDATE user_randa SET
+      user_name = '$name',
+      user_username = '$username',
+      user_email = '$email',
+      user_phone = '$phone',
+      user_birthday = '$birthday',
+      user_address = '$address',
+      user_cardno = '$cardno',
+      user_cardname = '$cardname',
+      user_card = '$card',
+      user_img = '$image'
+      WHERE user_id = $id";
+
+      $updated = mysqli_query($conn, $sql);
+      if ($updated) {
+        // echo "Image: " . $img . "<br>" . $sql;
+      }
+      else {
+        // echo "Error updating record: " . mysqli_error($conn) . $sql;
+      }
     }
 	}
 	else
@@ -63,7 +76,7 @@
     echo print_r($_FILES) . "<br>tmp: " . $_FILES['userimg']['tmp_name'] . "<br>target: " . $target;
 	}
 
-  header("Location:../account.php?page=updateUser&status=" . $updated);
+  // header("Location:../account.php?page=updateUser&status=" . $updated);
   mysqli_close($conn);
 
 ?>
