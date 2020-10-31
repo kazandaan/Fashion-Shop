@@ -53,8 +53,15 @@
 
       <div class="icon-group">
         <i class="far fa-user-circle" onclick="location.href='account.php'"></i>
-        <i class="far fa-heart" onclick="location.href='products.php?page=favourites'"></i>
-        <i class="fas fa-shopping-cart" onclick="location.href='products.php?page=cart'"></i>
+        <i class="far fa-heart" onclick="location.href='products.php?page=favourites'">
+          <span id="favitemNo" class="itemNo">2</span> <!--echo here--> 
+          <!--display none when user not logged in or item no. = 0-->
+        </i>
+        <i class="fas fa-shopping-cart" onclick="location.href='products.php?page=cart'">
+          <span id="cartitemNo" class="itemNo">2</span> <!--echo here-->
+          <!--display none when user not logged in or item no. = 0 -->
+        </i>
+
       </div>
 
       <i id="nav_res" class="fas fa-bars fa-2x" onclick="opensidebar()"></i>

@@ -268,11 +268,32 @@ input::-webkit-input-placeholder {
   font-size: 25px;
   padding: 0 8px 0 8px;
   cursor: pointer;
+  position: relative;
 }
 
 .icon-group i:hover {
   color: black
 }
+
+.itemNo {
+  font-family: 'Poppins',sans-serif;
+  position:absolute;
+  display: none;
+  top:-15px;
+  right:-6px;
+  border-radius: 100%;
+  padding: 6px;
+  background-color: #fe4c50;
+  overflow: hidden;
+  text-align: center;
+  font-size:13px;
+  line-height: 13px;
+  color: white;
+  height:25px;
+  width:25px;
+  font-weight:400;
+}
+
 #sidebarwrapper {
   z-index:13;
   position:fixed;
