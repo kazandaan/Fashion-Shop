@@ -44,7 +44,7 @@
 /* top */
 #account #editMode{
   padding: 30px;
-  margin: 0px 0px 10px 50px;
+  margin: 10px 50px 10px 50px;
   margin-bottom: 10px;
   display: none;
   font-weight: bold;
@@ -79,7 +79,7 @@
   font-size: 20px;
   border: 0px solid #FFFFFF;
   width: 225px;
-  margin-left: 7px;
+  margin: 0px 0px 5px 6px;
 }
 #account #userdetails select{
   background-color: white;
