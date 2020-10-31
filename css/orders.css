@@ -15,6 +15,7 @@
 
 #orders table{
   width: 100%;
+  margin-bottom: 30px;
 }
 #orders tr:first-child{
   background-color: lightgrey;

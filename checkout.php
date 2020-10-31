@@ -36,6 +36,36 @@
   $cardname= $_POST['cardname'];
   $cardtype = $_POST['card'];
   $csv = $_POST['password']; //csv
+
+  // Create connection (servername, username, password, dbname)
+  $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");
+
+  // Check connection
+  if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+  }
+
+  $sql = "SELECT * FROM product_randa
+  JOIN cart_randa ON product_randa.product_id = cart_randa.product_id
+  WHERE user_id = $id";
+  $runsql = mysqli_query($conn, $sql);
+  // should not be empty
+  if( !mysqli_num_rows($runsql) > 0 ){
+    echo "<p>".$sql."<p>";
+    header("Location:products.php?page=checkout&status=2");
+  }
+
+  // Check user's payment details
+  $usersql = "SELECT * FROM user_randa WHERE user_id = $id";
+  $runusersql = mysqli_query($conn, $usersql);
+  $user = mysqli_fetch_assoc($runusersql);
+
+  if( ($cardnumber == "" && $cardname == "" && $cardtype == "" && $csv == "") &&
+  ($user['user_cardno'] == "" && $user['user_cardname'] == "" && $user['user_card'] == "")  ){
+    echo "var no payment";
+    header("Location:products.php?page=cart&status=0"); // popup > key in payment details OR go account and update ?
+  }
+
 ?>
 <body>
 
@@ -43,34 +73,8 @@
   <?php include "html/top.php"; ?>
 
   <?php
-    // Create connection (servername, username, password, dbname)
-    $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");
 
-    // Check connection
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
   ?>
-
-  <!-- START SCRIPT | Window ONLOAD, $_GET Stuff -->
-  <script>
-    window.onload = function(){
-  <?php
-
-    // Check user's payment details
-    $sql = "SELECT * FROM user_randa WHERE user_id = $id";
-    $runsql = mysqli_query($conn, $sql);
-    $user = mysqli_fetch_assoc($runsql);
-
-    if( ($cardnumber == "" && $cardname == "" && $cardtype == "" && $csv == "") &&
-    ($user['user_cardno'] == "" && $user['user_cardname'] == "" && $user['user_card'] == "")  ){
-
-      header("Location:products.php?page=cart&status=0"); // popup > key in payment details OR go account and update ?
-    }
-  ?>
-    } // end of window.onload = function()
-  </script>
-  <!-- END SCRIPT | Window ONLOAD, $_GET Stuff -->
 
   <section id="checkout">
     <h1>Checkout Items</h1>
@@ -88,14 +92,7 @@
             <th></th>
           </tr>
           <?php
-            $sql = "SELECT * FROM product_randa
-            JOIN cart_randa ON product_randa.product_id = cart_randa.product_id
-            WHERE user_id = $id";
-            $runsql = mysqli_query($conn, $sql);
-            // should not be empty
-            if( !mysqli_num_rows($runsql) > 0 ){
-              header("Location:products.php?page=checkout&status=2");
-            }
+
 
             $sn = 0;
             $totalPrice = 0;

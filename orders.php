@@ -78,6 +78,13 @@
     }
     $result = mysqli_fetch_assoc($runsql);
     $date = date_create($result['checkout_date']);
+
+    if($noOrder){
+      $display = "none";
+    }
+    else{
+      $display = "block";
+    }
   ?>
 
   <section id="orders">
@@ -102,6 +109,7 @@
             $size_array = array('XS', 'S', 'M', 'L');
 
             $sn = 0;
+            $finalTotal = 0;
             foreach($product_array as $productid){
 
               $sql = "SELECT * FROM product_randa WHERE product_id = $productid";
@@ -145,6 +153,7 @@
                       $price2dp = number_format((float)$order['product_price'], 2);
                       $total = (float) $order['product_price'] * $order['quantity'];
                       $totalPrice += $total;
+
               ?>
               <tr>
                 <td align="center"><?php echo $order['size']; ?></td>
@@ -165,22 +174,18 @@
           </tr>
           <tr><td id="divider" colspan="4"></td></tr>
           <?php
+            $finalTotal += $totalPrice;
           }
         } // end of product_array foreach loop
           ?>
+          <tr>
+            <td colspan="4" align="center" style="font-size:30px;"><b>Total Price: </b>$<?php echo number_format($finalTotal, 2); ?></td>
+          </tr>
         </table>
       </div>
 
       <div class="flex">
         <input type="button" class="red_button" onclick="openModal('ordersModal')" value="VIEW ORDERS"/>
-        <?php
-          if($noOrder){
-            $display = "none";
-          }
-          else{
-            $display = "block";
-          }
-        ?>
         <input type="button" class="red_button" onclick="clearOrder('<?php echo $checkoutid; ?>')" value="CANCEL ORDER" style="display:<?php echo $display; ?>;"/>
       </div>
     </div>
