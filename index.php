@@ -107,6 +107,15 @@
             }
             echo "setUpdateStatusDiv( ".$status.", '".$message."' )";
           }
+
+          //newsletter subscription
+          if(isset($_POST['subscribebutton'])){
+            $subject = "Subscription to Randa done";
+            $message = "To: " . $_POST['email'] . "\nSubscription is done. ENTER CODE FIRSTORDER30 at checkout page for 30% discount on first order.";
+            include "php/mail.php";
+
+            echo "setUpdateStatusDiv( 3, 'Thanks for subscribing us!');";
+          }
         ?>
       } // end of window.onload = function()
   </script>
@@ -166,7 +175,7 @@
       </div>
     </div>
   </section>
-  
+
   <section id="categories">
 
       <div class="row flex text-mid">
@@ -284,8 +293,8 @@
               <h3>#MORE SUPRISE TO COME</h3>
               <h2 style="font-size: 70px; color:black; margin-top:0;">SUBSCRIBE FOR A 30% <br>DISCOUNT!</h2>
               <div class="subscribe_field flex" style="border-radius:3px; justify-content:center;">
-                <input class="form-control" type="email" name="" value="" placeholder="Email here" style="width:40%; border:none; padding-left:20px;" required>
-                <button class="form-control red_button" type="submit" name="button">SUBSCRIBE</button>
+                <input class="form-control" type="email" name="email" value="" placeholder="Email here" style="width:40%; border:none; padding-left:20px;" required>
+                <button class="form-control red_button" type="submit" name="subscribebutton">SUBSCRIBE</button>
               </div>
             </form>
           </div>

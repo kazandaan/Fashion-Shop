@@ -44,10 +44,23 @@
     $dropdown = "none";
     $logout = "block";
 
+
   }
 ?>
 <body>
+  <script type="text/javascript">
+    window.onload = function(){
+    <?php
+        if(isset($_POST['sendMessage'])){
+          $subject = "Customer Query: " .$_POST['subject'];
+          $message = "Name: ". $_POST['firstname']. $_POST['lastname']."\nEmail: " .$_POST['email'] ."\n".$_POST['message'];
+          include "php/mail.php";
 
+          echo "setUpdateStatusDiv( 3, 'Our customer support will assist you soon.');";
+        }
+    ?>
+    }
+  </script>
   <!-- This generates nav and banner -->
   <?php include "html/top.php"; ?>
 
@@ -73,7 +86,7 @@
             <div class="form-group row">
               <div class="col">
                 <label for="">Email<span>&#42;</span></label><br>
-                <input type="text" class="form-control" ame="email" id="email" value="" required>
+                <input type="text" class="form-control" name="email" id="email" value="" required>
               </div>
             </div>
 
@@ -94,7 +107,7 @@
 
             <div class="form-group row">
                 <div class="col">
-                  <input class="form-control btnSubmit" type="submit" id="submit" name="submit" value="Send Message">
+                  <input class="form-control btnSubmit" type="submit" id="submit" name="sendMessage" value="Send Message">
                 </div>
             </div>
           </form>
@@ -129,6 +142,7 @@
   <!-- This generates footer -->
   <?php echo file_get_contents("html/bottom.html"); ?>
 
+  <script type="text/javascript" src="js/statusMessages.js"></script>
   <script type="text/javascript" src="js/modal.js"></script> <!-- Modal script -->
   <script type="text/javascript" src="js/banner&btoTop.js"></script> <!-- Banner & B to top button -->
   <script type="text/javascript" src="js/sidebar.js"></script>

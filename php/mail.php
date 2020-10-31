@@ -7,5 +7,4 @@ $headers = 'From: f32ee@localhost' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
 mail($to, $subject, $message, $headers,'-ff32ee@localhost');
-echo ("mail sent to : ".$to);
 ?>
