@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="css/responsive.css">
   <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
@@ -40,7 +40,6 @@
   <?php include "html/top.php"; ?>
 
   <!-- START SCRIPT | Window ONLOAD, $_GET Stuff -->
-  <script type="text/javascript" src="js/statusMessages.js"></script>
   <script>
     window.onload = function(){
   <?php
@@ -61,7 +60,7 @@
       else if( $page == "updatePassword" && $status == 0){
         $message = "Password Failed to Update";
       }
-      echo "setUpdateStatusDiv( ".$status.", '".$message."' )";
+      echo "setUpdateStatusDiv( ".$status.", '".$message."');";
     }
   ?>
     } // end of window.onload = function()
@@ -114,7 +113,8 @@
           </div>
 
           <div id="userdetails">
-            <div class="icon-group" id="editDetailsBtn"><span class="material-icons"><a href="#" onclick="editDetails()" title="edit profile">edit</a></span></div>
+            <div class="" id="editDetailsBtn"><i class="far fa-edit fa-2x" onclick="editDetails()" title="edit profile"></i></div>
+
             <div id="accountInfo">
               <u><h3>Account Information</h3></u>
               <input type="hidden" name="userid" id="userid" value="<?php echo $user['user_id']; ?>">
@@ -165,6 +165,7 @@
   <?php echo file_get_contents("html/bottom.html"); ?>
 
 
+  <script type="text/javascript" src="js/statusMessages.js"></script>
   <script type="text/javascript" src="js/modal.js"></script> <!-- Modal script -->
   <script type="text/javascript" src="js/banner&btoTop.js"></script>
   <script type="text/javascript" src="js/account.js"></script>

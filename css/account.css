@@ -65,6 +65,8 @@
 }
 #account #userdetails #editDetailsBtn{
   float: right;
+  position: relative;
+  right:20px;
   /* margin: 20px 15px 0px 0px; */
 }
 
