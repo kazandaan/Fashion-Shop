@@ -105,7 +105,7 @@
             else if( $page == "unauthorized" && $status == 2){
               $message = "Login to view page";
             }
-            echo "setUpdateStatusDiv( ".$status.", '".$message."' )";
+            echo "setUpdateStatusDiv( ".$status.", '".$message."' );";
           }
 
           //newsletter subscription

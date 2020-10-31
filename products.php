@@ -44,7 +44,7 @@
   <?php include "html/top.php"; ?>
 
   <!-- START SCRIPT | Window ONLOAD, $_GET Stuff -->
-    <script type="text/javascript" src="js/statusMessages.js"></script>
+  
     <script>
       window.onload = function(){
     <?php

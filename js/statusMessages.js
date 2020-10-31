@@ -18,16 +18,24 @@ function setUpdateStatusDiv( status, message ){
     msgBackground.setAttribute("src","image/svg/regSuccess.svg");
   }
   div.style.display = "block";
+  div.style.opacity = "1";
   div.style.backgroundColor = colour;
 
   var header2 = document.getElementById('messageHeader');
   header2.innerHTML = message;
 
-  // remove updateStatusDiv after 3 seconds
+  // remove updateStatusDiv after 2 seconds
   setTimeout(function(){
     div.style.opacity = "0";
+
     var newURL = location.pathname;
     window.history.replaceState('object', document.title, newURL); // removeQueryString from url without refreshing
     // location.replace("account.php");
   }, 2000);
+
+  //set it to display none afterwards
+  setTimeout(function(){
+    div.style.display = "none";
+  }, 4000);
+
 }
