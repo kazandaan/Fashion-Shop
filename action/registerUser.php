@@ -22,25 +22,38 @@
 
   // need to validate: username taken blaaah etc.-------------------------------------!!!
 
-  // md5 example: 123 -> 202cb962ac59075b964b07152d234b70
-  if($password == $cpassword){
-    $password = md5($password);
-
-    // insert to user_randa
-    $sql = "INSERT INTO user_randa (user_name, user_email, user_username, user_password)
-    VALUES ('$name', '$email', '$username', '$password')";
-
-    if ($inserted = mysqli_query($conn, $sql)) {
-      $inserted = 3;
-      // echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  $sql = "SELECT * FROM user_randa"; //get from session
+  $runsql = mysqli_query($conn, $sql);
+  $username_exist = false;
+  if(mysqli_num_rows($runsql) > 0){
+    $user = mysqli_fetch_assoc($runsql);
+    if($user['user_username'] == $username){
+      $username_exist = true;
+      echo "username is taken";
     }
   }
-  else{
-    echo "passwords dont match";
-  }
 
+  if(!$username_exist){
+    // md5 example: 123 -> 202cb962ac59075b964b07152d234b70
+    if($password == $cpassword){
+      $password = md5($password);
+
+      // insert to user_randa
+      $sql = "INSERT INTO user_randa (user_name, user_email, user_username, user_password)
+      VALUES ('$name', '$email', '$username', '$password')";
+
+      if ($inserted = mysqli_query($conn, $sql)) {
+        $inserted = 3;
+        // echo "New record created successfully";
+      } else {
+          echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      }
+    }
+    else{
+      echo "passwords dont match";
+    }
+  }
+  
   header("Location:../index.php?page=registerUser&status=" . $inserted);
 
   mysqli_close($conn);
