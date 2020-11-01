@@ -76,7 +76,7 @@
     echo print_r($_FILES) . "<br>tmp: " . $_FILES['userimg']['tmp_name'] . "<br>target: " . $target;
 	}
 
-  // header("Location:../account.php?page=updateUser&status=" . $updated);
+  header("Location:../account.php?page=updateUser&status=" . $updated);
   mysqli_close($conn);
 
 ?>
