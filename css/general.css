@@ -285,13 +285,11 @@ input::-webkit-input-placeholder {
   display: none;
   top:-15px;
   right:-6px;
-  border-radius: 100%;
-  padding: 6px;
+  border-radius: 50%;
   background-color: #fe4c50;
-  overflow: hidden;
   text-align: center;
   font-size:13px;
-  line-height: 13px;
+  line-height: 25px;
   color: white;
   height:25px;
   width:25px;
