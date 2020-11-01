@@ -51,14 +51,42 @@
         <input id="search-box" name="searchbox" type="search" placeholder="Search">
       </form>
 
+      <?php
+        // Create connection (servername, username, password, dbname)
+        $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");
+
+        // Check connection
+        if (!$conn) {
+          die("Connection failed: " . mysqli_connect_error());
+        }
+
+        $sql = "SELECT * FROM cart_randa WHERE user_id = $id"; //get from session
+        $runsql = mysqli_query($conn, $sql);
+        $cartItems = 0; $cartDisplay = "none";
+        if( mysqli_num_rows($runsql) > 0 ){
+          while($cart = mysqli_fetch_assoc($runsql)){
+            $cartItems += $cart['quantity'];
+          }
+          $cartDisplay = "block";
+        }
+
+        $sql = "SELECT * FROM rating_randa WHERE rating_favourite = 1 AND user_id = $id"; //get from session
+        $runsql = mysqli_query($conn, $sql);
+        $favItems = 0; $favDisplay = "none";
+        if( mysqli_num_rows($runsql) > 0 ){
+          $favItems = mysqli_num_rows($runsql);
+          $favDisplay = "block";
+        }
+      ?>
+
       <div class="icon-group">
         <i class="far fa-user-circle" onclick="location.href='account.php'"></i>
         <i class="far fa-heart" onclick="location.href='products.php?page=favourites'">
-          <span id="favitemNo" class="itemNo">2</span> <!--echo here--> 
+          <span id="favitemNo" class="itemNo" style="display:<?php echo $favDisplay; ?>;"><?php echo $favItems; ?></span> <!--echo here-->
           <!--display none when user not logged in or item no. = 0-->
         </i>
         <i class="fas fa-shopping-cart" onclick="location.href='products.php?page=cart'">
-          <span id="cartitemNo" class="itemNo">2</span> <!--echo here-->
+          <span id="cartitemNo" class="itemNo" style="display:<?php echo $cartDisplay; ?>;"><?php echo $cartItems; ?></span> <!--echo here-->
           <!--display none when user not logged in or item no. = 0 -->
         </i>
 
