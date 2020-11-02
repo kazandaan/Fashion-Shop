@@ -105,7 +105,7 @@
         <form name="accountForm" action="action/updateUser.php" method="POST" enctype="multipart/form-data">
           <!-- Editing Block -->
           <div id="editMode" class="flex" style="line-height: 50px;">
-            <b>* EDITING MODE *</b>
+            <b>&nbsp;<span id="errorMsg"></span></b>
             <div class="flex">
               <input type="submit" class="red_button" value="UPDATE DETAILS"/> &nbsp;
               <input type="button" class="red_button" onclick="cancelEdit()" value="CANCEL"/>
