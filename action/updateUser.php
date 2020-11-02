@@ -45,6 +45,7 @@
       if($user['user_username'] == $username){
         $username_exist = true;
         echo "username is taken";
+        $updated = 0;
       }
     }
 

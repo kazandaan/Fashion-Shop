@@ -30,6 +30,7 @@
     if($user['user_username'] == $username){
       $username_exist = true;
       echo "username is taken";
+      $inserted = 0;
     }
   }
 
@@ -53,7 +54,7 @@
       echo "passwords dont match";
     }
   }
-  
+
   header("Location:../index.php?page=registerUser&status=" . $inserted);
 
   mysqli_close($conn);

@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-12">
           <!-- <label>Username</label><br> -->
-          <input class="form-control" type="text" name="username" placeholder="Enter your username"id="username" required></input>
+          <input class="form-control" type="text" name="username" placeholder="Enter your username" id="username" pattern="[a-zA-Z0-9-]+" oninvalid="this.setCustomValidity('Only letters and numbers')" required></input>
         </div>
         <div class="col-12">
           <!-- <label>Password</label><br> -->
@@ -37,7 +37,7 @@
       <div class="row">
         <div class="col-12" >
           <!-- <label>Name</label><br> -->
-          <input class="form-control" type="text" name="name" id="name" placeholder="Enter your name" required></input>
+          <input class="form-control" type="text" name="name" id="name" placeholder="Enter your name" pattern="[a-zA-Z]+" oninvalid="this.setCustomValidity('Only letters')" required></input>
         </div>
         <div class="col-12" >
           <!-- <label>Email</label><br> -->
@@ -45,7 +45,7 @@
         </div>
         <div class="col-12" >
           <!-- <label>Username</label><br> -->
-          <input class="form-control" type="text" name="username" id="username" placeholder="Enter your username" required></input>
+          <input class="form-control" type="text" name="username" id="username" placeholder="Enter your username" pattern="[a-zA-Z0-9-]+" oninvalid="this.setCustomValidity('Only letters and numbers')" required></input>
         </div>
         <div class="col-12" >
           <!-- <label>Password</label><br> -->

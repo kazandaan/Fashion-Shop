@@ -105,7 +105,7 @@
         <form name="accountForm" action="action/updateUser.php" method="POST" enctype="multipart/form-data">
           <!-- Editing Block -->
           <div id="editMode" class="flex" style="line-height: 50px;">
-            <b>* EDITING MODE *</b>
+            <b>&nbsp;<span id="errorMsg"></span></b>
             <div class="flex">
               <input type="submit" class="red_button" value="UPDATE DETAILS"/> &nbsp;
               <input type="button" class="red_button" onclick="cancelEdit()" value="CANCEL"/>
@@ -118,15 +118,15 @@
             <div id="accountInfo">
               <u><h3>Account Information</h3></u>
               <input type="hidden" name="userid" id="userid" value="<?php echo $user['user_id']; ?>">
-              <label>Username:</label><input type="text" name="username" id="username" pattern="[a-zA-Z0-9-]+" value="<?php echo $user['user_username']; ?>" disabled required></input><br>
+              <label>Username:</label><input type="text" name="username" id="username" pattern="[a-zA-Z0-9-]+" value="<?php echo $user['user_username']; ?>" oninvalid="this.setCustomValidity('Only letters and numbers')" disabled required></input><br>
               <label style="margin-right:7px;">Password:</label><a onclick="openModal(passwordModal)">Change Password</a><br>
 
             </div>
             <div id="perosnalInfo">
               <u><h3>Personal Information</h3></u>
-              <label>Name:</label><input type="text" name="name" id="name" value="<?php echo $user['user_name']; ?>" disabled required></input><br>
+              <label>Name:</label><input type="text" name="name" id="name" value="<?php echo $user['user_name']; ?>" pattern="[a-zA-Z]+" oninvalid="this.setCustomValidity('Only letters')" disabled required></input><br>
               <label>Email:</label><input type="email" name="email" id="email" value="<?php echo $user['user_email']; ?>" disabled required></input> <br>
-              <label>Phone:</label><input type="text" name="phone" id="phone" value="<?php echo $user['user_phone']; ?>" disabled pattern="[8-9]{1}[0-9]{7}"></input> <br>
+              <label>Phone:</label><input type="text" name="phone" id="phone" value="<?php echo $user['user_phone']; ?>" disabled pattern="[8-9]{1}[0-9]{7}" oninvalid="this.setCustomValidity('8 digits, starting with 8 or 9')"></input> <br>
               <label>Birthday:</label><input type="date" name="birthday" id="birthday" min="1920-01-01" max="2002-01-01" value="<?php echo $user['user_birthday']; ?>" disabled></input> <br>
               <label>Address:</label><input type="text" name="address" id="address" value="<?php echo $user['user_address']; ?>" disabled></input> <br>
               <input type="file" name="userimg" id="userimg" onchange="displayimg()"/><input type="hidden" name="existingimg" value="<?php echo $user['user_img']; ?>">
