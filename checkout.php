@@ -54,18 +54,18 @@
     echo "<p>".$sql."<p>";
     header("Location:products.php?page=checkout&status=2");
   }
+  else{
+    // Check user's payment details
+    $usersql = "SELECT * FROM user_randa WHERE user_id = $id";
+    $runusersql = mysqli_query($conn, $usersql);
+    $user = mysqli_fetch_assoc($runusersql);
 
-  // Check user's payment details
-  $usersql = "SELECT * FROM user_randa WHERE user_id = $id";
-  $runusersql = mysqli_query($conn, $usersql);
-  $user = mysqli_fetch_assoc($runusersql);
-
-  if( ($cardnumber == "" && $cardname == "" && $cardtype == "" && $csv == "") &&
-  ($user['user_cardno'] == "" && $user['user_cardname'] == "" && $user['user_card'] == "")  ){
-    echo "var no payment";
-    header("Location:products.php?page=cart&status=0"); // popup > key in payment details OR go account and update ?
+    if( ($cardnumber == "" && $cardname == "" && $cardtype == "" && $csv == "") &&
+    ($user['user_cardno'] == "" && $user['user_cardname'] == "" && $user['user_card'] == "")  ){
+      echo "var no payment";
+      header("Location:products.php?page=cart&status=0"); // popup > key in payment details OR go account and update ?
+    }
   }
-
 ?>
 <body>
 
@@ -93,7 +93,7 @@
           </tr>
           <?php
 
-
+            // echo "<p>$sql</p>";
             $sn = 0;
             $totalPrice = 0;
             while ($product = mysqli_fetch_assoc($runsql)) {

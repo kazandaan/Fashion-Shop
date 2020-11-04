@@ -42,7 +42,7 @@
     $username_exist = false;
     if(mysqli_num_rows($runsql) > 0){
       $user = mysqli_fetch_assoc($runsql);
-      if($user['user_username'] == $username){
+      if(strcmp($user['user_username'], $username)){
         $username_exist = true;
         echo "username is taken";
         $updated = 0;

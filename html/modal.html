@@ -7,11 +7,11 @@
       <div class="row">
         <div class="col-12">
           <!-- <label>Username</label><br> -->
-          <input class="form-control" type="text" name="username" placeholder="Enter your username" id="username" pattern="[a-zA-Z0-9-]+" oninvalid="this.setCustomValidity('Only letters and numbers')" required></input>
+          <input class="form-control" type="text" name="username" placeholder="Enter your username" id="username" pattern="[a-zA-Z0-9-]+" oninvalid="this.setCustomValidity('Only letters and numbers')" onchange="this.setCustomValidity('')" required></input>
         </div>
         <div class="col-12">
           <!-- <label>Password</label><br> -->
-          <input class="form-control" type="password" name="password" id="password" placeholder="Enter you password"required></input>
+          <input class="form-control" type="password" name="password" id="password" placeholder="Enter you password" required></input>
           <i id="1" class="fas fa-eye togglePassword" onclick="togglePW(1)"></i>
         </div>
       </div>
@@ -37,7 +37,7 @@
       <div class="row">
         <div class="col-12" >
           <!-- <label>Name</label><br> -->
-          <input class="form-control" type="text" name="name" id="name" placeholder="Enter your name" pattern="[a-zA-Z]+" oninvalid="this.setCustomValidity('Only letters')" required></input>
+          <input class="form-control" type="text" name="name" id="name" placeholder="Enter your name" pattern="[a-zA-Z-]+" oninvalid="this.setCustomValidity('Only letters')" onchange="this.setCustomValidity('')" required></input>
         </div>
         <div class="col-12" >
           <!-- <label>Email</label><br> -->
@@ -45,7 +45,7 @@
         </div>
         <div class="col-12" >
           <!-- <label>Username</label><br> -->
-          <input class="form-control" type="text" name="username" id="username" placeholder="Enter your username" pattern="[a-zA-Z0-9-]+" oninvalid="this.setCustomValidity('Only letters and numbers')" required></input>
+          <input class="form-control" type="text" name="username" id="username" placeholder="Enter your username" pattern="[a-zA-Z0-9-]+" oninvalid="this.setCustomValidity('Only letters and numbers')" onchange="this.setCustomValidity('')" required></input>
         </div>
         <div class="col-12" >
           <!-- <label>Password</label><br> -->

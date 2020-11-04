@@ -60,21 +60,21 @@
           die("Connection failed: " . mysqli_connect_error());
         }
 
-        $sql = "SELECT * FROM cart_randa WHERE user_id = $id"; //get from session
-        $runsql = mysqli_query($conn, $sql);
+        $cart_sql = "SELECT * FROM cart_randa WHERE user_id = $id"; //get from session
+        $cart_runsql = mysqli_query($conn, $cart_sql);
         $cartItems = 0; $cartDisplay = "none";
-        if( mysqli_num_rows($runsql) > 0 ){
-          while($cart = mysqli_fetch_assoc($runsql)){
+        if( mysqli_num_rows($cart_runsql) > 0 ){
+          while($cart = mysqli_fetch_assoc($cart_runsql)){
             $cartItems += $cart['quantity'];
           }
           $cartDisplay = "block";
         }
 
-        $sql = "SELECT * FROM rating_randa WHERE rating_favourite = 1 AND user_id = $id"; //get from session
-        $runsql = mysqli_query($conn, $sql);
+        $fav_sql = "SELECT * FROM rating_randa WHERE rating_favourite = 1 AND user_id = $id"; //get from session
+        $fav_runsql = mysqli_query($conn, $fav_sql);
         $favItems = 0; $favDisplay = "none";
-        if( mysqli_num_rows($runsql) > 0 ){
-          $favItems = mysqli_num_rows($runsql);
+        if( mysqli_num_rows($fav_runsql) > 0 ){
+          $favItems = mysqli_num_rows($fav_runsql);
           $favDisplay = "block";
         }
       ?>
