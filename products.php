@@ -1,3 +1,13 @@
+<!--
+Products Page
+Displays a list of Products
+  Default > Display all of the Products
+  Category > Display products based on Category
+  Favourites > Display user's favourite Products
+  Cart > Displays user's cart Products
+  Filter (left-side) > SQL statement add on based on which page the user is on
+-->
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -44,7 +54,7 @@
   <?php include "html/top.php"; ?>
 
   <!-- START SCRIPT | Window ONLOAD, $_GET Stuff -->
-  
+
     <script>
       window.onload = function(){
     <?php

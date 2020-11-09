@@ -1,4 +1,7 @@
 <?php
+/*
+  UPDATE user's details
+*/
 
   // Create connection (servername, username, password, dbname)
   $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");

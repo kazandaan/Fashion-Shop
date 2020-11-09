@@ -1,3 +1,9 @@
+<!--
+Account Page
+Display User details
+User can Edit Details, Change Password, View Orders
+-->
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 

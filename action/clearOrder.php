@@ -1,4 +1,7 @@
 <?php
+/*
+  Delete checkout_randa & checkoutDetails_randa based on checkout id
+*/
 
   // Create connection (servername, username, password, dbname)
   $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");

@@ -1,3 +1,11 @@
+<!--
+Display Single Product Page
+Display Product's Details
+User can 
+  Default > Select Size, Select Quantity, Add to Cart
+  Cart > Update Size, Update Quantity, Update Cart
+-->
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 

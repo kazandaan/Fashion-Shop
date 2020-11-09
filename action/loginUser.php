@@ -1,4 +1,7 @@
 <?php
+/*
+  Checks if user is in the database
+*/
 
   // Create connection (servername, username, password, dbname)
   $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");

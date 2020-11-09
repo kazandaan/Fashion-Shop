@@ -1,4 +1,8 @@
 <?php
+/*
+  INSERT to Cart based on user's id
+  UPDATE and DELETE from Cart based on cart's id
+*/
 
   // Create connection (servername, username, password, dbname)
   $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");

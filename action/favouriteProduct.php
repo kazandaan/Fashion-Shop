@@ -1,4 +1,7 @@
 <?php
+/*
+  INSERT or UPDATE user's 'favourite' status of selected product
+*/
 
   // Create connection (servername, username, password, dbname)
   $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");

@@ -1,3 +1,9 @@
+<!--
+Orders Page
+Display Orders made by the user
+User can Display Order Details of selected Order, Cancel Orders
+-->
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 

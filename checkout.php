@@ -1,3 +1,9 @@
+<!--
+Checkout Page
+Display Checkout Products
+User can Confirm Checkout, Delete Products
+-->
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 

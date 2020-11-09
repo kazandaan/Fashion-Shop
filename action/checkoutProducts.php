@@ -1,4 +1,8 @@
 <?php
+/*
+  INSERT into checkout_randa & checkoutDetails_randa
+  THEN DELETE from cart_randa
+*/
 
   // Create connection (servername, username, password, dbname)
   $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");
@@ -19,11 +23,6 @@
   // set auto-increment for INSERT statements
   $ai = "ALTER TABLE checkout_randa AUTO_INCREMENT = 1";
   $run = mysqli_query($conn, $ai);
-
-  /*
-      MAIN IDEA:
-      INSERT into checkout_randa & checkoutDetails_randa THEN DELETE from cart_randa
-  */
 
   // INSERT into checkout_randa
   $sql = "INSERT INTO checkout_randa (user_id, total_price, checkout_date)

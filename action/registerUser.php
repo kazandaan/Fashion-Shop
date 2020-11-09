@@ -1,4 +1,7 @@
 <?php
+/*
+  INSERT into user_randa
+*/
 
   // Create connection (servername, username, password, dbname)
   $conn = mysqli_connect("localhost", "f32ee", "f32ee", "f32ee");
