@@ -25,17 +25,16 @@
 
   // need to validate: username taken blaaah etc.-------------------------------------!!!
 
-  $sql = "SELECT * FROM user_randa"; //get from session
+  $sql = "SELECT * FROM user_randa WHERE user_username = '$username'"; //get from session
   $runsql = mysqli_query($conn, $sql);
   $username_exist = false;
-  if(mysqli_num_rows($runsql) > 0){
-    $user = mysqli_fetch_assoc($runsql);
-    if(strcmp($user['user_username'], $username)){
-      $username_exist = true;
-      echo "username is taken";
+  $exist = mysqli_num_rows($runsql);
+	if( $exist >= 1 )
+	{
+	    $username_exist = true;
+	    echo "username is taken";
       $inserted = 0;
-    }
-  }
+	}
 
   if(!$username_exist){
     // md5 example: 123 -> 202cb962ac59075b964b07152d234b70
